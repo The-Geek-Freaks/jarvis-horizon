@@ -48,8 +48,8 @@
     },
     {
       "path": ".github/workflows/demo-pages.yml",
-      "bytes": 2560,
-      "sha256": "fb88ea12bcb40af7b005c9ce996663605e380c9b174ec2932e823b9f6e46478a"
+      "bytes": 2648,
+      "sha256": "c4c408656846b3cf32985beccaf43a8c5686ab6b8f1fcfd0116e90356aabb4bb"
     },
     {
       "path": ".github/workflows/public-validation.yml",
@@ -63,8 +63,8 @@
     },
     {
       "path": "CONTRIBUTING.md",
-      "bytes": 1174,
-      "sha256": "bbe9dfd0fd2202065064028a7142443017f18ddd0e89450f3fd034e1fadd2e1e"
+      "bytes": 1564,
+      "sha256": "bb805081c4b77a7e012a2a66492d2f68a8eb6347e5138bda9c399ea555ac8098"
     },
     {
       "path": "LICENSE",
@@ -83,13 +83,13 @@
     },
     {
       "path": "README.de.md",
-      "bytes": 10474,
-      "sha256": "bb796bac6c61988d2d57fecaec3202cbb314250365ea3b8a99544a4e21df8303"
+      "bytes": 10587,
+      "sha256": "30e63e9506ae3139bce007bbfb6e142d713a73f6c3ea25885433b9e29c811ac7"
     },
     {
       "path": "README.md",
-      "bytes": 9824,
-      "sha256": "d1b42b5abea76ce23eef2e73f6b9de7ad5ae47086f2199d47e7533d02dd40910"
+      "bytes": 9902,
+      "sha256": "01b5ee990e41b48ab8d2249431dece403fc905d236aa6710ab39a992408c4fbf"
     },
     {
       "path": "THIRD_PARTY_NOTICES.md",
@@ -662,9 +662,19 @@
       "sha256": "617fdcacfaf5e3a2eaef0372d4914db29bed083ddfbdcc7c43214fa1d6980206"
     },
     {
+      "path": "docs/QUICKSTART.de.md",
+      "bytes": 5787,
+      "sha256": "b10f5788bdfc175ca9cbcb61ad593ff63eaa454d4952cfbb5267378b2c0641e8"
+    },
+    {
+      "path": "docs/QUICKSTART.md",
+      "bytes": 5436,
+      "sha256": "5b26e4543133dec59fe4253fa448e041ea0b6b842717cfd55e8072918dec0b42"
+    },
+    {
       "path": "docs/SHARE-KIT.md",
-      "bytes": 3224,
-      "sha256": "0d74cca290fff9e581ea7840aee127dfd56331dc19f81da3a17c90b3bc3968a1"
+      "bytes": 4142,
+      "sha256": "0ed9fd2026e9aa108441c9bec37f4fa357db5f88323a5d2333c682f10a4d1f53"
     },
     {
       "path": "docs/SHOWCASE.md",
@@ -705,6 +715,21 @@
       "path": "docs/assets/horizon-motion.mp4",
       "bytes": 696256,
       "sha256": "88be2e01eb64cad73861f56bd91173f2c81d681afdcd3165922a0d01d1bd9f1a"
+    },
+    {
+      "path": "docs/assets/horizon-walkthrough.de.vtt",
+      "bytes": 793,
+      "sha256": "43a1fce79c9da10109173bec9feb4c5f9f78a60f35b0c7f83c25c0e9d7d13956"
+    },
+    {
+      "path": "docs/assets/horizon-walkthrough.mp4",
+      "bytes": 397603,
+      "sha256": "accee93e46b78d44afc514c17870803921d5788fe9791921cfe66d152fd29f06"
+    },
+    {
+      "path": "docs/assets/horizon-walkthrough.vtt",
+      "bytes": 742,
+      "sha256": "9c9f3bdc546f7d0eca9338111d7183ecb94db5e4374e46efd622a36fe844485d"
     },
     {
       "path": "docs/assets/how-it-works.html",
@@ -1798,18 +1823,18 @@
     },
     {
       "path": "site/index.html",
-      "bytes": 9670,
-      "sha256": "5009a1059c4de398dfb5807a581a9d68451560cf1aa22dedd327ba90c8e5bbab"
+      "bytes": 10915,
+      "sha256": "0f648d7d183445621b1d8fb6763555f14514d4b4fa45df5eb82dbaf087715c41"
     },
     {
       "path": "site/site.js",
-      "bytes": 10949,
-      "sha256": "c9ba6eb43ec6ad3fa9e0cc7e86b678e08fb98dcfaa33e0ef67b55dc8e8c1f138"
+      "bytes": 13342,
+      "sha256": "606a9924446cd676850be5fc4c06bdf5f150fef9621e4e1cdc1181275f5a974c"
     },
     {
       "path": "site/styles.css",
-      "bytes": 8671,
-      "sha256": "688eba0611e4ae1f675606ca540a64ed9ff9faef7e844fdd622584fe8018fe33"
+      "bytes": 9786,
+      "sha256": "d02957d3d106c3c6aaaac27229be0e6ccdf702863603367cac8e123f9631ac33"
     },
     {
       "path": "third_party/sherpa-clock1/LICENSE-APACHE-2.0",
@@ -1838,8 +1863,13 @@
     },
     {
       "path": "tools/build-demo.py",
-      "bytes": 8795,
-      "sha256": "ae7a4156df53a8f81b90178ae20f037c1c964bb60e28c539e98bcdba9a0cf81c"
+      "bytes": 8897,
+      "sha256": "4670ec774ef33069bfe95cda86dacb558a22620191fda0432a9970d7026cec6a"
+    },
+    {
+      "path": "tools/build-walkthrough.py",
+      "bytes": 8509,
+      "sha256": "1c4d6db31cc2af4760947278048c495d090a45e8fab9b3450739ff3b9bfe81ba"
     },
     {
       "path": "tools/check-release-paths.py",

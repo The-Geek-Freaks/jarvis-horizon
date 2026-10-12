@@ -25,6 +25,9 @@ OPTIONAL_SITE_FILES = ("favicon.ico", "favicon.svg", "favicon.png")
 SITE_ASSETS = (
     "horizon-motion-poster.png",
     "horizon-motion.mp4",
+    "horizon-walkthrough.mp4",
+    "horizon-walkthrough.vtt",
+    "horizon-walkthrough.de.vtt",
     "showcase-home.png",
     "showcase-weather.png",
     "showcase-activity.png",
@@ -61,7 +64,7 @@ FORBIDDEN = (
     "credentials",
 )
 HTML_REF = re.compile(
-    r"<(?:script|img|link|video|source|iframe)\b[^>]*?\b(?:src|href|poster)\s*=\s*(['\"])(.*?)\1",
+    r"<(?:script|img|link|video|source|track|iframe)\b[^>]*?\b(?:src|href|poster)\s*=\s*(['\"])(.*?)\1",
     re.I,
 )
 CSS_REF = re.compile(r"url\(\s*(['\"]?)(.*?)\1\s*\)", re.I)

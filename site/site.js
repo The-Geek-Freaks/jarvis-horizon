@@ -7,10 +7,13 @@
   let format = ['portrait', 'landscape'].includes(params.get('format')) ? params.get('format') : (innerWidth < 640 ? 'portrait' : 'landscape');
   const reduced = matchMedia('(prefers-reduced-motion: reduce)');
   let motion = !reduced.matches, ready = false, loadTimer;
+  const tourPlan = [['home',3000],['conversation',6000],['weather',4000],['activity',5000],['music',3000],['agenda',3000],['house',3000],['ambient',3000]];
+  let tourStep = -1, tourTimer = null, tourFinished = false;
   const display = document.getElementById('display'), still = document.getElementById('still');
   const loading = document.getElementById('loading');
   const english = new Map(Array.from(document.querySelectorAll('[data-i18n]'), el => [el.dataset.i18n, el.innerHTML]));
   const german = {
+    tour:'30-Sekunden-Tour starten',tourHint:'Acht Momente. Eine Oberfläche. Oder wähle unten eine Ansicht.',watchTitle:'Der kurze Überblick.',watchText:'Eine orbitale Animation und ein kurzer Rundgang durch die echten Bildschirmansichten. Beispieldaten, ohne Ton. Einfach ansehen und teilen.',downloadVideo:'Video herunterladen ↗',
     skip:'Direkt zur Demo',install:'Installieren',headline:'Gib deinem Assistenten<br>einen Platz im Raum.',intro:'Mach aus einem Android-Display oder Raspberry Pi eine sprachgesteuerte Oberfläche für OpenClaw. Sieh, wie dein Assistent zuhört, arbeitet und dein Zuhause anzeigt.',explore:'Oberfläche entdecken',make:'Selbst einrichten ↗',alpha:'Open Source · Öffentliche Alpha · Dein eigenes Gateway',demoTitle:'Ein Display für jeden Moment.',sample:'Interaktive Demo · Beispieldaten',home:'Übersicht',conversation:'Gespräch',weather:'Wetter',activity:'Agentenaktivität',music:'Musik',agenda:'Termine',house:'Zuhause',ambient:'Nachtansicht',loading:'Horizon-Oberfläche wird geladen…',landscape:'Querformat',portrait:'Hochformat',pause:'Animation pausieren',share:'Link zu dieser Ansicht kopieren',boundary:'Echte Oberfläche, simulierte Ereignisse. Kein Mikrofon, Konto, Kamerastream oder Zugriff auf dein Zuhause. Die Alpha verwendet deutsche Beschriftungen; Musik- und Sprachpegel sind ohne Ton simuliert.',storyTitle:'Mehr Präsenz.<br>Weniger vergessene Hardware.',storyText:'Das Tablet in der Schublade. Ein Display hinter dem Spiegel. Ein Bildschirm in der Küche. Horizon gibt deinem vorhandenen Assistenten einen sichtbaren Platz – mit lokaler Wakeword-Erkennung und Kontext aus deinem eigenen Backend.',compat:'Gerätekompatibilität prüfen ↗',workTitle:'Sieh, was gerade passiert',workText:'Tool- und Unteragentenereignisse werden als lesbare Aktivität sichtbar. Dein Gateway steuert die Ausführung; das Display zeigt die empfangenen Ereignisse.',roomTitle:'Für den Raum gestaltet',roomText:'Hoch- und Querformat, eine orbitale Sprachvisualisierung, Kontextansichten und eine bewegte Ambient-Uhr.',ownTitle:'Dein Assistent. Dein Setup.',ownText:'Gateway, Identität, Provider und Integrationen bleiben bei dir. Die lokale Wakeword-Erkennung öffnet den von dir konfigurierten Sprachpfad.',installTitle:'Wähle das Display.<br>Bring dein Gateway mit.',installIntro:'Für die Installation brauchst du ein eigenes OpenClaw Gateway, die Gerätekopplung und einen Realtime-Provider für Talk. Die Demo kannst du ohne all das ausprobieren.',androidText:'Ein ARM-Handy, Tablet oder modifiziertes Display ab Android 8.1. Starte mit der signierten Alpha-APK und der Anleitung zur Kopplung.',androidInstall:'Auf Android installieren ↗',androidNote:'Auf der originalen Echo-Firmware lässt sich diese APK nicht installieren. Öffentliche Updates erfolgen manuell.',piText:'Ein Display- oder Spiegel-Kiosk auf 64-Bit-DietPi/Debian. Ergänze ein Mikrofon und richte die Tonausgabe für deinen Raum ein.',piInstall:'Raspberry Pi einrichten ↗',piNote:'Display, Mikrofon und Lautsprecher müssen auf deiner Hardware geprüft werden.',release:'v0.1.0-alpha.1 · Downloads, Prüfsummen & Quellcode',hermes:'OpenClaw-Backend. Noch kein Hermes-Adapter enthalten.',communityTitle:'Zeig uns, wo<br>Horizon hingehört.',communityText:'Ein guter Gerätebericht hilft anderen, ihre Hardware weiterzuverwenden. Teile dein Setup, gemessene Leistung und das, was noch verbessert werden muss.',setup:'Dein Setup vorstellen ↗',device:'Getestetes Gerät melden ↗',faq:'Häufige Fragen ↗',kit:'Material zum Teilen ↗',footer:'Unabhängiges Community-Projekt. Keine Analyse-Tracker, Cookies oder Anmeldung in dieser Demo.',credits:'Mitwirkende & Lizenzen'
   };
   const descriptions = {
@@ -37,15 +40,42 @@
     document.getElementById('motion').textContent=motion?(lang==='de'?'Animation pausieren':'Pause motion'):(lang==='de'?'Animation starten':'Play motion');
     document.getElementById('motion').setAttribute('aria-pressed',String(motion));
     const base='https://github.com/The-Geek-Freaks/jarvis-horizon/blob/main/docs/';
-    document.getElementById('android-guide').href=base+(lang==='de'?'INSTALL.de.md#erste-android-verbindung':'INSTALL.md#first-android-connection');
-    document.getElementById('pi-guide').href=base+(lang==='de'?'INSTALL.de.md':'INSTALL.md')+'#raspberry-pi-4';
+    document.getElementById('android-guide').href=base+(lang==='de'?'QUICKSTART.de.md#android':'QUICKSTART.md#android');
+    document.getElementById('pi-guide').href=base+(lang==='de'?'QUICKSTART.de.md':'QUICKSTART.md')+'#raspberry-pi-4';
     document.getElementById('display-frame').classList.toggle('portrait',format==='portrait');
+    document.querySelectorAll('video track').forEach(track=>{track.track.mode=track.srclang===lang?'showing':'disabled';});
+    tourLabels();
   }
+  function tourLabels() {
+    const running=tourStep>=0, button=document.getElementById('tour'), status=document.getElementById('tour-status');
+    button.setAttribute('aria-pressed',String(running));
+    button.textContent=running?(lang==='de'?'Tour beenden':'Stop tour'):(lang==='de'?'30-Sekunden-Tour starten':'Start the 30-second tour');
+    if(running)status.textContent=(lang==='de'?'Ansicht ':'View ')+(tourStep+1)+' / '+tourPlan.length+' · '+document.querySelector('[data-scene="'+scene+'"] span').textContent;
+    else if(tourFinished)status.textContent=lang==='de'?'Tour abgeschlossen. Richte unten dein eigenes Display ein.':'Tour complete. Choose your own display below.';
+    else status.textContent=lang==='de'?german.tourHint:english.get('tourHint');
+  }
+  function stopTour(finished=false) {
+    clearTimeout(tourTimer);tourTimer=null;tourStep=-1;tourFinished=finished;tourLabels();
+  }
+  function scheduleTourStep() {
+    if(tourStep<0||tourTimer!==null||(motion&&!ready))return;
+    tourTimer=setTimeout(()=>{
+      tourTimer=null;
+      if(tourStep===tourPlan.length-1){stopTour(true);return;}
+      tourStep++;scene=tourPlan[tourStep][0];render();scheduleTourStep();
+    },tourPlan[tourStep][1]);
+  }
+  document.getElementById('tour').addEventListener('click',()=>{
+    if(tourStep>=0){stopTour();return;}
+    tourStep=0;tourFinished=false;scene=tourPlan[0][0];render();scheduleTourStep();
+  });
   function sendScene() { if(ready)display.contentWindow.postMessage({type:'horizon-demo-scene',scene},location.origin); }
   function render() {
-    labels();urlSync();clearTimeout(loadTimer);
+    labels();urlSync();
+    document.getElementById('display-frame').classList.toggle('static-reference',!motion);
     document.getElementById('copy-status').textContent='';
     if(!motion) {
+      clearTimeout(loadTimer);
       ready=false;display.removeAttribute('src');display.hidden=true;still.hidden=false;loading.hidden=true;
       const imageName=format==='portrait' && scene==='home'?'portrait':images[scene];
       still.src='assets/showcase-'+imageName+'.png';
@@ -56,19 +86,22 @@
       if(!display.hasAttribute('src')) {
         ready=false;loading.hidden=false;loading.textContent=lang==='de'?german.loading:english.get('loading');
         display.src='horizon/index.html?layout=adaptive&scene='+scene;
-        loadTimer=setTimeout(()=>{if(!ready){loading.textContent=lang==='de'?'Demo konnte nicht geladen werden. Statische Ansicht ist verfügbar.':'The demo could not load. A static view is available.';motion=false;render();document.getElementById('copy-status').textContent=lang==='de'?'Demo konnte nicht geladen werden. Mit „Animation starten“ erneut versuchen.':'The demo could not load. Select “Play motion” to retry.';}},12000);
+        clearTimeout(loadTimer);
+        loadTimer=setTimeout(()=>{if(!ready){stopTour();motion=false;render();document.getElementById('copy-status').textContent=lang==='de'?'Demo konnte nicht geladen werden. Mit „Animation starten“ erneut versuchen.':'The demo could not load. Select “Play motion” to retry.';}},12000);
       } else sendScene();
     }
   }
   window.addEventListener('message',event=>{
     if(event.source!==display.contentWindow||event.origin!==location.origin||event.data?.type!=='horizon-demo-ready')return;
-    ready=true;clearTimeout(loadTimer);loading.hidden=true;sendScene();
+    ready=true;clearTimeout(loadTimer);loading.hidden=true;sendScene();scheduleTourStep();
   });
-  document.querySelectorAll('[data-scene]').forEach(el=>el.addEventListener('click',()=>{scene=el.dataset.scene;render();}));
-  document.querySelectorAll('[data-format]').forEach(el=>el.addEventListener('click',()=>{format=el.dataset.format;render();}));
-  document.getElementById('language').addEventListener('click',()=>{lang=lang==='en'?'de':'en';render();});
-  document.getElementById('motion').addEventListener('click',()=>{motion=!motion;render();});
-  reduced.addEventListener('change',event=>{motion=!event.matches;render();});
+  document.querySelectorAll('[data-scene]').forEach(el=>el.addEventListener('click',()=>{stopTour();scene=el.dataset.scene;render();}));
+  document.querySelectorAll('[data-format]').forEach(el=>el.addEventListener('click',()=>{stopTour();format=el.dataset.format;render();}));
+  document.getElementById('language').addEventListener('click',()=>{stopTour();lang=lang==='en'?'de':'en';render();});
+  document.getElementById('motion').addEventListener('click',()=>{stopTour();motion=!motion;render();});
+  reduced.addEventListener('change',event=>{stopTour();motion=!event.matches;render();});
+  document.addEventListener('visibilitychange',()=>{if(document.hidden){stopTour();document.querySelector('video').pause();}});
+  window.addEventListener('pagehide',()=>{stopTour();clearTimeout(loadTimer);});
   document.getElementById('share').addEventListener('click',async()=>{
     const status=document.getElementById('copy-status');
     try { await navigator.clipboard.writeText(location.href);status.textContent=lang==='de'?'Link zu dieser Ansicht kopiert.':'Link to this view copied.'; }

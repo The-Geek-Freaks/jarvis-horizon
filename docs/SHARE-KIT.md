@@ -4,6 +4,15 @@
 
 Use the browser-demo post without a device. Use the hardware posts only for a setup you actually ran. Add the release/commit and device where relevant, link to the repository, and remove anything private before posting. For safe recording and asset context, read [Show your setup](SHOWCASE.md).
 
+## Ready-to-share media / Medien
+
+- [23-second overview](assets/horizon-walkthrough.mp4) — H.264, 960×540, no audio, about 398 KB. Actual renderer layouts with sample data; the opening orb is animated and the remaining views are still screenshots.
+- Captions: [English](assets/horizon-walkthrough.vtt) · [Deutsch](assets/horizon-walkthrough.de.vtt). Upload the matching VTT where your platform supports captions.
+- [Watch online with captions](https://the-geek-freaks.github.io/jarvis-horizon/#watch) or [explore the guided tour](https://the-geek-freaks.github.io/jarvis-horizon/#experience).
+- [Animated orb GIF](assets/horizon-motion.gif) and [still cover](assets/horizon-motion-poster.png).
+
+Der Überblick zeigt echte Renderer-Ansichten mit Beispieldaten: animierter Orb am Anfang, danach Standbilder. Kein Gerätemitschnitt oder Live-Zuhause. Die Untertitel sind separat auf Deutsch und Englisch verfügbar.
+
 ## English
 
 ### Browser demo

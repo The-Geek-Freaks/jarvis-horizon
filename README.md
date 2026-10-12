@@ -8,13 +8,13 @@
 
 Jarvis Horizon turns an Android display or Raspberry Pi into a calm, hands-free presence for your assistant: local wake-word listening, conversation states, live agent activity, camera views, media context and an ambient screen for the moments in between.
 
-*Actual orbital renderer, synthetic sample data. Select the preview to try the interactive demo; [watch the short video](docs/assets/horizon-motion.mp4) for a quick look.*
+*Actual orbital renderer, synthetic sample data. Select the preview for the guided 30-second tour, or [watch the 23-second overview](https://the-geek-freaks.github.io/jarvis-horizon/#watch) with English and German captions.*
 
-[Installation](docs/INSTALL.md) · [Compatibility](docs/COMPATIBILITY.md) · [Architecture](docs/ARCHITECTURE.md) · [Validation](docs/VALIDATION.md) · [Contributing](CONTRIBUTING.md)
+[Quickstart](docs/QUICKSTART.md) · [Installation](docs/INSTALL.md) · [Compatibility](docs/COMPATIBILITY.md) · [Architecture](docs/ARCHITECTURE.md) · [Validation](docs/VALIDATION.md) · [Contributing](CONTRIBUTING.md)
 
 > **First public alpha — v0.1.0-alpha.1.** [Download Android APK](https://github.com/The-Geek-Freaks/jarvis-horizon/releases/download/v0.1.0-alpha.1/jarvis-horizon-0.1.0-alpha.1-android.apk) · [Android install](docs/INSTALL.md#first-android-connection) · [Pi 4 install](docs/INSTALL.md#raspberry-pi-4) · [Checksums and provenance](https://github.com/The-Geek-Freaks/jarvis-horizon/releases/tag/v0.1.0-alpha.1)
 
-**[Try the browser demo](https://the-geek-freaks.github.io/jarvis-horizon/)** · **[Install on Android](docs/INSTALL.md#first-android-connection)** · **[Set up a Raspberry Pi](docs/INSTALL.md#raspberry-pi-4)**
+**[Try the browser demo](https://the-geek-freaks.github.io/jarvis-horizon/)** · **[Install on Android](docs/QUICKSTART.md#android)** · **[Set up a Raspberry Pi](docs/QUICKSTART.md#raspberry-pi-4)**
 
 Explore the actual Horizon renderer with local sample data: eight scenes, the animated orb, portrait and landscape. No login or microphone access. The app needs your own OpenClaw Gateway and a configured realtime provider.
 

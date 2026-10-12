@@ -8,13 +8,13 @@
 
 Jarvis Horizon macht aus einem Android-Display oder Raspberry Pi eine ruhige, freihändige Präsenz für deinen Assistenten: lokale Wakeword-Erkennung, Gesprächszustände, sichtbare Agentenaktivität, Kameraansichten, Medienkontext und eine Ambient-Ansicht für die Zeit dazwischen.
 
-*Echter Orbital-Renderer mit synthetischen Beispieldaten. Die Vorschau öffnet die interaktive Demo; hier ist das [kurze Video](docs/assets/horizon-motion.mp4).*
+*Echter Orbital-Renderer mit synthetischen Beispieldaten. Die Vorschau öffnet die geführte 30-Sekunden-Tour; der [23-Sekunden-Überblick](https://the-geek-freaks.github.io/jarvis-horizon/?lang=de#watch) hat deutsche und englische Untertitel.*
 
-[Installation](docs/INSTALL.de.md) · [Kompatibilität](docs/COMPATIBILITY.de.md) · [Architektur](docs/ARCHITECTURE.de.md) · [Validierung](docs/VALIDATION.md) · [Mitwirken](CONTRIBUTING.md)
+[Schnellstart](docs/QUICKSTART.de.md) · [Installation](docs/INSTALL.de.md) · [Kompatibilität](docs/COMPATIBILITY.de.md) · [Architektur](docs/ARCHITECTURE.de.md) · [Validierung](docs/VALIDATION.md) · [Mitwirken](CONTRIBUTING.md)
 
 > **Erste öffentliche Alpha — v0.1.0-alpha.1.** [Android-APK herunterladen](https://github.com/The-Geek-Freaks/jarvis-horizon/releases/download/v0.1.0-alpha.1/jarvis-horizon-0.1.0-alpha.1-android.apk) · [Android installieren](docs/INSTALL.de.md#erste-android-verbindung) · [Pi 4 installieren](docs/INSTALL.de.md#raspberry-pi-4) · [Prüfsummen und Provenienz](https://github.com/The-Geek-Freaks/jarvis-horizon/releases/tag/v0.1.0-alpha.1)
 
-**[Im Browser ausprobieren](https://the-geek-freaks.github.io/jarvis-horizon/?lang=de)** · **[Android installieren](docs/INSTALL.de.md#erste-android-verbindung)** · **[Raspberry Pi einrichten](docs/INSTALL.de.md#raspberry-pi-4)**
+**[Im Browser ausprobieren](https://the-geek-freaks.github.io/jarvis-horizon/?lang=de)** · **[Android installieren](docs/QUICKSTART.de.md#android)** · **[Raspberry Pi einrichten](docs/QUICKSTART.de.md#raspberry-pi-4)**
 
 Die Demo zeigt die echte Horizon-Oberfläche mit lokalen Beispieldaten: acht Ansichten, animierter Orb, Hoch- und Querformat. Ohne Anmeldung oder Mikrofonzugriff. Für die App brauchst du ein eigenes OpenClaw Gateway und einen konfigurierten Realtime-Provider.
 

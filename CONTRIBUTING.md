@@ -2,6 +2,8 @@
 
 Help make the interface easier to run and more reliable on real hardware.
 
+New here? Start with the [quickstart](docs/QUICKSTART.md), then choose a [good first issue](https://github.com/The-Geek-Freaks/jarvis-horizon/labels/good%20first%20issue) or a [help wanted task](https://github.com/The-Geek-Freaks/jarvis-horizon/labels/help%20wanted). Each task includes a bounded scope and acceptance checks. Comment before starting so contributors do not duplicate work.
+
 Use synthetic or scrubbed inputs. Never commit credentials, paired-device identities, signing keys, room recordings, camera footage, personal configuration or private OTA metadata.
 
 1. Read the installation and compatibility guides.
