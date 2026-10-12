@@ -1,0 +1,21 @@
+[Unit]
+Description=Jarvis Horizon local web backend
+After=network-online.target user@1000.service
+Wants=network-online.target user@1000.service
+
+[Service]
+Type=simple
+User=dietpi
+Group=dietpi
+WorkingDirectory=/opt/jarvis-mirror/current
+ExecStart=/opt/jarvis-mirror/venv/bin/python /opt/jarvis-mirror/current/server.py --config /etc/jarvis-mirror/config.json
+Restart=on-failure
+RestartSec=3
+NoNewPrivileges=yes
+PrivateTmp=yes
+# Keep home directories hidden while allowing the local user's audio socket.
+ProtectHome=tmpfs
+BindReadOnlyPaths=/run/user/1000/pulse
+
+[Install]
+WantedBy=multi-user.target

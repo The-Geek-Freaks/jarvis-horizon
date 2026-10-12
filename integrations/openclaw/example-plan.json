@@ -1,0 +1,1 @@
+{"version":1,"id":"show-weather","title":"Show weather card","aliases":["show weather"],"steps":[{"type":"jarvis_ui","params":{"t":"ui","id":"weather-demo","show":"weather","data":{},"ttl":9000}}]}

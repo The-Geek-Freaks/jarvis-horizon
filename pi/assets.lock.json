@@ -1,0 +1,34 @@
+{
+  "schema": 1,
+  "bundled": {
+    "app/horizon/fonts/jetbrains-mono.woff2": {
+      "sha256": "83c005d49d8a6a50474c73a5a36ac0468076e9c4a29da7bdb14995d80560a5be",
+      "license": "SIL-OFL-1.1",
+      "source": "https://github.com/JetBrains/JetBrainsMono"
+    },
+    "app/horizon/fonts/space-grotesk.woff2": {
+      "sha256": "0640890476fc1198ab4de571fb658de443c4d85b66466ec09534a8737ab1ce9d",
+      "license": "SIL-OFL-1.1",
+      "source": "https://github.com/floriankarsten/space-grotesk"
+    }
+  },
+  "runtime": {
+    "python": "sherpa-onnx==1.13.8",
+    "wake_models": {
+      "kws_license": "Apache-2.0",
+      "kws_source": "https://modelscope.cn/models/pkufool/icefall-kws-zipformer-zh-en-3M-2025-12-20/summary",
+      "vad_license": "MIT",
+      "vad_source": "https://github.com/snakers4/silero-vad",
+      "runtime_source": "https://github.com/k2-fsa/sherpa-onnx/releases/tag/v1.13.8",
+      "directory": "models/wake",
+      "files": {
+        "encoder.onnx": "408bbd740838c42d5bf6d1c5b80b3c88b616c7860b92d980328b5b068c76ae48",
+        "decoder.onnx": "63a22dd60f40fff082ac3e09afa507f6787da36df76ded2fbe145fa233e22c21",
+        "joiner.onnx": "190d4067b4cc20b72a42a1916e69d92052000fb7051a427ebb1bc72a69207dc1",
+        "keywords.txt": "cc2701ddfbce07e4bd876aa246067c5791efca24182372838ad0e1f853a2668e",
+        "tokens.txt": "2d3f32311f9b692b964da3c90e830258d3e78e013cb0c992dbfb15cd5a1a71b0",
+        "silero-vad.onnx": "c36d490aff5ab924ca6c7aeec4d8f6bd3d22db6fa17611b9c5b17eae58ac3a20"
+      }
+    }
+  }
+}

@@ -1,0 +1,12 @@
+[Unit]
+Description=Reconnect configured Jarvis Bluetooth speaker and select A2DP playback
+After=bluetooth.service pipewire.service
+Wants=bluetooth.service
+
+[Service]
+Type=oneshot
+ExecStart=/opt/jarvis-mirror/bin/bt-reconnect.sh
+
+
+[Install]
+WantedBy=multi-user.target

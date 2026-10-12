@@ -1,0 +1,193 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1280 720" role="img" aria-labelledby="how-it-works-title how-it-works-desc" id="how-it-works-root">
+        <title id="how-it-works-title">Jarvis Horizon architecture</title>
+        <desc id="how-it-works-desc">Android and Raspberry Pi clients run local wake detection, then connect to an operator-owned OpenClaw Gateway that coordinates a configured voice provider, agents and tools, and optional home and media integrations.</desc>
+        <defs>
+      <style>@import url('https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&amp;family=Geist:wght@400;500;600&amp;family=Geist+Mono:wght@400;500;600&amp;family=Noto+Serif:ital@0;1&amp;family=Noto+Sans+KR:wght@400;500;600&amp;family=Noto+Serif+KR:wght@400&amp;family=Noto+Sans+TC:wght@400;500;600&amp;family=Noto+Serif+TC:wght@400&amp;display=swap');
+      #how-it-works-root { --space: #050c19;
+      --deep: #071426;
+      --panel: #0b1d35;
+      --panel-2: #0d2744;
+      --line: rgba(166, 218, 255, .18);
+      --line-strong: rgba(128, 214, 255, .42);
+      --ink: #ecf7ff;
+      --muted: #9bb6cf;
+      --cyan: #6ee7ff;
+      --blue: #3a9dff;
+      --gold: #f6c56f;
+      --violet: #9f8cff;
+      --wake: #6ce7ce; }
+      #how-it-works-root { color: var(--ink); font-family: "Space Grotesk", "Segoe UI", Arial, sans-serif; }
+      #how-it-works-root .kicker { margin: 0 0 8px; color: var(--gold); font-size: 11px; font-weight: 700; letter-spacing: .24em; text-transform: uppercase; }
+      #how-it-works-root .lede { max-width: 760px; color: var(--muted); font-size: 16px; line-height: 1.55; }
+      #how-it-works-root .diagram-container { width: 100%; overflow-x: auto; border: 1px solid var(--line); border-radius: 18px; background: rgba(4, 13, 28, .82); }
+      #how-it-works-root .caption { margin: 12px 0 0; color: var(--muted); font-size: 13px; line-height: 1.45; }
+      #how-it-works-root .diagram-container { overflow-x: visible; }
+      #how-it-works-root .zone { fill: #07172a; fill-opacity: .62; stroke: #8ad5ff; stroke-opacity: .14; stroke-width: 1; }
+      #how-it-works-root .zone-name { fill: #85a7c9; font: 700 9px "Space Grotesk", "Segoe UI", sans-serif; letter-spacing: .18em; }
+      #how-it-works-root .node { fill: #0a1d34; stroke: #91dfff; stroke-opacity: .32; stroke-width: 1.25; }
+      #how-it-works-root .node-focus { fill: url(#how-it-works-how-it-works-gateway); stroke: #6ee7ff; stroke-width: 1.4; }
+      #how-it-works-root .node-external { fill: #101b35; stroke: #a795ff; stroke-opacity: .45; stroke-width: 1.25; }
+      #how-it-works-root .node-home { fill: #172036; stroke: #f6c56f; stroke-opacity: .55; stroke-width: 1.25; }
+      #how-it-works-root .tag { fill: #82dfff; fill-opacity: .10; stroke: #82dfff; stroke-opacity: .30; stroke-width: .8; }
+      #how-it-works-root .tag-gold { fill: #f6c56f; fill-opacity: .12; stroke: #f6c56f; stroke-opacity: .42; stroke-width: .8; }
+      #how-it-works-root .tag-text { fill: #a7cce8; font: 700 8px "Space Grotesk", "Segoe UI", sans-serif; letter-spacing: .15em; }
+      #how-it-works-root .node-name { fill: #eff9ff; font: 700 18px "Space Grotesk", "Segoe UI", sans-serif; letter-spacing: -.02em; }
+      #how-it-works-root .sub { fill: #a4c1d8; font: 400 12px "Space Grotesk", "Segoe UI", sans-serif; }
+      #how-it-works-root .sub-strong { fill: #cbe7f9; font: 500 12px "Space Grotesk", "Segoe UI", sans-serif; }
+      #how-it-works-root .edge { fill: none; stroke: #78ddff; stroke-opacity: .72; stroke-width: 1.8; marker-end: url(#how-it-works-how-it-works-arrow); }
+      #how-it-works-root .edge-muted { fill: none; stroke: #839db8; stroke-opacity: .6; stroke-width: 1.35; stroke-dasharray: 6 6; marker-end: url(#how-it-works-how-it-works-arrow); }
+      #how-it-works-root .edge-gold { fill: none; stroke: #f6c56f; stroke-opacity: .86; stroke-width: 1.8; marker-end: url(#how-it-works-how-it-works-arrow-gold); }
+      #how-it-works-root .edge-label { fill: #8fb4d2; font: 700 9px "Space Grotesk", "Segoe UI", sans-serif; letter-spacing: .12em; }
+      #how-it-works-root .edge-label-gold { fill: #f6c56f; font: 700 9px "Space Grotesk", "Segoe UI", sans-serif; letter-spacing: .12em; }
+      #how-it-works-root .note { fill: #b3cee3; font: 400 12px "Space Grotesk", "Segoe UI", sans-serif; }</style>
+          <linearGradient id="how-it-works-how-it-works-bg" x1="0" y1="0" x2="1" y2="1">
+            <stop offset="0" stop-color="#07182d" />
+            <stop offset="1" stop-color="#030813" />
+          </linearGradient>
+          <radialGradient id="how-it-works-how-it-works-orb" cx="50%" cy="42%" r="62%">
+            <stop offset="0" stop-color="#b9f6ff" stop-opacity=".94" />
+            <stop offset=".23" stop-color="#59d9ff" stop-opacity=".84" />
+            <stop offset=".61" stop-color="#174d92" stop-opacity=".5" />
+            <stop offset="1" stop-color="#07142a" stop-opacity="0" />
+          </radialGradient>
+          <linearGradient id="how-it-works-how-it-works-gateway" x1="0" y1="0" x2="1" y2="1">
+            <stop offset="0" stop-color="#164f8b" />
+            <stop offset="1" stop-color="#092445" />
+          </linearGradient>
+          <filter id="how-it-works-how-it-works-glow" x="-40%" y="-40%" width="180%" height="180%">
+            <feGaussianBlur stdDeviation="7" result="blur" />
+            <feMerge><feMergeNode in="blur" /><feMergeNode in="SourceGraphic" /></feMerge>
+          </filter>
+          <pattern id="how-it-works-how-it-works-grid" width="32" height="32" patternUnits="userSpaceOnUse">
+            <path d="M 32 0 L 0 0 0 32" fill="none" stroke="#7cc7ff" stroke-opacity=".055" stroke-width="1" />
+          </pattern>
+          <marker id="how-it-works-how-it-works-arrow" markerWidth="10" markerHeight="8" refX="8" refY="4" orient="auto">
+            <path d="M0,0 L10,4 L0,8 Z" fill="#78ddff" />
+          </marker>
+          <marker id="how-it-works-how-it-works-arrow-gold" markerWidth="10" markerHeight="8" refX="8" refY="4" orient="auto">
+            <path d="M0,0 L10,4 L0,8 Z" fill="#f6c56f" />
+          </marker>
+          <style>
+            .zone { fill: #07172a; fill-opacity: .62; stroke: #8ad5ff; stroke-opacity: .14; stroke-width: 1; }
+            .zone-name { fill: #85a7c9; font: 700 9px "Space Grotesk", "Segoe UI", sans-serif; letter-spacing: .18em; }
+            .node { fill: #0a1d34; stroke: #91dfff; stroke-opacity: .32; stroke-width: 1.25; }
+            .node-focus { fill: url(#how-it-works-how-it-works-gateway); stroke: #6ee7ff; stroke-width: 1.4; }
+            .node-external { fill: #101b35; stroke: #a795ff; stroke-opacity: .45; stroke-width: 1.25; }
+            .node-home { fill: #172036; stroke: #f6c56f; stroke-opacity: .55; stroke-width: 1.25; }
+            .tag { fill: #82dfff; fill-opacity: .10; stroke: #82dfff; stroke-opacity: .30; stroke-width: .8; }
+            .tag-gold { fill: #f6c56f; fill-opacity: .12; stroke: #f6c56f; stroke-opacity: .42; stroke-width: .8; }
+            .tag-text { fill: #a7cce8; font: 700 8px "Space Grotesk", "Segoe UI", sans-serif; letter-spacing: .15em; }
+            .node-name { fill: #eff9ff; font: 700 18px "Space Grotesk", "Segoe UI", sans-serif; letter-spacing: -.02em; }
+            .sub { fill: #a4c1d8; font: 400 12px "Space Grotesk", "Segoe UI", sans-serif; }
+            .sub-strong { fill: #cbe7f9; font: 500 12px "Space Grotesk", "Segoe UI", sans-serif; }
+            .edge { fill: none; stroke: #78ddff; stroke-opacity: .72; stroke-width: 1.8; marker-end: url(#how-it-works-how-it-works-arrow); }
+            .edge-muted { fill: none; stroke: #839db8; stroke-opacity: .6; stroke-width: 1.35; stroke-dasharray: 6 6; marker-end: url(#how-it-works-how-it-works-arrow); }
+            .edge-gold { fill: none; stroke: #f6c56f; stroke-opacity: .86; stroke-width: 1.8; marker-end: url(#how-it-works-how-it-works-arrow-gold); }
+            .edge-label { fill: #8fb4d2; font: 700 9px "Space Grotesk", "Segoe UI", sans-serif; letter-spacing: .12em; }
+            .edge-label-gold { fill: #f6c56f; font: 700 9px "Space Grotesk", "Segoe UI", sans-serif; letter-spacing: .12em; }
+            .note { fill: #b3cee3; font: 400 12px "Space Grotesk", "Segoe UI", sans-serif; }
+          </style>
+        </defs>
+        <rect width="1280" height="720" fill="url(#how-it-works-how-it-works-bg)" />
+        <rect width="1280" height="720" fill="url(#how-it-works-how-it-works-grid)" />
+        <circle cx="642" cy="353" r="276" fill="url(#how-it-works-how-it-works-orb)" opacity=".34" />
+        <circle cx="642" cy="353" r="204" fill="none" stroke="#68dfff" stroke-opacity=".09" stroke-width="1" />
+        <circle cx="642" cy="353" r="236" fill="none" stroke="#f6c56f" stroke-opacity=".08" stroke-width="1" stroke-dasharray="3 10" />
+
+        <!-- Zones render before arrows and nodes. -->
+        <rect class="zone" x="40" y="116" width="286" height="456" rx="16" />
+        <text class="zone-name" x="64" y="146">YOUR SURFACES</text>
+        <rect class="zone" x="382" y="116" width="286" height="456" rx="16" />
+        <text class="zone-name" x="406" y="146">YOUR CONTROL PLANE</text>
+        <rect class="zone" x="724" y="116" width="516" height="456" rx="16" />
+        <text class="zone-name" x="748" y="146">CONFIGURED CAPABILITIES</text>
+
+        <!-- all connectors precede their endpoint cards -->
+        <path class="edge" d="M294 260 H370 Q382 260 382 272 V318 Q382 330 394 330 H418" />
+        <path class="edge" d="M294 470 H354 Q366 470 366 458 V400 Q366 388 378 388 H418" />
+        <path class="edge" d="M632 330 H702 Q714 330 714 318 V260 Q714 248 726 248 H760" />
+        <path class="edge" d="M632 390 H690 Q702 390 702 402 V470 Q702 482 714 482 H760" />
+        <path class="edge-gold" d="M1040 470 H1092 Q1104 470 1104 458 V390 Q1104 378 1116 378 H1142" />
+
+        <!-- label masks retain a visible gap to the routes -->
+        <rect x="307" y="230" width="84" height="16" rx="3" fill="#07182d" />
+        <text class="edge-label" x="349" y="241" text-anchor="middle">START TALK</text>
+        <rect x="651" y="284" width="91" height="16" rx="3" fill="#07182d" />
+        <text class="edge-label" x="696" y="295" text-anchor="middle">SESSION FLOW</text>
+        <rect x="654" y="427" width="84" height="16" rx="3" fill="#07182d" />
+        <text class="edge-label" x="696" y="438" text-anchor="middle">EVENTS</text>
+        <rect x="1046" y="432" width="86" height="16" rx="3" fill="#07182d" />
+        <text class="edge-label-gold" x="1089" y="443" text-anchor="middle">HOME ACTIONS</text>
+
+        <!-- Android -->
+        <g>
+          <rect class="node" x="72" y="190" width="222" height="140" rx="12" />
+          <rect class="tag" x="94" y="210" width="76" height="20" rx="3" />
+          <text class="tag-text" x="132" y="224" text-anchor="middle">ANDROID</text>
+          <text class="node-name" x="94" y="261">Horizon app</text>
+          <text class="sub" x="94" y="284">Wake detection stays local.</text>
+          <circle cx="260" cy="220" r="5" fill="#6ce7ce" filter="url(#how-it-works-how-it-works-glow)" />
+        </g>
+
+        <!-- Pi -->
+        <g>
+          <rect class="node" x="72" y="400" width="222" height="140" rx="12" />
+          <rect class="tag" x="94" y="420" width="86" height="20" rx="3" />
+          <text class="tag-text" x="137" y="434" text-anchor="middle">RASPBERRY PI</text>
+          <text class="node-name" x="94" y="471">Mirror kiosk</text>
+          <text class="sub" x="94" y="494">Local wake, display, audio.</text>
+          <circle cx="260" cy="430" r="5" fill="#6ce7ce" filter="url(#how-it-works-how-it-works-glow)" />
+        </g>
+
+        <!-- Gateway focus -->
+        <g>
+          <rect class="node-focus" x="418" y="276" width="214" height="176" rx="14" />
+          <circle cx="525" cy="337" r="42" fill="url(#how-it-works-how-it-works-orb)" opacity=".85" />
+          <circle cx="525" cy="337" r="30" fill="none" stroke="#b7f7ff" stroke-opacity=".64" />
+          <path d="M493 337 C504 318 536 318 557 337 C536 356 504 356 493 337Z" fill="none" stroke="#6ee7ff" stroke-opacity=".84" stroke-width="1.4" />
+          <rect class="tag" x="440" y="298" width="98" height="20" rx="3" />
+          <text class="tag-text" x="489" y="312" text-anchor="middle">YOU OPERATE</text>
+          <text class="node-name" x="525" y="390" text-anchor="middle">OpenClaw Gateway</text>
+          <text class="sub-strong" x="525" y="413" text-anchor="middle">Pairs, authorizes, routes.</text>
+        </g>
+
+        <!-- Voice provider -->
+        <g>
+          <rect class="node-external" x="760" y="190" width="280" height="140" rx="12" />
+          <rect class="tag" x="784" y="210" width="102" height="20" rx="3" />
+          <text class="tag-text" x="835" y="224" text-anchor="middle">CONFIGURE</text>
+          <text class="node-name" x="784" y="261">Voice provider</text>
+          <text class="sub" x="784" y="284">Talk processing and voice output.</text>
+          <path d="M1000 222 v22 M990 228 v10 M1010 228 v10" stroke="#a795ff" stroke-width="2" stroke-linecap="round" />
+        </g>
+
+        <!-- Agents and tools -->
+        <g>
+          <rect class="node-external" x="760" y="400" width="280" height="140" rx="12" />
+          <rect class="tag" x="784" y="420" width="92" height="20" rx="3" />
+          <text class="tag-text" x="830" y="434" text-anchor="middle">OPTIONAL</text>
+          <text class="node-name" x="784" y="471">Agents &amp; tools</text>
+          <text class="sub" x="784" y="494">Capabilities advertised by your Gateway.</text>
+          <path d="M1000 448 h18 M1009 439 v18" stroke="#a795ff" stroke-width="2" stroke-linecap="round" />
+        </g>
+
+        <!-- Integrations -->
+        <g>
+          <rect class="node-home" x="1142" y="298" width="70" height="176" rx="12" />
+          <rect class="tag-gold" x="1152" y="318" width="50" height="20" rx="3" />
+          <text class="tag-text" x="1177" y="332" text-anchor="middle">YOURS</text>
+          <text class="node-name" x="1177" y="372" text-anchor="middle" font-size="15">Home</text>
+          <text class="node-name" x="1177" y="396" text-anchor="middle" font-size="15">&amp; media</text>
+          <text class="sub" x="1177" y="425" text-anchor="middle" font-size="10">opt-in</text>
+        </g>
+
+        <!-- footer notes -->
+        <line x1="64" y1="612" x2="1216" y2="612" stroke="#8ad5ff" stroke-opacity=".16" />
+        <circle cx="82" cy="646" r="5" fill="#6ce7ce" />
+        <text class="note" x="96" y="650">Local wake: Android and Pi listen on-device before starting a session.</text>
+        <circle cx="610" cy="646" r="5" fill="#6ee7ff" />
+        <text class="note" x="624" y="650">Remote talk: only the Gateway and providers you configure handle it.</text>
+        <circle cx="82" cy="680" r="5" fill="#f6c56f" />
+        <text class="note" x="96" y="684">Home and media actions need their own integration, capability, and authorization.</text>
+      </svg>

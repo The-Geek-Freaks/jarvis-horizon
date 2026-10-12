@@ -1,0 +1,8 @@
+[Unit]
+Description=Install a signed Jarvis Mirror release
+After=network-online.target jarvis-mirror.service
+Wants=network-online.target
+
+[Service]
+Type=oneshot
+ExecStart=/opt/jarvis-mirror/venv/bin/python /opt/jarvis-mirror/bin/staged-app-updater.py

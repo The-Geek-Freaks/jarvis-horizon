@@ -1,0 +1,199 @@
+@keyframes word{to{opacity:1;transform:none}}
+.caption-layers{position:relative;height:39px;overflow:hidden}
+.caption .caption-layer{position:absolute;inset:0;margin:1px 0 0;text-align:center;font:400 14px/1.28 Space;white-space:normal;overflow:hidden;display:-webkit-box;-webkit-box-orient:vertical;-webkit-line-clamp:2;opacity:0;transform:translateY(-8px);transition:opacity 340ms,transform 480ms cubic-bezier(.22,1,.36,1)}
+.caption .caption-layer.jarvis{color:#ffe1ac;transform:translateY(8px)}
+.caption .caption-layer.active{opacity:1;transform:none}
+.caption .word{display:inline-block;margin-right:0;opacity:0;transform:translateY(5px);animation:word .42s cubic-bezier(.22,1,.36,1) forwards}
+.progress{overflow:hidden}.progress i{width:100%!important;transform-origin:left;transition:transform 1400ms cubic-bezier(.22,1,.36,1)}.home-row i{overflow:hidden}.home-row i b{width:100%!important;transform-origin:left;transition:transform 1400ms cubic-bezier(.22,1,.36,1)}
+.terminal-steps{display:flex;gap:10px;align-items:center;overflow:hidden;font:400 10px Jet;color:#7d8794}.terminal-steps span{white-space:nowrap}.terminal-steps i{margin-right:4px;color:#05d5ff;font-style:normal}.terminal-steps small{margin-left:auto;color:#00ff80;font:500 10px Jet}.timer-ring{position:relative}.timer-ring svg{position:absolute;inset:0;width:100%;height:100%}.timer-ring b{position:relative}
+#mini-player[hidden],.services[hidden],#next-event[hidden]{display:none!important}.flare{inset:362px auto auto 200px}.horizon-line .haze{stroke-width:22px;stroke-opacity:.06}.horizon-line .arc{stroke-width:1.2px}.horizon-line .dots{stroke-width:1px}#horizon[data-tile=true] .next{opacity:0;transform:translateY(8px);transition:opacity 480ms,transform 620ms cubic-bezier(.22,1,.36,1)}
+.brand{display:flex;align-items:center;gap:10px}.brand span{letter-spacing:.36em}.brand-orbit{display:none}.corner{position:absolute;z-index:9;width:10px;height:10px;top:8px;border-top:1px solid #f6c87866}.corner.tl{left:8px;border-left:1px solid #f6c87866}.corner.tr{right:8px;border-right:1px solid #f6c87866}.mic{font-size:0}.mic svg{display:block}
+.weather-tile{display:grid;grid-template-columns:196px 352px;grid-template-rows:1fr 50px;gap:14px 24px}.weather-tile>div:first-child{display:flex;flex-direction:column;gap:10px}.weather-tile>div:first-child p{margin:0;font:400 15px Space}.weather-tile>div:first-child small{color:#7d8794;font:400 13px Jet}.weather-tile .facts{grid-column:1/3;display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin:0}.weather-chart{align-self:center;width:352px;height:164px;padding:0 7px;box-sizing:border-box}.weather-chart:empty{display:none}
+.stage[data-type=weather] .hints{display:none}.horizon-music{position:relative;grid-template-columns:168px 1fr!important;gap:22px!important}.horizon-music .album{position:relative;width:168px;height:168px;overflow:hidden;border:0;border-radius:16px;background:linear-gradient(180deg,#14233a,#0a0d14 72%);box-shadow:0 18px 40px rgba(0,0,0,.5)}.horizon-music .album:before{content:'';position:absolute;left:56px;top:44px;width:56px;height:56px;border-radius:50%;background:radial-gradient(circle at 40% 38%,#fff1d0,#f6c878 60%,#c98a3a)}.horizon-music .album:after{content:'';position:absolute;left:-40px;right:-40px;top:100px;height:140px;border-radius:50%;background:#070a10;border-top:1px solid rgba(246,200,120,.6)}.horizon-music .album b{position:relative;z-index:1;align-self:end;margin-bottom:14px;font:500 10px/1 Jet;letter-spacing:.4em;color:rgba(246,200,120,.7)}.horizon-music .music-detail{padding-top:6px;gap:8px}.horizon-music .visualizer{position:absolute;left:0;right:0;bottom:0;height:46px;display:flex;align-items:flex-end;gap:3px}.horizon-music .visualizer i{flex:1;height:46px;border-radius:1px;background:linear-gradient(0deg,rgba(98,184,255,.25),#f6c878);transform-origin:50% 100%;animation:hv 1.2s ease-in-out infinite alternate}.horizon-music .visualizer i:nth-child(3n){animation-delay:.24s}.horizon-music .visualizer i:nth-child(4n){animation-delay:.5s}@keyframes hv{to{transform:scaleY(.12)}}
+.horizon-music .album img{position:absolute;inset:0;z-index:2;width:100%;height:100%;object-fit:cover}.horizon-music .album:has(img):before,.horizon-music .album:has(img):after{display:none}.horizon-music .album:has(img) b{background:#050608b8;padding:4px 7px;border-radius:8px}.weather-chart text{font-family:Space;fill:#d3d8de;font-size:12px;text-anchor:middle}.weather-chart .forecast-time{font-family:Jet;fill:#5d6673;font-size:10px}.weather-chart .forecast-baseline{stroke:rgba(160,200,255,.1)}
+#horizon[data-night=true] .night{background:radial-gradient(80% 70% at 50% 42%,rgba(3,4,7,.5),rgba(1,2,4,.9));pointer-events:none;z-index:7}#horizon[data-night=true] .night span{display:none}#horizon[data-night=true] .night small{margin:0;position:absolute;top:318px;left:0;right:0;text-align:center;font:400 12px/1 Jet;color:#4b5563}#horizon[data-night=true] .night small:before{content:'nächster Termin · sag „jarvis“';font:400 14px/1 Space;color:#b8955a;display:block;margin-bottom:10px}#horizon[data-night=true] .clock{z-index:8;opacity:1}#horizon[data-night=true] .orb-wrap{opacity:0;transform:scale(.8)}#horizon[data-night=true] .clock time,#horizon[data-night=true] .clock .seconds{position:relative;z-index:1}.horizon-line .haze{stroke:url(#hz);stroke-width:22px;stroke-opacity:.06}.horizon-line .arc{stroke:url(#hz);stroke-width:8px;stroke-opacity:.12}.horizon-line .arc{stroke-width:1.2px;stroke-opacity:1}.horizon-line .dots{stroke-width:1px}@media(max-aspect-ratio:1/1){#horizon{transform:none}}
+#horizon[data-night=true] .night small{font-size:0;color:transparent}
+#horizon .seconds i{transition:none}#horizon .mini-player em,#horizon .horizon-music .visualizer i{animation:none}#horizon[data-night=true] header .chrome{display:none}
+#horizon[data-night=true] header{opacity:1}#horizon[data-night=true] header .brand,#horizon[data-night=true] header .chrome{opacity:0}#horizon[data-night=true] header .island{opacity:1}#horizon[data-night=true] .night small{display:none}
+.horizon-line .mid{fill:none;stroke:url(#hz);stroke-width:8px;stroke-opacity:.12}
+/* v3 stage geometry: each existing data-backed component uses the supplied stage grid. */
+.stage[data-type=terminal]{background:linear-gradient(180deg,rgba(5,213,255,.06),rgba(5,213,255,0) 30%),rgba(8,10,14,.97);border-color:rgba(5,213,255,.2);box-shadow:inset 0 1px rgba(5,213,255,.2)}.stage[data-type=terminal] #stage-label{color:#05d5ff}.stage[data-type=terminal] #stage-body{display:grid;grid-template-columns:1fr 150px;gap:14px}.stage[data-type=terminal] .terminal-lines{margin:0;padding:12px 14px;border:1px solid rgba(5,213,255,.1);border-radius:12px;background:#040507;line-height:1.6}.stage[data-type=terminal] .terminal-steps{flex-direction:column;align-items:flex-start;gap:10px;padding-top:4px;overflow:visible}.stage[data-type=terminal] .terminal-steps span{height:28px;display:flex;align-items:center;font:500 13px Space}.stage[data-type=terminal] .terminal-steps small{margin:0}
+.stage[data-type=home] #stage-label{color:#62b8ff}.stage[data-type=home] .home-tile{display:grid;grid-template-columns:1fr 1fr;grid-template-rows:1fr 1fr;gap:12px}.stage[data-type=home] .home-row{display:flex;flex-direction:column;align-items:stretch;justify-content:space-between;padding:14px 16px;border-radius:16px;background:rgba(150,190,255,.035);border-color:rgba(150,190,255,.10)}.stage[data-type=home] .home-row>b{font:500 15px Space}.stage[data-type=home] .home-row span{font:400 12px Space;color:#a3acb8}.stage[data-type=home] .home-row i{height:3px}.stage[data-type=home] .home-row i b{background:linear-gradient(90deg,#62b8ff,#f6c878)}
+.stage[data-type=tasks] #stage-label{color:#f6c878}.stage[data-type=tasks] .list-tile{display:grid;grid-template-columns:1fr 1fr;gap:12px 22px;grid-auto-rows:minmax(72px,1fr)}.stage[data-type=tasks] .row{padding:10px 12px;border:1px solid rgba(150,190,255,.08);border-radius:14px;background:rgba(150,190,255,.03);display:grid;grid-template-columns:auto 1fr;column-gap:10px;align-content:center}.stage[data-type=tasks] .row small{grid-column:2;font:400 11px Jet}.stage[data-type=message] #stage-label{color:#9fc4ff}.stage[data-type=message] .message-tile{justify-content:center;gap:12px}.stage[data-type=message] .bubble{max-width:420px;padding:12px 16px;border-radius:18px 18px 18px 6px;background:rgba(150,190,255,.07);border-color:rgba(150,190,255,.14);font:400 17px/1.35 Space}.stage[data-type=timer] #stage-label{color:#ffb627}.stage[data-type=timer] .timer-tile{flex-direction:row;gap:48px}.stage[data-type=timer] .timer-ring{width:216px;height:216px;border:0;box-shadow:none}
+/* Phone Horizon: same display-only language, reflowed rather than scaled. */
+html.adaptive,html.adaptive body,html.adaptive #viewport{width:100vw;height:100dvh;min-height:0}html.adaptive #horizon{width:100vw;height:100dvh;min-height:360px}.adaptive .network{width:100%;height:100%;transform:scale(1.04);transform-origin:58% 35%}.adaptive .brand{left:18px;top:13px}.adaptive .island{left:50%;top:10px;width:min(48vw,344px);transform:translateX(-50%)}.adaptive .chrome{right:14px;top:10px}.adaptive .node{display:none}.adaptive .clock{left:20px;top:64px;width:180px}.adaptive .clock time{font-size:58px}.adaptive .seconds,.adaptive .seconds i{width:154px}.adaptive .meta{left:22px;top:142px;font-size:13px;gap:7px}.adaptive .next{left:22px;top:205px;width:200px;gap:7px}.adaptive .next time{font-size:18px}.adaptive .next strong{font-size:14px}.adaptive .orb-wrap{left:50%;top:78px;width:270px;height:270px;transform:translateX(-8%)}.adaptive canvas{width:270px;height:270px}.adaptive .orb-fallback{inset:49px}.adaptive .stage{left:14px;top:auto;bottom:68px;width:calc(100vw - 28px);height:min(310px,calc(100dvh - 276px));padding:14px 16px;border-radius:20px}.adaptive .horizon-line{top:auto;bottom:0;width:100%;height:94px}.adaptive .flare{left:12%;top:auto;bottom:42px;width:76%;height:52px}.adaptive .caption{left:12px;top:auto;bottom:12px;width:calc(100vw - 24px);height:52px}.adaptive .services{left:12px;bottom:12px;width:calc(100vw - 24px);grid-template-columns:repeat(2,1fr)}.adaptive #horizon[data-tile=true] .orb-wrap{transform:translate(-46vw,42px) scale(.46)}.adaptive .weather-tile{grid-template-columns:120px 1fr;grid-template-rows:1fr 45px;gap:8px 12px}.adaptive .weather-tile .big{font-size:52px}.adaptive .weather-chart{width:100%;height:130px}.adaptive .fact{padding:7px 8px}.adaptive .fact b{font-size:13px}.adaptive .horizon-music{grid-template-columns:112px 1fr!important;gap:14px!important}.adaptive .horizon-music .album{width:112px;height:112px}.adaptive .horizon-music .album:before{left:37px;top:30px;width:38px;height:38px}.adaptive .horizon-music .album:after{top:68px}.adaptive .horizon-music .visualizer{height:30px}.adaptive .horizon-music .visualizer i{height:30px}.adaptive .music-detail h2{margin:4px 0;font-size:20px}.adaptive .progress{margin:14px 0 6px}.adaptive .stage[data-type=terminal] #stage-body{grid-template-columns:1fr 106px}.adaptive .stage[data-type=home] .home-tile,.adaptive .stage[data-type=tasks] .list-tile{gap:8px}.adaptive .home-row{padding:9px 10px!important}.adaptive .timer-ring{width:170px!important;height:170px!important}.adaptive .timer-ring b{font-size:42px}.adaptive .night small{display:none!important}
+@media (orientation:portrait){.adaptive .next{display:none}.adaptive .orb-wrap{top:157px;transform:translateX(-50%)}.adaptive .stage{bottom:70px;height:calc(100dvh - 410px);min-height:260px}.adaptive #horizon[data-tile=true] .orb-wrap{opacity:.18;transform:translate(-50%,36px) scale(.45)}.adaptive .clock{z-index:3}.adaptive .meta{z-index:3}.adaptive .weather-tile{grid-template-columns:112px 1fr}.adaptive .stage[data-type=terminal] #stage-body{grid-template-columns:1fr}.adaptive .terminal-steps{display:none!important}.adaptive .stage[data-type=tasks] .list-tile{grid-template-columns:1fr}.adaptive .stage[data-type=home] .home-tile{grid-template-columns:1fr 1fr}.adaptive .horizon-music{grid-template-columns:96px 1fr!important}.adaptive .horizon-music .album{width:96px;height:96px}.adaptive .horizon-music .album:before{left:31px;top:25px;width:34px;height:34px}.adaptive .horizon-music .album:after{top:58px}.adaptive .horizon-music .visualizer{display:none}}
+@media (orientation:landscape) and (max-height:500px){.adaptive .clock{left:18px;top:54px}.adaptive .clock time{font-size:48px}.adaptive .meta{left:20px;top:122px;font-size:12px}.adaptive .orb-wrap{left:128px;top:76px;width:190px;height:190px;transform:translateX(-50%)}.adaptive canvas{width:190px;height:190px}.adaptive .orb-fallback{inset:35px}.adaptive .stage{left:270px;top:52px;bottom:auto;width:calc(100vw - 284px);height:240px;padding:12px 15px}.adaptive #horizon[data-tile=true] .orb-wrap{transform:translateX(-50%) scale(.6)}.adaptive .weather-tile{grid-template-columns:120px 1fr}.adaptive .weather-chart{height:112px}.adaptive .caption{bottom:8px}.adaptive .horizon-line{height:76px}.adaptive .flare{bottom:28px}}
+/* Final phone collision pass. */
+@media (orientation:portrait){.adaptive .brand{top:14px;left:18px}.adaptive .island{top:42px;width:calc(100vw - 72px)}.adaptive .chrome{top:10px;right:12px}.adaptive .clock{top:88px}.adaptive .meta{top:166px}.adaptive .orb-wrap{top:190px;width:150px;height:150px;transform:translateX(-50%)}.adaptive canvas{width:150px;height:150px}.adaptive .orb-fallback{inset:28px}.adaptive .stage{top:360px;bottom:auto;height:min(340px,calc(100dvh - 430px));min-height:0}.adaptive #horizon[data-tile=true] .orb-wrap{opacity:.28;transform:translateX(-50%) scale(.88)}.adaptive .stage[data-type=terminal] #stage-body{grid-template-columns:minmax(0,1fr) 82px}.adaptive .stage[data-type=terminal] .terminal-steps{display:flex!important;font-size:10px}.adaptive .stage[data-type=terminal] .terminal-steps span{font-size:11px}.adaptive .stage[data-type=terminal] .terminal-lines{padding:9px 10px;font-size:11px}.adaptive .caption{bottom:10px}.adaptive .horizon-line{height:72px}.adaptive .flare{bottom:28px}}
+@media (orientation:landscape) and (max-height:500px){.adaptive .orb-wrap{left:126px;top:164px;width:116px;height:116px}.adaptive canvas{width:116px;height:116px}.adaptive .orb-fallback{inset:21px}.adaptive #horizon[data-tile=true] .orb-wrap{transform:translateX(-50%) scale(.82)}.adaptive .meta{top:112px}.adaptive .stage[data-type=terminal] #stage-body{grid-template-columns:minmax(0,1fr) 100px}}
+@media (orientation:portrait){.adaptive .caption{bottom:8px;height:64px;padding:7px 14px}.adaptive .caption-layers{height:42px}}
+@media (orientation:portrait){.adaptive #horizon[data-tile=false] .orb-wrap{top:calc(50dvh - min(150px,calc((100vw - 40px)/2)));width:min(300px,calc(100vw - 40px));height:min(300px,calc(100vw - 40px));transform:translateX(-50%);opacity:1}.adaptive #horizon[data-tile=false] canvas{width:min(300px,calc(100vw - 40px));height:min(300px,calc(100vw - 40px))}.adaptive #horizon[data-tile=false] .orb-fallback{inset:18%}}
+
+/* Android WebView can resolve dynamic viewport units to zero during the initial adaptive
+   layout.  The URL-specific bootstrap writes these two pixel variables from innerWidth/
+   innerHeight; fixed 960x480 Echo never receives the adaptive class. */
+html.adaptive { --jarvis-vw:100vw; --jarvis-vh:100vh; }
+html.adaptive, html.adaptive body, html.adaptive #viewport {
+  width:var(--jarvis-vw) !important;
+  height:var(--jarvis-vh) !important;
+  min-height:0 !important;
+}
+html.adaptive #horizon {
+  width:var(--jarvis-vw) !important;
+  height:var(--jarvis-vh) !important;
+  min-height:360px;
+}
+html.adaptive .stage { height:min(310px,calc(var(--jarvis-vh) - 276px)); }
+/* Do not ask CSS orientation media queries to infer Android's transient zero viewport. */
+html.adaptive.adaptive-portrait .next { display:none; }
+html.adaptive.adaptive-portrait .brand { top:14px; left:18px; }
+html.adaptive.adaptive-portrait .island { top:42px; width:calc(var(--jarvis-vw) - 72px); }
+html.adaptive.adaptive-portrait .chrome { top:10px; right:12px; }
+html.adaptive.adaptive-portrait .clock { top:88px; z-index:3; }
+html.adaptive.adaptive-portrait .meta { top:166px; z-index:3; }
+html.adaptive.adaptive-portrait .orb-wrap { top:190px; width:150px; height:150px; transform:translateX(-50%); }
+html.adaptive.adaptive-portrait canvas { width:150px; height:150px; }
+html.adaptive.adaptive-portrait .orb-fallback { inset:28px; }
+html.adaptive.adaptive-portrait .stage {
+  top:360px; bottom:auto; height:min(340px,calc(var(--jarvis-vh) - 430px)); min-height:0;
+}
+html.adaptive.adaptive-portrait #horizon[data-tile=true] .orb-wrap { opacity:.28; transform:translateX(-50%) scale(.88); }
+html.adaptive.adaptive-portrait .stage[data-type=terminal] #stage-body { grid-template-columns:minmax(0,1fr) 82px; }
+html.adaptive.adaptive-portrait .stage[data-type=terminal] .terminal-steps { display:flex!important; font-size:10px; }
+html.adaptive.adaptive-portrait .stage[data-type=terminal] .terminal-steps span { font-size:11px; }
+html.adaptive.adaptive-portrait .stage[data-type=terminal] .terminal-lines { padding:9px 10px; font-size:11px; }
+html.adaptive.adaptive-portrait .caption { bottom:8px; height:64px; padding:7px 14px; }
+html.adaptive.adaptive-portrait .caption-layers { height:42px; }
+html.adaptive.adaptive-portrait .horizon-line { height:72px; }
+html.adaptive.adaptive-portrait .flare { bottom:28px; }
+html.adaptive.adaptive-portrait #horizon[data-tile=false] .orb-wrap {
+  top:calc(var(--jarvis-vh) / 2 - min(150px,calc((var(--jarvis-vw) - 40px) / 2)));
+  width:min(300px,calc(var(--jarvis-vw) - 40px)); height:min(300px,calc(var(--jarvis-vw) - 40px));
+  transform:translateX(-50%); opacity:1;
+}
+html.adaptive.adaptive-portrait #horizon[data-tile=false] canvas {
+  width:min(300px,calc(var(--jarvis-vw) - 40px)); height:min(300px,calc(var(--jarvis-vw) - 40px));
+}
+html.adaptive.adaptive-portrait #horizon[data-tile=false] .orb-fallback { inset:18%; }
+
+/* Night has the same quiet clock-only composition on phones as on the Echo.
+   Keep this after portrait's idle geometry so its opacity cannot reveal the orb. */
+html.adaptive #horizon[data-night=true] .orb-wrap,
+html.adaptive.adaptive-portrait #horizon[data-night=true] .orb-wrap { opacity:0; }
+html.adaptive.adaptive-landscape .clock { left:18px; top:54px; }
+html.adaptive.adaptive-landscape .clock time { font-size:48px; }
+html.adaptive.adaptive-landscape .meta { left:20px; top:112px; font-size:12px; }
+html.adaptive.adaptive-landscape .orb-wrap { left:126px; top:164px; width:116px; height:116px; transform:translateX(-50%); }
+html.adaptive.adaptive-landscape canvas { width:116px; height:116px; }
+html.adaptive.adaptive-landscape .orb-fallback { inset:21px; }
+html.adaptive.adaptive-landscape .stage { left:270px; top:52px; bottom:auto; width:calc(var(--jarvis-vw) - 284px); height:240px; padding:12px 15px; }
+html.adaptive.adaptive-landscape #horizon[data-tile=true] .orb-wrap { transform:translateX(-50%) scale(.82); }
+html.adaptive.adaptive-landscape .stage[data-type=terminal] #stage-body { grid-template-columns:minmax(0,1fr) 100px; }
+html.adaptive.adaptive-landscape .weather-tile { grid-template-columns:120px 1fr; }
+html.adaptive.adaptive-landscape .weather-chart { height:112px; }
+html.adaptive.adaptive-landscape .caption { bottom:8px; }
+html.adaptive.adaptive-landscape .horizon-line { height:76px; }
+html.adaptive.adaptive-landscape .flare { bottom:28px; }
+
+/* Only the Archos document opts into cached-backdrop.  Its PowerVR WebView
+   reports a transient CSS height, so height media queries cannot distinguish
+   its large idle view.  Keep the regular orb strictly to that idle state. */
+html.cached-backdrop.adaptive.adaptive-landscape #horizon[data-tile=false][data-night=false] .orb-wrap { left:50%; top:78px; width:270px; height:270px; transform:translateX(-8%); }
+html.cached-backdrop.adaptive.adaptive-landscape #horizon[data-tile=false][data-night=false] canvas { width:270px; height:270px; }
+html.cached-backdrop.adaptive.adaptive-landscape #horizon[data-tile=false][data-night=false] .orb-fallback { inset:49px; }
+
+/* The fixed Echo night clock deliberately moves into the center.  On a narrow
+   adaptive portrait viewport that horizontal move puts the time beyond the edge. */
+html.adaptive.adaptive-portrait #horizon[data-night=true] .clock {
+  left:50%;
+  width:180px;
+  transform:translate(-50%,112px) scale(1.25);
+}
+
+/* Android WebView can temporarily match both orientation media paths.  These are the
+   complete adaptive-portrait geometry values, intentionally after every media rule. */
+html.adaptive.adaptive-portrait .network { width:100%; height:100%; }
+html.adaptive.adaptive-portrait .brand { left:18px; top:14px; }
+html.adaptive.adaptive-portrait .island { left:50%; top:42px; width:calc(var(--jarvis-vw) - 72px); transform:translateX(-50%); }
+html.adaptive.adaptive-portrait .chrome { right:12px; top:10px; }
+html.adaptive.adaptive-portrait .clock { left:20px; top:88px; width:180px; z-index:3; }
+html.adaptive.adaptive-portrait .clock time { font-size:58px; }
+html.adaptive.adaptive-portrait .seconds,html.adaptive.adaptive-portrait .seconds i { width:154px; }
+html.adaptive.adaptive-portrait .meta { left:22px; top:166px; font-size:13px; gap:7px; z-index:3; }
+html.adaptive.adaptive-portrait .next { display:none; }
+html.adaptive.adaptive-portrait .orb-wrap { left:50%; top:190px; width:150px; height:150px; transform:translateX(-50%); }
+html.adaptive.adaptive-portrait canvas { width:150px; height:150px; }
+html.adaptive.adaptive-portrait .orb-fallback { inset:28px; }
+html.adaptive.adaptive-portrait .stage { left:14px; right:auto; top:360px; bottom:auto; width:calc(var(--jarvis-vw) - 28px); height:min(340px,calc(var(--jarvis-vh) - 430px)); min-height:0; padding:14px 16px; border-radius:20px; }
+html.adaptive.adaptive-portrait #horizon[data-tile=true] .orb-wrap { left:50%; top:190px; opacity:.28; transform:translateX(-50%) scale(.88); }
+html.adaptive.adaptive-portrait .weather-tile { grid-template-columns:112px 1fr; grid-template-rows:1fr 45px; gap:8px 12px; }
+html.adaptive.adaptive-portrait .weather-chart { width:100%; height:130px; }
+html.adaptive.adaptive-portrait .horizon-music { grid-template-columns:96px 1fr!important; gap:14px!important; }
+html.adaptive.adaptive-portrait .horizon-music .album { width:96px; height:96px; }
+html.adaptive.adaptive-portrait .horizon-music .album:before { left:31px; top:25px; width:34px; height:34px; }
+html.adaptive.adaptive-portrait .horizon-music .album:after { top:58px; }
+html.adaptive.adaptive-portrait .horizon-music .visualizer { display:none; }
+html.adaptive.adaptive-portrait .stage[data-type=terminal] #stage-body { grid-template-columns:minmax(0,1fr) 82px; }
+html.adaptive.adaptive-portrait .stage[data-type=terminal] .terminal-steps { display:flex!important; font-size:10px; }
+html.adaptive.adaptive-portrait .stage[data-type=terminal] .terminal-steps span { font-size:11px; }
+html.adaptive.adaptive-portrait .stage[data-type=terminal] .terminal-lines { padding:9px 10px; font-size:11px; }
+html.adaptive.adaptive-portrait .stage[data-type=home] .home-tile { grid-template-columns:1fr 1fr; }
+html.adaptive.adaptive-portrait .stage[data-type=tasks] .list-tile { grid-template-columns:1fr; }
+html.adaptive.adaptive-portrait .caption { left:12px; top:auto; bottom:8px; width:calc(var(--jarvis-vw) - 24px); height:64px; padding:7px 14px; }
+html.adaptive.adaptive-portrait .caption-layers { height:42px; }
+html.adaptive.adaptive-portrait .horizon-line { top:auto; bottom:0; width:100%; height:72px; }
+html.adaptive.adaptive-portrait .flare { left:12%; top:auto; bottom:28px; width:76%; height:52px; }
+html.adaptive.adaptive-portrait #horizon[data-tile=false] .orb-wrap { left:50%; top:calc(var(--jarvis-vh) / 2 - min(150px,calc((var(--jarvis-vw) - 40px) / 2))); width:min(300px,calc(var(--jarvis-vw) - 40px)); height:min(300px,calc(var(--jarvis-vw) - 40px)); transform:translateX(-50%); opacity:1; }
+html.adaptive.adaptive-portrait #horizon[data-tile=false] canvas { width:min(300px,calc(var(--jarvis-vw) - 40px)); height:min(300px,calc(var(--jarvis-vw) - 40px)); }
+html.adaptive.adaptive-portrait #horizon[data-tile=false] .orb-fallback { inset:18%; }
+
+/* This must follow the portrait idle rule above: that rule restores the orb at opacity 1
+   when no stage tile is open. Night is clock-only even while data-tile remains false. */
+html.adaptive.adaptive-portrait #horizon[data-night=true][data-tile=false] .orb-wrap {
+  opacity:0;
+  pointer-events:none;
+}
+
+/* LG compact landscape: reserve the left column for time, date and weather.
+   A tile owns the right stage, so the appointment strip must leave the orb area. */
+html.adaptive.adaptive-landscape .meta { top:136px; }
+html.adaptive.adaptive-landscape #horizon[data-tile=true] .next { display:none; }
+
+/* Terminal HUD is display-only: it uses the bounded native execution history. */
+.stage[data-type=terminal] .horizon-terminal{height:100%;display:flex;flex-direction:column;gap:10px;min-width:0}.stage[data-type=terminal] .terminal-head{display:flex;align-items:center;gap:10px;min-height:24px}.stage[data-type=terminal] .terminal-head>b{min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;font:500 15px/1 Space;color:#e8f5ff}.stage[data-type=terminal] .terminal-chip{margin-left:auto;display:flex;align-items:center;gap:6px;flex:0 0 auto;padding:5px 8px;border:1px solid rgba(5,213,255,.28);border-radius:10px;color:#8eeeff;background:rgba(5,213,255,.06);font:500 9px/1 Jet;letter-spacing:.1em}.stage[data-type=terminal] .terminal-chip.done{border-color:rgba(0,255,128,.3);color:#8fffc2;background:rgba(0,255,128,.06)}.stage[data-type=terminal] .terminal-chip.failed{border-color:rgba(255,42,109,.42);color:#ff9dbb;background:rgba(255,42,109,.08)}.terminal-spinner{width:8px;height:8px;border:1px solid rgba(142,238,255,.3);border-top-color:#8eeeff;border-radius:50%;animation:terminal-spin .75s linear infinite}.stage[data-type=terminal] .terminal-lines{display:flex;flex:1;flex-direction:column;gap:4px;min-height:0;margin:0;padding:10px 12px;overflow:hidden;border:1px solid rgba(5,213,255,.12);border-radius:12px;background:linear-gradient(135deg,rgba(4,7,12,.98),rgba(5,213,255,.025));font:400 11px/1.45 Jet}.terminal-row{display:flex;gap:8px;min-width:0;color:#9baaba}.terminal-row i{width:10px;flex:0 0 10px;color:#62b8ff;font-style:normal}.terminal-row span{overflow:hidden;text-overflow:ellipsis;white-space:nowrap}.terminal-row.cmd{color:#e6f3ff}.terminal-row.cmd i{color:#f6c878}.terminal-row.err{color:#ff9dbb}.terminal-row.err i{color:#ff2a6d}.terminal-row.ok,.terminal-row.done{color:#9dffd0}.terminal-row.ok i,.terminal-row.done i{color:#00ff80}.terminal-caret{display:block;width:6px;height:12px;margin-top:1px;background:#8eeeff;box-shadow:0 0 10px rgba(5,213,255,.75);animation:terminal-caret .85s steps(1,end) infinite}.terminal-progress{height:3px;overflow:hidden;border-radius:2px;background:rgba(98,184,255,.14)}.terminal-progress i{display:block;width:100%;height:100%;transform-origin:left;background:linear-gradient(90deg,#05d5ff,#62b8ff,#f6c878);transition:transform .38s ease}.terminal-footer{height:12px;text-align:right;color:#6e8295;font:400 9px/1 Jet;letter-spacing:.08em}@keyframes terminal-spin{to{transform:rotate(360deg)}}@keyframes terminal-caret{50%{opacity:0}}
+.terminal-row small{margin-left:auto;flex:0 0 auto;color:#6e8295;font:400 9px/1 Jet}
+
+/* Native event facts: no controls, no invented door state. */
+.stage[data-type=camera] #stage-label{color:#62b8ff}.stage[data-type=camera] .camera-tile{display:flex;flex-direction:column;justify-content:flex-end;overflow:hidden;border-color:rgba(98,184,255,.25)}.camera-call{display:flex;align-items:center;gap:10px;padding:12px 14px;border:1px solid rgba(159,196,255,.3);border-radius:14px;background:rgba(4,7,12,.9);font:500 11px/1 Jet;letter-spacing:.12em}.camera-call b{color:#dcecff}.camera-call span{margin-left:auto;color:#7d8794;font:400 10px/1 Jet;letter-spacing:.08em}.camera-call.ringing{border-color:rgba(255,42,109,.62);background:rgba(255,42,109,.1)}.camera-call.ringing b,.camera-call.failed b{color:#ff9dbb}.camera-call.connecting{border-color:rgba(5,213,255,.35)}.camera-call.connecting b{color:#8eeeff}.camera-call.connected{border-color:rgba(0,255,128,.45);background:rgba(0,255,128,.075)}.camera-call.connected b,.camera-call.connected span{color:#8fffc2}.camera-call.ended,.camera-call.declined{border-color:rgba(140,180,230,.18);opacity:.72}.camera-call.failed{border-color:rgba(255,42,109,.5);background:rgba(255,42,109,.07)}
+.stage[data-type=home] .home-row.changed{border-color:rgba(246,200,120,.52);background:linear-gradient(135deg,rgba(246,200,120,.105),rgba(150,190,255,.035))}.stage[data-type=home] .home-row.changed>b{color:#ffe1ac}.stage[data-type=home] .home-row.changed i b{background:linear-gradient(90deg,#62b8ff,#ffe1ac)}
+.stage[data-type=message] .horizon-message{justify-content:center;align-items:flex-start}.stage[data-type=message] .message-from{color:#9fc4ff;font:500 11px/1 Jet;letter-spacing:.14em}.stage[data-type=message] .message-received{color:#5d6673;font:400 10px/1 Jet}.stage[data-type=message] .hints span{border-color:rgba(159,196,255,.32);color:#dbe6f5}
+
+/* Night is its own quiet, moving surface. The scene stays canvas-2D only: no WebGL,
+   filters, or CSS animation is left running while the normal horizon is asleep. */
+.galactic-saver{position:absolute;z-index:12;inset:0;overflow:hidden;color:#e7efff;background:#02050c}.galactic-saver[hidden],.galactic-saver-event[hidden],.galactic-saver-empty[hidden]{display:none!important}#horizon .galactic-saver #galactic-saver-canvas{position:absolute;inset:0;width:100%!important;height:100%!important}.galactic-saver-copy,.galactic-saver-event,.galactic-saver-empty{position:absolute;z-index:1;transition:transform 1200ms cubic-bezier(.22,1,.36,1)}.galactic-saver-copy{left:9%;top:17%;display:grid;gap:8px}.galactic-saver-copy time{font:300 86px/.92 Space;letter-spacing:-.04em;font-variant-numeric:tabular-nums;color:#f5f8ff}.galactic-saver-copy span{font:400 14px/1.2 Space;color:#a8c6eb}.galactic-saver-event{right:9%;bottom:18%;width:290px;display:grid;gap:10px;padding:15px 0;border-top:1px solid rgba(159,196,255,.34);border-bottom:1px solid rgba(246,200,120,.28)}.galactic-saver-event>span{font:500 10px/1 Jet;letter-spacing:.24em;color:#8eb8e8}.galactic-saver-event div{display:flex;gap:11px;align-items:baseline;min-width:0}.galactic-saver-event time{font:400 22px/1 Space;color:#f6c878;white-space:nowrap}.galactic-saver-event strong{min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;font:500 17px/1.1 Space;color:#f1f5fb}.galactic-saver-event small{overflow:hidden;text-overflow:ellipsis;white-space:nowrap;font:400 12px/1.2 Space;color:#8ba6c9}.galactic-saver-empty{right:9%;bottom:22%;margin:0;font:400 14px/1.2 Space;color:#94aed0}.galactic-saver-copy[data-drift="1"]{transform:translate(29px,17px)}.galactic-saver-copy[data-drift="2"]{transform:translate(-24px,28px)}.galactic-saver-event[data-drift="1"],.galactic-saver-empty[data-drift="1"]{transform:translate(-28px,-19px)}.galactic-saver-event[data-drift="2"],.galactic-saver-empty[data-drift="2"]{transform:translate(21px,22px)}#horizon[data-night=true]>.galactic-saver{display:block}#horizon[data-night=true]>:not(.galactic-saver){display:none!important}@media (prefers-reduced-motion:reduce){.galactic-saver-copy,.galactic-saver-event,.galactic-saver-empty{transition-duration:2000ms}}
+html.adaptive .galactic-saver-copy{left:8%;top:14%}html.adaptive .galactic-saver-event{right:8%;bottom:15%}@media (orientation:portrait){html.adaptive .galactic-saver-copy{left:9%;top:16%}.galactic-saver-copy time{font-size:min(22vw,86px)}html.adaptive .galactic-saver-event{left:9%;right:9%;bottom:14%;width:auto}.galactic-saver-empty{left:9%;right:9%;bottom:18%}}
+/*
+ * On the Archos Hello, its PowerVR WebView compositor re-rasterizes this
+ * static depth stack when the transparent orb updates. Keep these existing
+ * background layers until the WebView is destroyed or Horizon is hidden at night.
+ */
+html.cached-backdrop .sky,
+html.cached-backdrop .grid,
+html.cached-backdrop .stars,
+html.cached-backdrop .nebula,
+html.cached-backdrop .network,
+html.cached-backdrop .horizon-line,
+html.cached-backdrop .flare {
+  will-change: transform;
+}
+
+/* The compact side orb belongs to an open context card. With no card, keep
+   the idle orb centered at every landscape viewport, including short displays. */
+html.adaptive.adaptive-landscape #horizon[data-tile=false] .orb-wrap {
+  left:50%; top:50%; width:min(360px,40vw,calc(100vh - 110px));
+  height:min(360px,40vw,calc(100vh - 110px));
+  transform:translate(-50%,-50%); opacity:1;
+}
+html.adaptive.adaptive-landscape #horizon[data-tile=false] .orb-wrap>canvas { width:100%; height:100%; }
+html.adaptive.adaptive-landscape #horizon[data-tile=false] .orb-fallback { inset:18%; }

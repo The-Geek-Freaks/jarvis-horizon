@@ -1,0 +1,3 @@
+# The OS packages installed by install-pi.sh provide aiohttp, numpy and cryptography.
+# Keep this pin aligned with the tested native KWS/VAD API.
+sherpa-onnx==1.13.8

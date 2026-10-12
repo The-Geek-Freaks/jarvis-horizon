@@ -1,0 +1,11 @@
+[Unit]
+Description=Periodically reconnect Jarvis Bluetooth speaker
+
+[Timer]
+OnBootSec=1min
+OnUnitActiveSec=2min
+Persistent=true
+Unit=jarvis-bt-reconnect.service
+
+[Install]
+WantedBy=timers.target

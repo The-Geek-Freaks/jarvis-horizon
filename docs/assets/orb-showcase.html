@@ -1,0 +1,21 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Jarvis Horizon · Orb showcase</title>
+<style>
+@font-face{font-family:Space;src:url('../../pi/app/horizon/fonts/space-grotesk.woff2')}
+*{box-sizing:border-box}html,body{margin:0;width:100%;height:100%;background:#050a13;color:#edf6ff;font-family:Space,sans-serif}
+main{width:100%;height:100%;min-height:480px;position:relative;overflow:hidden;text-align:center;background:radial-gradient(ellipse at 50% 52%,#102438 0,transparent 48%),linear-gradient(180deg,#080f1d,#03070d)}
+h1{position:absolute;top:30px;width:100%;margin:0;font-size:32px;font-weight:400;letter-spacing:.16em}h1 span{color:#f6c878}
+canvas{position:absolute;left:50%;top:50%;width:350px;height:350px;transform:translate(-50%,-50%)}
+.state{position:absolute;bottom:42px;width:100%;margin:0;font-size:18px;letter-spacing:.03em;color:#9fc4ff}.state strong{color:#f6c878;font-weight:500}
+.foot{position:absolute;bottom:17px;width:100%;margin:0;font-size:10px;letter-spacing:.13em;color:#7891aa}
+.axis{position:absolute;left:8%;right:8%;top:50%;height:1px;background:linear-gradient(90deg,transparent,#28547a40,transparent)}
+.edge{position:absolute;top:47%;width:170px;text-align:left;color:#b3c8dc;font-size:14px;line-height:1.6}.edge small{display:block;color:#6f94b8;font-size:10px;letter-spacing:.12em}.left{left:8%}.right{right:8%;text-align:right}
+@media(max-width:700px){.edge{display:none}h1{font-size:23px}canvas{width:310px;height:310px}}
+</style></head><body><main><div class="axis"></div><h1>JARVIS <span>HORIZON</span></h1><div class="edge left"><small>LOCAL FIRST</small>Wake on your device.<br>Your own Gateway.</div><canvas id="orb" aria-label="Animated orbital visualization"></canvas><div class="edge right"><small>BUILT FOR THE ROOM</small>Android displays.<br>Raspberry Pi.</div><p class="state" id="phase"><strong>Ready.</strong> A presence, not another tab.</p><p class="foot">ACTUAL ORB RENDERER · SYNTHETIC STATE SEQUENCE · NO LIVE MICROPHONE</p></main>
+<script src="../../pi/app/horizon/js/jarvis-orb.js"></script><script>
+const orb=JarvisOrb.create(document.getElementById('orb'),{quality:'balanced',state:'idle'});
+const stages=[['idle','Ready.','A presence, not another tab.'],['listening','Listening.','Local wake, a visible response.'],['working','Working.','Follow the activity as it happens.'],['speaking','Speaking.','Motion follows the voice level.']];
+let last=-1;const start=performance.now();
+function frame(now){const elapsed=(now-start)/1000,index=Math.floor(elapsed/2)%stages.length,s=stages[index];if(index!==last){orb.setState(s[0]);document.getElementById('phase').innerHTML='<strong>'+s[1]+'</strong> '+s[2];last=index;}orb.setLevel(index===3?.2+.7*Math.abs(Math.sin(elapsed*6)*Math.cos(elapsed*2)):index===1?.25:0);requestAnimationFrame(frame)}
+if(!matchMedia('(prefers-reduced-motion: reduce)').matches)requestAnimationFrame(frame);
+</script></body></html>

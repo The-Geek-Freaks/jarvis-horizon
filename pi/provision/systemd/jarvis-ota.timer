@@ -1,0 +1,11 @@
+[Unit]
+Description=Check the configured Jarvis Mirror OTA manifest hourly
+
+[Timer]
+OnBootSec=10min
+OnUnitActiveSec=1h
+Persistent=true
+Unit=jarvis-ota.service
+
+[Install]
+WantedBy=timers.target

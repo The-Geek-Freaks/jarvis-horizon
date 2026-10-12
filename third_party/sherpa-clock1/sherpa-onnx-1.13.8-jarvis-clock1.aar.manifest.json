@@ -1,0 +1,15 @@
+{
+  "patch": "keyword-frame-offset-clock1",
+  "sourceCommit": "11afbd009a7f8c08f4bcf2fc1b265d0df4670fbf",
+  "outputSha256": "43f894bedb548210f098dcc0fb2b8c52e1ff576354b8ed53db05840e07015b74",
+  "artifacts": {
+    "armeabi-v7a": {
+      "sha256": "05a50e1b73c6851c912d9bc557c7e73992bae587f190634485be35be81174f2f",
+      "bytes": 2321892
+    },
+    "arm64-v8a": {
+      "sha256": "aad9a19deba41fcfcd0e46705e6211c8bb02fe0129a71e12fa1bfa879159f182",
+      "bytes": 3438280
+    }
+  }
+}

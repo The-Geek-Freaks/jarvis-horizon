@@ -1,0 +1,720 @@
+import com.android.build.api.variant.impl.VariantOutputImpl
+import org.gradle.api.tasks.Exec
+import org.gradle.api.tasks.PathSensitivity
+import java.security.MessageDigest
+import java.time.Instant
+import java.time.ZoneOffset
+import java.time.format.DateTimeFormatter
+import java.util.Properties
+import java.util.zip.ZipFile
+
+abstract class ExtractCloudflareSodium : DefaultTask() {
+  @get:InputFile
+  @get:PathSensitive(PathSensitivity.NONE)
+  abstract val archive: RegularFileProperty
+
+  @get:Input
+  abstract val entries: MapProperty<String, String>
+
+  @get:OutputDirectory
+  abstract val outputDirectory: DirectoryProperty
+
+  @TaskAction
+  fun extract() {
+    val source = archive.get().asFile
+    val digest = MessageDigest.getInstance("SHA-256")
+    source.inputStream().use { input ->
+      val buffer = ByteArray(8192)
+      while (true) {
+        val size = input.read(buffer)
+        if (size == -1) break
+        digest.update(buffer, 0, size)
+      }
+    }
+    val checksum = digest.digest().joinToString("") { "%02x".format(it) }
+    check(checksum == "f66eac31ea413c1d5d068b46ade11d3295c86ec9d6cd29ff158ba58ef51db51a") {
+      "The pinned libsodium 1.0.22 archive checksum does not match."
+    }
+    ZipFile(source).use { zip ->
+      val files =
+        entries.get().map { (entry, destination) ->
+          (zip.getEntry(entry)?.takeUnless { it.isDirectory } ?: error("Missing libsodium native entry: $entry")) to destination
+        }
+      val output = outputDirectory.get().asFile
+      // Only this task's generated output is replaced, after every required ABI is validated.
+      if (output.exists()) check(output.deleteRecursively())
+      check(output.mkdirs())
+      files.forEach { (entry, destination) ->
+        val target = output.resolve(destination)
+        check(target.parentFile.isDirectory || target.parentFile.mkdirs())
+        zip.getInputStream(entry).use { input -> target.outputStream().use(input::copyTo) }
+      }
+    }
+  }
+}
+
+abstract class GenerateAppActionsShortcuts : DefaultTask() {
+  @get:Input
+  abstract val applicationId: Property<String>
+
+  @get:OutputDirectory
+  abstract val outputDirectory: DirectoryProperty
+
+  @TaskAction
+  fun generate() {
+    val shortcuts = outputDirectory.file("xml/shortcuts.xml").get().asFile
+    check(shortcuts.parentFile.isDirectory || shortcuts.parentFile.mkdirs())
+    shortcuts.writeText(
+      """
+      <shortcuts xmlns:android="http://schemas.android.com/apk/res/android"
+          xmlns:app="http://schemas.android.com/apk/res-auto">
+          <capability
+              android:name="custom.actions.intent.ASK_OPENCLAW"
+              app:queryPatterns="@array/ask_openclaw_query_patterns">
+              <intent
+                  android:action="ai.openclaw.app.action.ASK_OPENCLAW"
+                  android:targetPackage="${applicationId.get()}"
+                  android:targetClass="ai.openclaw.app.MainActivity">
+                  <parameter
+                      android:name="prompt"
+                      android:key="prompt"
+                      android:mimeType="https://schema.org/Text"
+                      android:required="true" />
+              </intent>
+          </capability>
+      </shortcuts>
+      """.trimIndent() + "\n",
+      Charsets.UTF_8,
+    )
+  }
+}
+
+val dnsjavaInetAddressResolverService = "META-INF/services/java.net.spi.InetAddressResolverProvider"
+val openClawAndroidApplicationId = providers.gradleProperty("openClawAndroidApplicationId").orElse("org.thegeekfreaks.jarvishorizon").get()
+val openClawAndroidVersionFile = rootProject.file("Config/Version.properties")
+val thirdPartyLicensesDir = rootProject.file("THIRD_PARTY_LICENSES")
+val openClawAndroidVersionProperties =
+  Properties().apply {
+    if (!openClawAndroidVersionFile.isFile) {
+      error("Missing Android version properties. Run `pnpm android:version:sync`.")
+    }
+    openClawAndroidVersionFile.inputStream().use(::load)
+  }
+
+fun requireOpenClawAndroidVersionProperty(name: String): String =
+  (providers.gradleProperty(name).orNull ?: openClawAndroidVersionProperties.getProperty(name))?.trim()?.takeIf { it.isNotEmpty() }
+    ?: error("Missing $name in Config/Version.properties. Run `pnpm android:version:sync`.")
+
+val openClawAndroidVersionName = requireOpenClawAndroidVersionProperty("OPENCLAW_ANDROID_VERSION_NAME")
+val openClawAndroidVersionCode =
+  requireOpenClawAndroidVersionProperty("OPENCLAW_ANDROID_VERSION_CODE").toIntOrNull()
+    ?: error("OPENCLAW_ANDROID_VERSION_CODE must be an integer in Config/Version.properties.")
+
+fun optionalOpenClawBuildProperty(name: String): String? =
+  providers
+    .gradleProperty(name)
+    .orNull
+    ?.trim()
+    ?.takeIf { it.isNotEmpty() }
+
+val fullGitCommitPattern = Regex("^[a-f0-9]{40}$")
+val buildTimestampFormatter =
+  DateTimeFormatter.ofPattern("uuuu-MM-dd'T'HH:mm:ss.SSS'Z'").withZone(ZoneOffset.UTC)
+val explicitOpenClawBuildCommit =
+  optionalOpenClawBuildProperty("openclawBuildCommit")
+    ?.lowercase()
+    ?.also { commit ->
+      if (!fullGitCommitPattern.matches(commit)) {
+        error("openclawBuildCommit must be a full 40-character hexadecimal Git commit.")
+      }
+    }
+
+val explicitOpenClawBuildTimestamp =
+  optionalOpenClawBuildProperty("openclawBuildTimestamp")
+    ?.let { timestamp ->
+      if (!Regex("^\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}(?:\\.\\d{1,3})?Z$").matches(timestamp)) {
+        error("openclawBuildTimestamp must be an ISO-8601 UTC timestamp.")
+      }
+      val instant =
+        runCatching { Instant.parse(timestamp) }
+          .getOrElse { error("openclawBuildTimestamp must be an ISO-8601 UTC timestamp.") }
+      buildTimestampFormatter.format(instant)
+    }
+
+val repositoryBuildCommit =
+  if (explicitOpenClawBuildCommit == null) {
+    runCatching {
+      providers
+        .exec {
+          workingDir(rootProject.projectDir)
+          commandLine("git", "rev-parse", "HEAD")
+        }.standardOutput
+        .asText
+        .get()
+        .trim()
+        .lowercase()
+        .takeIf(fullGitCommitPattern::matches)
+    }.getOrNull()
+  } else {
+    null
+  }
+
+val openClawBuildCommit = explicitOpenClawBuildCommit ?: repositoryBuildCommit ?: "unknown"
+// Keep every variant generated by one Gradle invocation on the same build instant.
+val invocationBuildTimestamp =
+  providers.provider { buildTimestampFormatter.format(Instant.now()) }.get()
+val openClawBuildTimestamp = explicitOpenClawBuildTimestamp ?: invocationBuildTimestamp
+
+val androidStoreFile = providers.gradleProperty("OPENCLAW_ANDROID_STORE_FILE").orNull?.takeIf { it.isNotBlank() }
+val androidStorePassword = providers.gradleProperty("OPENCLAW_ANDROID_STORE_PASSWORD").orNull?.takeIf { it.isNotBlank() }
+val androidKeyAlias = providers.gradleProperty("OPENCLAW_ANDROID_KEY_ALIAS").orNull?.takeIf { it.isNotBlank() }
+val androidKeyPassword = providers.gradleProperty("OPENCLAW_ANDROID_KEY_PASSWORD").orNull?.takeIf { it.isNotBlank() }
+val resolvedAndroidStoreFile =
+  androidStoreFile?.let { storeFilePath ->
+    if (storeFilePath.startsWith("~/")) {
+      "${System.getProperty("user.home")}/${storeFilePath.removePrefix("~/")}"
+    } else {
+      storeFilePath
+    }
+  }
+
+val hasAndroidReleaseSigning =
+  listOf(resolvedAndroidStoreFile, androidStorePassword, androidKeyAlias, androidKeyPassword).all { it != null }
+
+plugins {
+  alias(libs.plugins.android.application)
+  alias(libs.plugins.ktlint)
+  alias(libs.plugins.kotlin.compose)
+  alias(libs.plugins.kotlin.serialization)
+  alias(libs.plugins.ksp)
+}
+
+// NuGet is used only as an upstream native artifact container, never as a managed/runtime dependency.
+val cloudflareSodiumArchive =
+  configurations.create("cloudflareSodiumArchive") {
+    isCanBeConsumed = false
+    isCanBeResolved = true
+    isTransitive = false
+  }
+dependencies { add(cloudflareSodiumArchive.name, "nuget:libsodium:1.0.22@nupkg") }
+val extractCloudflareSodium =
+  tasks.register<ExtractCloudflareSodium>("extractCloudflareSodium") {
+    archive.set(layout.file(cloudflareSodiumArchive.elements.map { it.single().asFile }))
+    entries.set(
+      mapOf(
+        "runtimes/android-arm/native/libsodium.so" to "armeabi-v7a/libsodium.so",
+        "runtimes/android-arm64/native/libsodium.so" to "arm64-v8a/libsodium.so",
+        "runtimes/android-x86/native/libsodium.so" to "x86/libsodium.so",
+        "runtimes/android-x64/native/libsodium.so" to "x86_64/libsodium.so",
+      ),
+    )
+    outputDirectory.set(layout.buildDirectory.dir("generated/cloudflare-sodium/jniLibs"))
+  }
+// Select the JVM architecture, including translated JVMs. These files never enter APK sources.
+val sodiumTestHost =
+  when (System.getProperty("os.name") to System.getProperty("os.arch")) {
+    "Linux" to "amd64", "Linux" to "x86_64" -> {
+      "linux-x64" to "libsodium.so"
+    }
+
+    "Mac OS X" to "aarch64", "Mac OS X" to "arm64" -> {
+      "osx-arm64" to "libsodium.dylib"
+    }
+
+    "Mac OS X" to "amd64", "Mac OS X" to "x86_64" -> {
+      "osx-x64" to "libsodium.dylib"
+    }
+
+    else -> {
+      if (System.getProperty("os.name").startsWith("Windows")) {
+        when (System.getProperty("os.arch")) {
+          "amd64", "x86_64" -> "win-x64" to "sodium.dll"
+          "aarch64", "arm64" -> "win-arm64" to "sodium.dll"
+          "x86", "i386" -> "win-x86" to "sodium.dll"
+          else -> null
+        }
+      } else {
+        null
+      }
+    }
+  }
+val extractCloudflareSodiumTest =
+  tasks.register<ExtractCloudflareSodium>("extractCloudflareSodiumTest") {
+    archive.set(layout.file(cloudflareSodiumArchive.elements.map { it.single().asFile }))
+    val (runtime, filename) = checkNotNull(sodiumTestHost) { "No pinned libsodium test library for this JVM host." }
+    val upstreamFilename = if (filename == "sodium.dll") "libsodium.dll" else filename
+    entries.set(mapOf("runtimes/$runtime/native/$upstreamFilename" to filename))
+    outputDirectory.set(layout.buildDirectory.dir("generated/cloudflare-sodium/test-$runtime"))
+  }
+androidComponents.onVariants { variant ->
+  variant.sources.jniLibs?.addGeneratedSourceDirectory(extractCloudflareSodium, ExtractCloudflareSodium::outputDirectory)
+  val variantNameCapitalized = variant.name.replaceFirstChar(Char::titlecase)
+  val generateAppActionsShortcuts =
+    tasks.register<GenerateAppActionsShortcuts>("generate${variantNameCapitalized}AppActionsShortcuts") {
+      applicationId.set(variant.applicationId)
+      outputDirectory.set(layout.buildDirectory.dir("generated/app-actions-shortcuts/${variant.name}/res"))
+    }
+  variant.sources.res?.addGeneratedSourceDirectory(
+    generateAppActionsShortcuts,
+    GenerateAppActionsShortcuts::outputDirectory,
+  )
+}
+
+ksp {
+  arg("room.schemaLocation", "$projectDir/schemas")
+}
+
+android {
+  ndkVersion = "28.2.13676358"
+  externalNativeBuild {
+    ndkBuild {
+      path = file("src/main/cpp/Android.mk")
+    }
+  }
+  namespace = "ai.openclaw.app"
+  // AndroidX Core 1.19 and Lifecycle 2.11 require API 37 compilation.
+  // targetSdk stays separate so runtime behavior changes remain an explicit migration.
+  compileSdk = 37
+
+  // Release signing is local-only; keep the keystore path and passwords out of the repo.
+  signingConfigs {
+    if (hasAndroidReleaseSigning) {
+      create("release") {
+        storeFile = project.file(checkNotNull(resolvedAndroidStoreFile))
+        storePassword = checkNotNull(androidStorePassword)
+        keyAlias = checkNotNull(androidKeyAlias)
+        keyPassword = checkNotNull(androidKeyPassword)
+      }
+    }
+  }
+
+  sourceSets {
+    getByName("main") {
+      assets.directories.add("../../shared/OpenClawKit/Sources/OpenClawKit/Resources")
+      assets.directories.add(rootProject.file("../../ui/public/provider-icons").path)
+      assets.directories.add("../../shared/mermaid/assets")
+      assets.directories.add(thirdPartyLicensesDir.path)
+    }
+  }
+
+  defaultConfig {
+    applicationId = openClawAndroidApplicationId
+    minSdk = 27
+    targetSdk = 36
+    testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
+    versionCode = openClawAndroidVersionCode
+    versionName = openClawAndroidVersionName
+    buildConfigField("String", "GIT_COMMIT", "\"$openClawBuildCommit\"")
+    buildConfigField("String", "BUILD_TIMESTAMP", "\"$openClawBuildTimestamp\"")
+    ndk {
+      // Private wall-terminal builds target the connected ARM devices; general builds retain all ABIs.
+      val targetAbis = providers.gradleProperty("jarvisTargetAbis").orNull?.split(",")
+        ?: listOf("armeabi-v7a", "arm64-v8a", "x86", "x86_64")
+      require(targetAbis.isNotEmpty() && targetAbis.all { it in setOf("armeabi-v7a", "arm64-v8a", "x86", "x86_64") })
+      abiFilters += targetAbis
+    }
+  }
+
+  flavorDimensions += "store"
+
+  productFlavors {
+    create("play") {
+      dimension = "store"
+      manifestPlaceholders["nodeForegroundServiceType"] = "connectedDevice|microphone"
+    }
+    create("thirdParty") {
+      dimension = "store"
+      manifestPlaceholders["nodeForegroundServiceType"] = "connectedDevice|microphone|location"
+    }
+  }
+
+  buildTypes {
+    release {
+      if (hasAndroidReleaseSigning) {
+        signingConfig = signingConfigs.getByName("release")
+      }
+      isMinifyEnabled = true
+      isShrinkResources = true
+      ndk {
+        debugSymbolLevel = "SYMBOL_TABLE"
+      }
+      proguardFiles(getDefaultProguardFile("proguard-android-optimize.txt"), "proguard-rules.pro")
+    }
+    debug {
+      applicationIdSuffix = ".debug"
+      versionNameSuffix = "-debug"
+      isMinifyEnabled = false
+    }
+    create("device") {
+      // Preserve the private installation identity while allowing ART to compile device code.
+      initWith(getByName("debug"))
+      isDebuggable = false
+      isMinifyEnabled = true
+      isShrinkResources = true
+      proguardFiles(getDefaultProguardFile("proguard-android-optimize.txt"), "proguard-rules.pro")
+      matchingFallbacks += "debug"
+    }
+  }
+
+  testBuildType = providers.gradleProperty("jarvisTestBuildType").getOrElse("debug").also {
+    require(it in setOf("debug", "device"))
+  }
+
+  bundle {
+    language {
+      // The in-app picker can select a locale outside the device language list.
+      // Without a Play Core download path, every translated resource must stay installed.
+      enableSplit = false
+    }
+  }
+
+  buildFeatures {
+    compose = true
+    buildConfig = true
+  }
+
+  androidResources {
+    generateLocaleConfig = true
+    localeFilters +=
+      listOf(
+        "ar",
+        "de",
+        "en",
+        "es",
+        "fa",
+        "fr",
+        "hi",
+        "in",
+        "it",
+        "ja",
+        "ko",
+        "nl",
+        "pl",
+        "pt-rBR",
+        "ru",
+        "sv",
+        "th",
+        "tr",
+        "uk",
+        "vi",
+        "zh-rCN",
+        "zh-rTW",
+      )
+  }
+
+  compileOptions {
+    sourceCompatibility = JavaVersion.VERSION_17
+    targetCompatibility = JavaVersion.VERSION_17
+  }
+
+  packaging {
+    resources {
+      excludes +=
+        setOf(
+          "/META-INF/{AL2.0,LGPL2.1}",
+          "/META-INF/*.version",
+          "/META-INF/LICENSE*.txt",
+          "DebugProbesKt.bin",
+          "kotlin-tooling-metadata.json",
+          "org/bouncycastle/pqc/legacy/picnic/lowmcL1.bin.properties",
+          "org/bouncycastle/pqc/legacy/picnic/lowmcL3.bin.properties",
+          "org/bouncycastle/pqc/legacy/picnic/lowmcL5.bin.properties",
+          "org/bouncycastle/x509/CertPathReviewerMessages*.properties",
+        )
+    }
+  }
+
+  lint {
+    lintConfig = file("lint.xml")
+    warningsAsErrors = true
+  }
+
+  testOptions {
+    unitTests.isIncludeAndroidResources = true
+  }
+}
+
+androidComponents {
+  val adbExecutable = sdkComponents.adb
+  onVariants { variant ->
+    variant.outputs
+      .filterIsInstance<VariantOutputImpl>()
+      .forEach { output ->
+        val versionName = output.versionName.orNull ?: "0"
+        val buildType = variant.buildType
+        val flavorName = variant.flavorName?.takeIf { it.isNotBlank() }
+        val outputFileName =
+          if (flavorName == null) {
+            "openclaw-$versionName-$buildType.apk"
+          } else {
+            "openclaw-$versionName-$flavorName-$buildType.apk"
+          }
+        output.outputFileName = outputFileName
+      }
+
+    if (variant.buildType == "debug" || variant.buildType == "device") {
+      val variantNameCapitalized = variant.name.replaceFirstChar(Char::titlecase)
+      tasks.register<Exec>("run$variantNameCapitalized") {
+        group = "install"
+        description = "Installs and launches the ${variant.name} app."
+        dependsOn("install$variantNameCapitalized")
+        commandLine(
+          adbExecutable.get().asFile.absolutePath,
+          "shell",
+          "am",
+          "start",
+          "-W",
+          "-n",
+          "${variant.applicationId.get()}/ai.openclaw.app.MainActivity",
+        )
+      }
+    }
+  }
+}
+kotlin {
+  compilerOptions {
+    jvmTarget.set(org.jetbrains.kotlin.gradle.dsl.JvmTarget.JVM_17)
+    allWarningsAsErrors.set(true)
+  }
+}
+
+ktlint {
+  version.set(libs.versions.ktlint.cli)
+  android.set(true)
+  ignoreFailures.set(false)
+  filter {
+    exclude("**/build/**")
+  }
+}
+
+dependencies {
+  val composeBom = platform(libs.androidx.compose.bom)
+  implementation(composeBom)
+  androidTestImplementation(composeBom)
+
+  implementation(project(":wear-shared"))
+  implementation(libs.play.services.wearable)
+
+  implementation(libs.androidx.core.ktx)
+  // AppCompat owns per-app locale persistence and Activity recreation on API 31-32.
+  implementation(libs.androidx.appcompat)
+  implementation(libs.androidx.lifecycle.runtime.ktx)
+  implementation(libs.androidx.activity.compose)
+  implementation(libs.androidx.webkit)
+  implementation(libs.androidx.window)
+
+  implementation(libs.androidx.compose.ui)
+  implementation(libs.androidx.compose.ui.tooling.preview)
+  implementation(libs.androidx.compose.material3)
+  // material-icons-extended pulled in full icon set (~20 MB DEX). Only ~18 icons used.
+  // R8 will tree-shake unused icons when minify is enabled on release builds.
+  implementation(libs.androidx.compose.material.icons.extended)
+
+  debugImplementation(libs.androidx.compose.ui.tooling)
+
+  // Material Components (XML theme + resources)
+  implementation(libs.material)
+
+  implementation(libs.kotlinx.coroutines.android)
+  implementation(libs.kotlinx.serialization.json)
+  implementation(libs.vosk.android)
+  implementation(files("libs/sherpa-onnx-1.13.8-jarvis-clock1.aar"))
+  implementation(libs.webrtc.android)
+
+  implementation(libs.androidx.security.crypto)
+  // Room owns separate disposable gateway cache and durable client-state databases.
+  implementation(libs.androidx.room.runtime)
+  ksp(libs.androidx.room.compiler)
+  implementation(libs.androidx.exifinterface)
+  implementation(libs.okhttp)
+  implementation(libs.media3.datasource.okhttp)
+  implementation(libs.media3.exoplayer)
+  implementation(libs.media3.exoplayer.hls)
+  implementation(libs.media3.session)
+  implementation(libs.media3.ui)
+  implementation(libs.bcprov)
+  implementation("${libs.jna.get()}@aar")
+  implementation(libs.coil.compose)
+  implementation(libs.coil.svg)
+  implementation(libs.commonmark)
+  implementation(libs.commonmark.ext.autolink)
+  implementation(libs.commonmark.ext.gfm.strikethrough)
+  implementation(libs.commonmark.ext.gfm.tables)
+  implementation(libs.commonmark.ext.task.list.items)
+
+  // CameraX (for node.invoke camera.* parity)
+  implementation(libs.androidx.camera.core)
+  implementation(libs.androidx.camera.camera2)
+  implementation(libs.androidx.camera.lifecycle)
+  implementation(libs.androidx.camera.view)
+  implementation(libs.androidx.camera.video)
+  implementation(libs.barcode.scanning)
+
+  // Unicast DNS-SD (Wide-Area Bonjour) for tailnet discovery domains.
+  implementation(libs.dnsjava)
+
+  testImplementation(libs.junit)
+  testImplementation(libs.kotlinx.coroutines.test)
+  testImplementation(libs.mockwebserver)
+  testImplementation(libs.robolectric)
+  testImplementation(libs.androidx.compose.ui.test.junit4)
+  testRuntimeOnly(libs.junit.platform.launcher)
+  testRuntimeOnly(libs.junit.vintage.engine)
+  // The Android AAR has bionic dispatch; JVM vectors need the same-version host dispatch JAR.
+  testRuntimeOnly("${libs.jna.get()}@jar")
+
+  androidTestImplementation(libs.androidx.test.ext.junit)
+  androidTestImplementation(libs.androidx.test.runner)
+  androidTestImplementation(libs.androidx.uiautomator)
+}
+
+tasks.withType<Test>().configureEach {
+  useJUnitPlatform()
+  // This platform fixture is loaded by Robolectric, not by JUnit's unsandboxed test discovery.
+  exclude("**/ControlUiAuthWebViewShadow.class")
+  if (sodiumTestHost != null) {
+    dependsOn(extractCloudflareSodiumTest)
+    val nativeDirectory = extractCloudflareSodiumTest.flatMap { it.outputDirectory }
+    inputs.dir(nativeDirectory)
+    systemProperty("jna.library.path", nativeDirectory.get().asFile.absolutePath)
+    systemProperty(
+      "openclaw.sodium.test.library",
+      nativeDirectory
+        .get()
+        .file(sodiumTestHost.second)
+        .asFile.absolutePath,
+    )
+  }
+  testLogging {
+    events("failed")
+    exceptionFormat = org.gradle.api.tasks.testing.logging.TestExceptionFormat.FULL
+  }
+}
+
+val validateOpenClawReleaseSigning =
+  tasks.register("validateOpenClawReleaseSigning") {
+    val signingConfigured = hasAndroidReleaseSigning
+    doLast {
+      check(signingConfigured) {
+        "Missing Android release signing properties. Set OPENCLAW_ANDROID_STORE_FILE, " +
+          "OPENCLAW_ANDROID_STORE_PASSWORD, OPENCLAW_ANDROID_KEY_ALIAS, and " +
+          "OPENCLAW_ANDROID_KEY_PASSWORD in ~/.gradle/gradle.properties."
+      }
+    }
+  }
+
+val validateOpenClawReleaseBuildMetadata =
+  tasks.register("validateOpenClawReleaseBuildMetadata") {
+    val metadataProvided =
+      explicitOpenClawBuildCommit != null && explicitOpenClawBuildTimestamp != null
+    doLast {
+      check(metadataProvided) {
+        "Android release builds require -PopenclawBuildCommit and -PopenclawBuildTimestamp. " +
+          "Use the repository Android release helper."
+      }
+    }
+  }
+
+val validateThirdPartyLicenseAssets =
+  tasks.register("validateThirdPartyLicenseAssets") {
+    val licensesDir = thirdPartyLicensesDir
+    val licensesPath = licensesDir.relativeTo(rootProject.projectDir).path
+    inputs.dir(licensesDir)
+    doLast {
+      if (!licensesDir.isDirectory) {
+        error("Missing Android third-party license directory: $licensesPath")
+      }
+      val invalidFiles =
+        licensesDir
+          .walkTopDown()
+          .filter { file -> file.isFile && file.extension.lowercase() != "txt" }
+          .map { file -> file.relativeTo(licensesDir).path }
+          .toList()
+
+      if (invalidFiles.isNotEmpty()) {
+        error(
+          "Android third-party license assets must be .txt files:\n" +
+            invalidFiles.joinToString(separator = "\n") { path -> "- $path" },
+        )
+      }
+    }
+  }
+
+val generateMermaidAssets =
+  tasks.register<Exec>("generateMermaidAssets") {
+    val repositoryRoot = rootProject.projectDir.resolve("../..").canonicalFile
+    workingDir(repositoryRoot)
+    commandLine(if (System.getProperty("os.name").startsWith("Windows")) "pnpm.cmd" else "pnpm", "--dir", "packages/mermaid-renderer", "build")
+    inputs
+      .files(
+        fileTree(repositoryRoot.resolve("packages/mermaid-renderer")) {
+          exclude("node_modules/**", "dist/**")
+        },
+        fileTree(repositoryRoot.resolve("packages/normalization-core")) {
+          include("src/**", "package.json")
+        },
+        repositoryRoot.resolve("tsconfig.json"),
+      ).withPathSensitivity(PathSensitivity.RELATIVE)
+    inputs.file(repositoryRoot.resolve("pnpm-lock.yaml"))
+    outputs.dir(repositoryRoot.resolve("apps/shared/mermaid/assets/mermaid"))
+  }
+
+tasks.matching { task -> task.name == "preBuild" }.configureEach {
+  dependsOn(validateThirdPartyLicenseAssets, generateMermaidAssets)
+}
+
+tasks.matching { task -> task.name.startsWith("merge") && task.name.endsWith("Assets") }.configureEach {
+  dependsOn(generateMermaidAssets)
+}
+
+androidComponents {
+  onVariants(selector().withBuildType("release")) { variant ->
+    // Validate the selected variant graph, not task arguments that can also contain "Release".
+    variant.lifecycleTasks.registerPreBuild(validateOpenClawReleaseSigning, validateOpenClawReleaseBuildMetadata)
+    val variantName = variant.name
+    val variantNameCapitalized = variantName.replaceFirstChar(Char::titlecase)
+    val stripTaskName = "strip${variantNameCapitalized}DnsjavaServiceDescriptor"
+    val mergeTaskName = "merge${variantNameCapitalized}JavaResource"
+    val minifyTaskName = "minify${variantNameCapitalized}WithR8"
+    val mergedJar =
+      layout.buildDirectory.file(
+        "intermediates/merged_java_res/$variantName/$mergeTaskName/base.jar",
+      )
+
+    val stripTask =
+      tasks.register(stripTaskName) {
+        inputs.file(mergedJar)
+        outputs.file(mergedJar)
+
+        doLast {
+          val jarFile = mergedJar.get().asFile
+          if (!jarFile.exists()) {
+            return@doLast
+          }
+
+          val unpackDir = temporaryDir.resolve("merged-java-res")
+          delete(unpackDir)
+          copy {
+            from(zipTree(jarFile))
+            into(unpackDir)
+            exclude(dnsjavaInetAddressResolverService)
+          }
+          delete(jarFile)
+          ant.invokeMethod(
+            "zip",
+            mapOf(
+              "destfile" to jarFile.absolutePath,
+              "basedir" to unpackDir.absolutePath,
+            ),
+          )
+        }
+      }
+
+    tasks.matching { it.name == mergeTaskName }.configureEach {
+      finalizedBy(stripTask)
+    }
+    tasks.matching { it.name == minifyTaskName }.configureEach {
+      dependsOn(stripTask)
+    }
+  }
+}

@@ -1,0 +1,29 @@
+[Unit]
+Description=Jarvis Horizon portrait Chromium kiosk
+After=jarvis-mirror.service systemd-logind.service
+Wants=jarvis-mirror.service systemd-logind.service
+
+[Service]
+Type=simple
+User=dietpi
+Group=dietpi
+PAMName=login
+Environment=HOME=/home/dietpi
+Environment=XDG_RUNTIME_DIR=/run/user/1000
+TTYPath=/dev/tty7
+StandardInput=tty
+TTYReset=yes
+TTYVHangup=yes
+StandardOutput=journal
+StandardError=journal
+ExecStartPre=+/usr/bin/chvt 7
+ExecStartPre=/bin/sh -c 'for i in $(seq 1 30); do test -S /run/user/1000/pipewire-0 && exit 0; sleep 1; done; exit 0'
+ExecStart=/usr/bin/startx /opt/jarvis-mirror/bin/kiosk-session.sh -- :0 vt7 -nolisten tcp -nocursor
+# PAM moves X clients into the login session scope; terminate xinit explicitly.
+ExecStop=-/usr/bin/pkill -TERM -P $MAINPID
+TimeoutStopSec=12
+Restart=always
+RestartSec=3
+
+[Install]
+WantedBy=multi-user.target

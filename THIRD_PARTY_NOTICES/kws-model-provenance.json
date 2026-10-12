@@ -1,0 +1,10 @@
+{
+  "source": "https://modelscope.cn/api/v1/models/pkufool/icefall-kws-zipformer-zh-en-3M-2025-12-20",
+  "checkedOn": "2026-10-12",
+  "model": "pkufool/icefall-kws-zipformer-zh-en-3M-2025-12-20",
+  "revision": "master",
+  "license": "Apache License 2.0",
+  "publisher": "pkufool",
+  "readmeLicenseField": "Apache License 2.0",
+  "notes": "Publisher model metadata and README declare Apache License 2.0. This records the declaration; it is not a training-data audit. Bundled file digests are recorded in ASSET_LOCK.json and pi/assets.lock.json."
+}

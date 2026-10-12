@@ -1,0 +1,8 @@
+# Preserve reviewed bytes across the source export and asset lock.
+* -text
+*.sh text eol=lf
+*.png binary
+*.wav binary
+*.onnx binary
+*.aar binary
+*.woff2 binary

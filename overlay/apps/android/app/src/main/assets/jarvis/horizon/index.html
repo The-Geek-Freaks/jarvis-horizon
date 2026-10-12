@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="de"><head><meta charset="utf-8"><meta id="jarvis-viewport" name="viewport" content="width=960,height=480,user-scalable=no"><script>(function(){
+  var root=document.documentElement;
+  if(/[?&]backdrop=cached(?:&|$)/.test(location.search))root.classList.add('cached-backdrop');
+  if(!/[?&]layout=adaptive(?:&|$)/.test(location.search))return;
+  root.classList.add('adaptive');
+  document.getElementById('jarvis-viewport').setAttribute('content','width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no');
+  function fit(){
+    var w=Math.round(window.innerWidth||0),h=Math.round(window.innerHeight||0);
+    if(w>0)root.style.setProperty('--jarvis-vw',w+'px');
+    if(h>0)root.style.setProperty('--jarvis-vh',h+'px');
+    root.classList.toggle('adaptive-portrait',h>=w);
+    root.classList.toggle('adaptive-landscape',w>h);
+  }
+  fit();
+  window.addEventListener('resize',fit,false);
+  window.addEventListener('orientationchange',function(){setTimeout(fit,0);},false);
+  window.addEventListener('load',fit,false);
+  requestAnimationFrame(fit);
+}());</script><link rel="stylesheet" href="css/jarvis-horizon.css"><link rel="stylesheet" href="css/caption-overrides.css"></head>
+<body><main id="viewport"><section id="horizon" data-mode="boot" aria-label="Jarvis Horizon Anzeige">
+  <div class="sky"></div><div class="grid"></div><div class="stars"></div><div class="nebula"></div>
+  <svg class="network" viewBox="0 0 960 480" aria-hidden="true"><g class="orbits"><ellipse cx="636" cy="228" rx="330" ry="118"/><ellipse cx="636" cy="228" rx="430" ry="168"/></g><g class="edges"><path d="M150 92L300 120L380 64L470 38L700 24L822 58L902 140L932 262L882 350L780 374L520 366L420 330L360 248L282 300L110 362L60 210L210 182L300 120M360 248L420 330M210 182L60 210M470 38L300 120M380 64L560 140L700 24"/></g><g class="spokes"><path d="M470 38L510 83M822 58L778 98M932 262L827 250M420 330L462 310M600 300L550 400"/></g><g class="nodes"><circle cx="150" cy="92"/><circle cx="300" cy="120"/><circle cx="380" cy="64"/><circle class="gold" cx="470" cy="38"/><circle cx="700" cy="24"/><circle cx="822" cy="58"/><circle cx="902" cy="140"/><circle class="gold" cx="932" cy="262"/><circle cx="882" cy="350"/><circle cx="780" cy="374"/><circle cx="520" cy="366"/><circle class="gold" cx="420" cy="330"/><circle cx="360" cy="248"/><circle cx="282" cy="300"/><circle cx="110" cy="362"/><circle cx="60" cy="210"/><circle class="gold" cx="600" cy="300"/><circle cx="560" cy="140"/><circle cx="210" cy="182"/></g></svg>
+  <i class="corner tl"></i><i class="corner tr"></i><header><div class="brand"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle cx="12" cy="12" r="6" stroke="#f6c878" stroke-width="1.2"/><ellipse cx="12" cy="12" rx="11" ry="3.8" transform="rotate(-24 12 12)" stroke="#62b8ff" stroke-width="1"/><circle cx="12" cy="12" r="1.6" fill="#ffe1ac"/></svg><span>JARVIS</span></div><div class="island"><div class="island-slot active" id="island-a"><i></i><b>SYSTEMSTART</b><span>prüfe dienste</span></div><div class="island-slot" id="island-b"><i></i><b></b><span></span></div><div class="toast" id="toast"></div></div><div class="chrome"><div class="mini-player" id="mini-player" hidden><em></em><em></em><em></em><em></em><span id="mini-title"></span></div><span class="mic" id="mic"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><rect x="9" y="3" width="6" height="11" rx="3"/><path d="M5.5 11a6.5 6.5 0 0 0 13 0M12 17.5V21"/></svg></span><span class="node"><i></i>node-01</span></div></header>
+  <div class="privacy"></div>
+  <section class="clock"><time id="clock">--:--</time><div class="seconds"><i id="seconds"></i></div></section>
+  <section class="meta"><span id="date">Wird aktualisiert</span><span id="weather-line"><b>—</b><span>Wetter wird aktualisiert</span></span></section>
+  <section class="next" id="next-event" hidden><label>ALS NÄCHSTES</label><div><time></time><strong></strong></div><span></span><i></i></section>
+  <div class="orb-wrap"><div class="orb-fallback"><span></span></div><canvas id="orb"></canvas></div>
+  <section id="stage" class="stage" data-type="" aria-live="polite"><div class="stage-head"><label id="stage-label"></label><span id="stage-meta"></span><small id="stage-source"></small></div><div id="stage-body"></div><div class="hints" id="stage-hints"></div><i class="ttl" id="tile-ttl"></i></section>
+  <svg class="horizon-line" viewBox="0 0 960 120" aria-hidden="true"><defs><linearGradient id="hz" x1="0" x2="1"><stop stop-color="#62b8ff" stop-opacity="0"/><stop offset=".22" stop-color="#62b8ff" stop-opacity=".55"/><stop offset=".5" stop-color="#fff4dc"/><stop offset=".78" stop-color="#62b8ff" stop-opacity=".55"/><stop offset="1" stop-color="#62b8ff" stop-opacity="0"/></linearGradient><linearGradient id="planet" x2="0" y2="1"><stop stop-color="#0a1626"/><stop offset=".35" stop-color="#050a12"/><stop offset="1" stop-color="#030406"/></linearGradient></defs><path d="M0 70Q480 10 960 70V120H0Z" fill="url(#planet)"/><path d="M0 70Q480 10 960 70" class="haze"/><path d="M0 70Q480 10 960 70" class="mid"/><path d="M0 70Q480 10 960 70" class="arc"/><path d="M0 77Q480 17 960 77" class="dots"/></svg><div class="flare"></div>
+  <section class="caption" id="caption" hidden><div class="caption-top"><b id="caption-speaker">DU</b><div class="bars"><i></i><i></i><i></i><i></i></div></div><div class="caption-layers"><p class="caption-layer user" id="caption-user"></p><p class="caption-layer jarvis" id="caption-jarvis"></p></div><span class="scan"></span></section>
+  <section class="services" id="services" hidden></section><section class="night" id="night" aria-hidden="true"></section>
+  <section class="galactic-saver" id="galactic-saver" aria-live="polite" aria-label="Nachtanzeige" hidden><canvas id="galactic-saver-canvas" aria-hidden="true"></canvas><div class="galactic-saver-copy"><time id="galactic-saver-time">--:--</time><span id="galactic-saver-date"></span></div><section class="galactic-saver-event" id="galactic-saver-event" hidden><span>NÄCHSTER TERMIN</span><div><time></time><strong></strong></div><small></small></section><p class="galactic-saver-empty" id="galactic-saver-empty" hidden>Keine Termine verfügbar</p></section>
+</section></main><script src="js/jarvis-orb.js"></script><script src="js/app.js"></script><script src="js/galactic-saver.js"></script></body></html>

@@ -1,0 +1,23 @@
+{
+  "format": 1,
+  "upstream": {
+    "repository": "https://github.com/openclaw/openclaw.git",
+    "commit": "03619565f017820a090f3fbf9b6571b3c8a3d3da"
+  },
+  "overlayFiles": 141,
+  "excluded": [
+    "Private production Git history and configuration",
+    "Raw recordings and camera captures; three original generated chimes are included",
+    "Build checkouts, generated output, caches, local validation and signing material"
+  ],
+  "deferredFrozenFiles": [],
+  "sherpaClock1": {
+    "sourceCommit": "11afbd009a7f8c08f4bcf2fc1b265d0df4670fbf",
+    "derivedAarSha256": "43f894bedb548210f098dcc0fb2b8c52e1ff576354b8ed53db05840e07015b74",
+    "officialAarSha256": "633c24321e06b1fe79feafa03ea16cbc0f8a286641e2da3559bac91bdb13bd96"
+  },
+  "bundledCustomAar": "third_party/sherpa-clock1/sherpa-onnx-1.13.8-jarvis-clock1.aar",
+  "snapshotHash": "612071239d48d7463a8d57b74d1e2a8d7bff73ddbbd561bce18a80aca7accfa6",
+  "payloadFiles": 351,
+  "snapshotHashAlgorithm": "SHA-256 of UTF-8 sorted payload path + NUL + lowercase SHA-256 + LF; excludes the two integrity metadata files"
+}

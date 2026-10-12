@@ -1,0 +1,1786 @@
+{
+  "format": 1,
+  "customSherpaAar": {
+    "path": "third_party/sherpa-clock1/sherpa-onnx-1.13.8-jarvis-clock1.aar",
+    "bytes": 49175570,
+    "sha256": "43f894bedb548210f098dcc0fb2b8c52e1ff576354b8ed53db05840e07015b74",
+    "license": "Apache-2.0",
+    "sourceCommit": "11afbd009a7f8c08f4bcf2fc1b265d0df4670fbf",
+    "patch": "keyword-frame-offset-clock1.patch"
+  },
+  "publicGeneratedAcknowledgementTones": [
+    {
+      "path": "overlay/apps/android/app/src/main/assets/jarvis/wake/bin_da.wav",
+      "sha256": "55401ea39735e505f0b4df6db217cbed8cb24dc6d28929bdc3df133c0ecf88a6",
+      "license": "Original generated tone"
+    },
+    {
+      "path": "overlay/apps/android/app/src/main/assets/jarvis/wake/ja_boss.wav",
+      "sha256": "1b9f7e5b51ee7dc74dee13c0f3403579e55ca8db794f50654dd51e7217a6985f",
+      "license": "Original generated tone"
+    },
+    {
+      "path": "overlay/apps/android/app/src/main/assets/jarvis/wake/was_gibts.wav",
+      "sha256": "4f71aa2853cd9d018cea282cf98ce0aca66d9ae6f6b11aa7ad22f8bef16a26aa",
+      "license": "Original generated tone"
+    }
+  ],
+  "payloads": [
+    {
+      "path": ".gitattributes",
+      "bytes": 160,
+      "sha256": "2b53e6e30d9018786b9b84bc97c0b93746fc29b4c1ce2e37d0baee682f95abff"
+    },
+    {
+      "path": ".github/ISSUE_TEMPLATE/bug_report.md",
+      "bytes": 543,
+      "sha256": "8e13c167913929178f3bfc60f7e8e2aa7e02215da1b883f4aab24504bfc5a700"
+    },
+    {
+      "path": ".github/ISSUE_TEMPLATE/feature_request.md",
+      "bytes": 274,
+      "sha256": "67481162a9adfeda069d526b72635aead28042ba660fcbda5e0f4cc9008ac154"
+    },
+    {
+      "path": ".github/workflows/public-validation.yml",
+      "bytes": 4765,
+      "sha256": "13db1f1e50ccfd50139c2d4776db000f3c0be391509661f9d39d4dbefcbb23db"
+    },
+    {
+      "path": ".gitignore",
+      "bytes": 528,
+      "sha256": "3c1736bc22072f48d15ece8407b68a63fee64efa65a65ace9f9fe826c9889f6f"
+    },
+    {
+      "path": "CONTRIBUTING.md",
+      "bytes": 1174,
+      "sha256": "bbe9dfd0fd2202065064028a7142443017f18ddd0e89450f3fd034e1fadd2e1e"
+    },
+    {
+      "path": "LICENSE",
+      "bytes": 1277,
+      "sha256": "e56de70d92968fefef682a6bbda6995bd52093f2c7d0a38816138f085eafe57a"
+    },
+    {
+      "path": "PRODUCT.md",
+      "bytes": 2539,
+      "sha256": "8458c9b2719f51fd2c300e6a9a5ff1197243f27e3743c9231abe032add887852"
+    },
+    {
+      "path": "Prepare-AndroidSource.ps1",
+      "bytes": 1743,
+      "sha256": "0275e199fc575c2103d7c0c5fc6309740c3b172ab745df11cbca9e6d72c225b6"
+    },
+    {
+      "path": "README.de.md",
+      "bytes": 9397,
+      "sha256": "d9bd0faeb437a40e3a348cec2ec794db74a1859df944d49a3123db63929e1655"
+    },
+    {
+      "path": "README.md",
+      "bytes": 8789,
+      "sha256": "7696a4185268e61462d500926b4bcb921e924c19e71dd5ea8c4965f9e27e8543"
+    },
+    {
+      "path": "THIRD_PARTY_NOTICES.md",
+      "bytes": 1537,
+      "sha256": "21bf0f08395beabc3bf1f30cd21b3a7fbdb70bdfdbf6ad4c4749dda5d2d293c8"
+    },
+    {
+      "path": "THIRD_PARTY_NOTICES/android/Accompanist Drawable Painter.txt",
+      "bytes": 11524,
+      "sha256": "e3aff3e270b7b582b6796f15feaabfcd0ff751e13a3f032ba3815d39e96c416f"
+    },
+    {
+      "path": "THIRD_PARTY_NOTICES/android/AndroidSVG.txt",
+      "bytes": 11488,
+      "sha256": "6c1ab18f8b0bfc6f97a65ee41ad16ed44b9a0152287f42aeddc67332a547f8df"
+    },
+    {
+      "path": "THIRD_PARTY_NOTICES/android/AndroidX CameraX.txt",
+      "bytes": 10472,
+      "sha256": "dd523e6eeb5ace9d7e9c9d6e7cae86c8821b03196cf207cb2327f41cef0feccb"
+    },
+    {
+      "path": "THIRD_PARTY_NOTICES/android/AndroidX Compose.txt",
+      "bytes": 464,
+      "sha256": "c4207649bf955b3ba48d70e64561be6b38680fe23b668168215ece8920a4feda"
+    },
+    {
+      "path": "THIRD_PARTY_NOTICES/android/AndroidX Media3.txt",
+      "bytes": 644,
+      "sha256": "9f7bf1a26c0900656fab5d0b1ba6aadf56b4de133583cd7a6a54478170f27e49"
+    },
+    {
+      "path": "THIRD_PARTY_NOTICES/android/AndroidX Room.txt",
+      "bytes": 10288,
+      "sha256": "8595c8ca76756063c206dd82f975d6d2042848ce56046210e5fcd1bb30f90537"
+    },
+    {
+      "path": "THIRD_PARTY_NOTICES/android/AndroidX SQLite.txt",
+      "bytes": 10320,
+      "sha256": "892a37091f9b36f30f333487c88e28a2c0a2898b745cb4903e62da4f11de07f8"
+    },
+    {
+      "path": "THIRD_PARTY_NOTICES/android/AndroidX Wear.txt",
+      "bytes": 727,
+      "sha256": "2db962d77298c517bb6146965c23af3074bca1be711ff72b2ef3ef3c5c3ae070"
+    },
+    {
+      "path": "THIRD_PARTY_NOTICES/android/AndroidX WindowManager.txt",
+      "bytes": 492,
+      "sha256": "475b54944829e7936c0641701d0bcbd6824f56a7469d9ef1e05a089ec38d86f6"
+    },
+    {
+      "path": "THIRD_PARTY_NOTICES/android/Bouncy Castle Provider.txt",
+      "bytes": 1238,
+      "sha256": "046b24f2b0fe883e8c934a6ba99244dcdd2d952ef83a70e807aea62d5cfd5741"
+    },
+    {
+      "path": "THIRD_PARTY_NOTICES/android/Chevrotain.txt",
+      "bytes": 11524,
+      "sha256": "895a0e18bde71ea015e6e5513eb077a6e4c34711f92112cb4679c81c24636bb0"
+    },
+    {
+      "path": "THIRD_PARTY_NOTICES/android/CodexBar.txt",
+      "bytes": 1246,
+      "sha256": "0bdc061b39236d3d69843f56817b9fe3de90ecf71d92e3da80c6672c89350589"
+    },
+    {
+      "path": "THIRD_PARTY_NOTICES/android/Coil.txt",
+      "bytes": 664,
+      "sha256": "b69847cc1f15d10b7ef59779a585bcd0a171b6d5750c3a8449c9e3308d478e7e"
+    },
+    {
+      "path": "THIRD_PARTY_NOTICES/android/CommonMark Java.txt",
+      "bytes": 1560,
+      "sha256": "0ee0d88634dd85d1b509e5d87715d221145a6aa19d61e72f50254bebb411b37d"
+    },
+    {
+      "path": "THIRD_PARTY_NOTICES/android/DOMPurify.txt",
+      "bytes": 28085,
+      "sha256": "bc69767687b87431dbb3fda20fbba8a4ff32ef2d4f28c5c7e489c0fdcdd5a16b"
+    },
+    {
+      "path": "THIRD_PARTY_NOTICES/android/Iconify Utils.txt",
+      "bytes": 1084,
+      "sha256": "56fc930ed22382ada309ec7437ad44cfd6c3ac91fe4459fdfb5ffb4701edbde8"
+    },
+    {
+      "path": "THIRD_PARTY_NOTICES/android/JNA.txt",
+      "bytes": 10140,
+      "sha256": "bb28c48e3e078166e91cfc2b6db7ffebb8a0973b9e23b3df060561292d8d69ec"
+    },
+    {
+      "path": "THIRD_PARTY_NOTICES/android/JamaJS.txt",
+      "bytes": 11954,
+      "sha256": "62b4848039dc4cc1f78465f037733de48cfd53cab8d2491ca7c3a1c7253cfeff"
+    },
+    {
+      "path": "THIRD_PARTY_NOTICES/android/JetBrains Mono.txt",
+      "bytes": 4399,
+      "sha256": "b2fe5e8987594e9ffd1d2ca52a2f5d73eb8335243893c5d6254b5ad69269591d"
+    },
+    {
+      "path": "THIRD_PARTY_NOTICES/android/KaTeX.txt",
+      "bytes": 5331,
+      "sha256": "7293a3d99b1734ec706744e12fd86c702fb01e5d0ae60074bcfa97b97029434b"
+    },
+    {
+      "path": "THIRD_PARTY_NOTICES/android/Kotlin Libraries.txt",
+      "bytes": 10417,
+      "sha256": "625ea10986fcd3a9edacb900c0a3958047dc31e7b2a245751355707247eda76b"
+    },
+    {
+      "path": "THIRD_PARTY_NOTICES/android/Langium.txt",
+      "bytes": 1131,
+      "sha256": "336a918b1dc4072b6d2e3365bad9fe11104b968720a6e0de75484fdbdf61069f"
+    },
+    {
+      "path": "THIRD_PARTY_NOTICES/android/Lobe Icons.txt",
+      "bytes": 1216,
+      "sha256": "35497b273f3a122894c3da2cd76f70d9aae40542f71de771161a493f7b7683f5"
+    },
+    {
+      "path": "THIRD_PARTY_NOTICES/android/Lucide.txt",
+      "bytes": 3208,
+      "sha256": "b495047bd93a9b06913511076f504daba17d5bbeb3e0650f3bb53a4220329c57"
+    },
+    {
+      "path": "THIRD_PARTY_NOTICES/android/Manrope.txt",
+      "bytes": 4384,
+      "sha256": "e01b637272e0cbdfb240184dd98ea5cc671556d9894dae2668d92ab2c906787c"
+    },
+    {
+      "path": "THIRD_PARTY_NOTICES/android/Markdown.txt",
+      "bytes": 1497,
+      "sha256": "407f1930d2e88d01afb79eb2d7748bc454f58329a8e0216d689a5c1380f1349e"
+    },
+    {
+      "path": "THIRD_PARTY_NOTICES/android/Marked.txt",
+      "bytes": 1157,
+      "sha256": "193bc270ee8af2f44362bf98483793b453498fed30512535e717f438411039cd"
+    },
+    {
+      "path": "THIRD_PARTY_NOTICES/android/Mermaid Parser.txt",
+      "bytes": 1194,
+      "sha256": "77699413cf7425a367e864a046352702c24f4703751cc32c0c7378fccd645f69"
+    },
+    {
+      "path": "THIRD_PARTY_NOTICES/android/Mermaid.txt",
+      "bytes": 1089,
+      "sha256": "ec9fb67dcb25eccc416ed56e1aab819222c805a2a4bfe4cb19e7556bf2ffde80"
+    },
+    {
+      "path": "THIRD_PARTY_NOTICES/android/ONNX Runtime.txt",
+      "bytes": 1218,
+      "sha256": "d8f78cd32c613a8971d23aa0e508dcef05fd69e6520af4276afdfc9692eadc53"
+    },
+    {
+      "path": "THIRD_PARTY_NOTICES/android/OkHttp and Okio.txt",
+      "bytes": 10351,
+      "sha256": "fd0f927215cfc8c580ad1e786b27f60091057a05438505d047230df5ce7f1641"
+    },
+    {
+      "path": "THIRD_PARTY_NOTICES/android/SLF4J API.txt",
+      "bytes": 1213,
+      "sha256": "0c7d1b66f7489e56dc80fa9332fa318f783b09c81b3773e875e92a1b902a72ec"
+    },
+    {
+      "path": "THIRD_PARTY_NOTICES/android/Sherpa-ONNX and Zipformer KWS model.txt",
+      "bytes": 12742,
+      "sha256": "619f1486c3627c3fe6879f23ad5e086e4f14431113454fc843f88f206ad2ee61"
+    },
+    {
+      "path": "THIRD_PARTY_NOTICES/android/Silero VAD.txt",
+      "bytes": 1317,
+      "sha256": "206ed510f5a00749b65a27ea81256c11cbb239972dad07be391495816fce076a"
+    },
+    {
+      "path": "THIRD_PARTY_NOTICES/android/Space Grotesk.txt",
+      "bytes": 4495,
+      "sha256": "564ce565c371c5e5bbf286006565a7c9aa55a9f56e7ca58d56e05d649dd61a72"
+    },
+    {
+      "path": "THIRD_PARTY_NOTICES/android/Stream WebRTC Android.txt",
+      "bytes": 522,
+      "sha256": "a7dc7a6794bb9ccce2a29aaea1be84d128452d429b1fe383041c813ec09f0e72"
+    },
+    {
+      "path": "THIRD_PARTY_NOTICES/android/Vosk.txt",
+      "bytes": 10173,
+      "sha256": "bb618af833c817ab01c1564bd3ec75ba4b4f9cf30910a4a2168e30a674ee8cc6"
+    },
+    {
+      "path": "THIRD_PARTY_NOTICES/android/chevrotain-allstar.txt",
+      "bytes": 1164,
+      "sha256": "0a30406ab6c8f5f3fb6248f95f1e0ffd0346ec1e26f54f8c183d03161867289f"
+    },
+    {
+      "path": "THIRD_PARTY_NOTICES/android/cose-base.txt",
+      "bytes": 1081,
+      "sha256": "5fb3cf4a14c3c5af6e473a192df8bca10c77754e3a0c6492c79fb92a76a5478a"
+    },
+    {
+      "path": "THIRD_PARTY_NOTICES/android/cytoscape-cose-bilkent.txt",
+      "bytes": 1085,
+      "sha256": "cc11ae75fa400984b244cf246384a55b99a3174c1184d7f1362e71a870d1c919"
+    },
+    {
+      "path": "THIRD_PARTY_NOTICES/android/cytoscape-fcose.txt",
+      "bytes": 1079,
+      "sha256": "2837634f403949215760fcdd2fa1ed0c64875d02099ecc8318c704b852f1421d"
+    },
+    {
+      "path": "THIRD_PARTY_NOTICES/android/cytoscape.txt",
+      "bytes": 1083,
+      "sha256": "f7ebdc2a36c48b5413fe0b60f7a16b6163ff171d5bb35f27dfda432962dd4f49"
+    },
+    {
+      "path": "THIRD_PARTY_NOTICES/android/d3-array.txt",
+      "bytes": 2208,
+      "sha256": "d565a431c99d70b42adc31ce7894d1e28f1e4163a9fdb727025c9a9a88da53af"
+    },
+    {
+      "path": "THIRD_PARTY_NOTICES/android/d3-axis.txt",
+      "bytes": 731,
+      "sha256": "e008c5e25a6be382593089c29bfabbc553c6378eee02895aec46ce396cc404ee"
+    },
+    {
+      "path": "THIRD_PARTY_NOTICES/android/d3-brush.txt",
+      "bytes": 731,
+      "sha256": "e008c5e25a6be382593089c29bfabbc553c6378eee02895aec46ce396cc404ee"
+    },
+    {
+      "path": "THIRD_PARTY_NOTICES/android/d3-chord.txt",
+      "bytes": 731,
+      "sha256": "e008c5e25a6be382593089c29bfabbc553c6378eee02895aec46ce396cc404ee"
+    },
+    {
+      "path": "THIRD_PARTY_NOTICES/android/d3-color.txt",
+      "bytes": 731,
+      "sha256": "faa682e3e430941f958d26180458f5934a62f58dac4d70ccdd15608c15d0f884"
+    },
+    {
+      "path": "THIRD_PARTY_NOTICES/android/d3-contour.txt",
+      "bytes": 731,
+      "sha256": "e51cba0e4fa1d8c078e15319868f2b90188f413f9ce9dac1043b62db32901e93"
+    },
+    {
+      "path": "THIRD_PARTY_NOTICES/android/d3-delaunay.txt",
+      "bytes": 757,
+      "sha256": "582c3022bd01942336095f92b58a90b1be624dc547d987555c6c956512dd24c1"
+    },
+    {
+      "path": "THIRD_PARTY_NOTICES/android/d3-dispatch.txt",
+      "bytes": 731,
+      "sha256": "e008c5e25a6be382593089c29bfabbc553c6378eee02895aec46ce396cc404ee"
+    },
+    {
+      "path": "THIRD_PARTY_NOTICES/android/d3-drag.txt",
+      "bytes": 731,
+      "sha256": "e008c5e25a6be382593089c29bfabbc553c6378eee02895aec46ce396cc404ee"
+    },
+    {
+      "path": "THIRD_PARTY_NOTICES/android/d3-dsv.txt",
+      "bytes": 731,
+      "sha256": "7842a82012622e5a37bfe4f6c1b67cd3bae6350716b5bf87f36cea0bdc1319dc"
+    },
+    {
+      "path": "THIRD_PARTY_NOTICES/android/d3-ease.txt",
+      "bytes": 1504,
+      "sha256": "b989d9085148d21ff64a75e14462aefa06b2589a55553b07b1460c70081c7d08"
+    },
+    {
+      "path": "THIRD_PARTY_NOTICES/android/d3-fetch.txt",
+      "bytes": 731,
+      "sha256": "ffdc17dc9040006bddeb891c95bfbb492e86d6bc64a4a4233666febab1be35e0"
+    },
+    {
+      "path": "THIRD_PARTY_NOTICES/android/d3-force.txt",
+      "bytes": 731,
+      "sha256": "e008c5e25a6be382593089c29bfabbc553c6378eee02895aec46ce396cc404ee"
+    },
+    {
+      "path": "THIRD_PARTY_NOTICES/android/d3-format.txt",
+      "bytes": 731,
+      "sha256": "e008c5e25a6be382593089c29bfabbc553c6378eee02895aec46ce396cc404ee"
+    },
+    {
+      "path": "THIRD_PARTY_NOTICES/android/d3-geo.txt",
+      "bytes": 1857,
+      "sha256": "3e3edc1224eec9c39cd26491a21304a62883c1e5b6a65c5283ccc7a6cc94baee"
+    },
+    {
+      "path": "THIRD_PARTY_NOTICES/android/d3-hierarchy.txt",
+      "bytes": 731,
+      "sha256": "e008c5e25a6be382593089c29bfabbc553c6378eee02895aec46ce396cc404ee"
+    },
+    {
+      "path": "THIRD_PARTY_NOTICES/android/d3-interpolate.txt",
+      "bytes": 731,
+      "sha256": "e008c5e25a6be382593089c29bfabbc553c6378eee02895aec46ce396cc404ee"
+    },
+    {
+      "path": "THIRD_PARTY_NOTICES/android/d3-path.txt",
+      "bytes": 2208,
+      "sha256": "e8b6a1262d5f3d77836a7a92b27c1759d75792be3082c7828b5aa77526b558c5"
+    },
+    {
+      "path": "THIRD_PARTY_NOTICES/android/d3-polygon.txt",
+      "bytes": 731,
+      "sha256": "e008c5e25a6be382593089c29bfabbc553c6378eee02895aec46ce396cc404ee"
+    },
+    {
+      "path": "THIRD_PARTY_NOTICES/android/d3-quadtree.txt",
+      "bytes": 731,
+      "sha256": "e008c5e25a6be382593089c29bfabbc553c6378eee02895aec46ce396cc404ee"
+    },
+    {
+      "path": "THIRD_PARTY_NOTICES/android/d3-random.txt",
+      "bytes": 731,
+      "sha256": "e008c5e25a6be382593089c29bfabbc553c6378eee02895aec46ce396cc404ee"
+    },
+    {
+      "path": "THIRD_PARTY_NOTICES/android/d3-sankey.txt",
+      "bytes": 1471,
+      "sha256": "2bf785e778d67a4f5266cffcd4f2cc5bb98cde73791666e7efeb8002ba32dfa5"
+    },
+    {
+      "path": "THIRD_PARTY_NOTICES/android/d3-scale-chromatic.txt",
+      "bytes": 1423,
+      "sha256": "0986d93944902cca9af86824b6a641b4b7c2d10602fc510c433a8bcd443919fe"
+    },
+    {
+      "path": "THIRD_PARTY_NOTICES/android/d3-scale.txt",
+      "bytes": 731,
+      "sha256": "e008c5e25a6be382593089c29bfabbc553c6378eee02895aec46ce396cc404ee"
+    },
+    {
+      "path": "THIRD_PARTY_NOTICES/android/d3-selection.txt",
+      "bytes": 731,
+      "sha256": "e008c5e25a6be382593089c29bfabbc553c6378eee02895aec46ce396cc404ee"
+    },
+    {
+      "path": "THIRD_PARTY_NOTICES/android/d3-shape.txt",
+      "bytes": 2208,
+      "sha256": "1315b66d777796b022576924a554157495a1f068222dbaf4f2a440ad9a1762de"
+    },
+    {
+      "path": "THIRD_PARTY_NOTICES/android/d3-time-format.txt",
+      "bytes": 731,
+      "sha256": "e008c5e25a6be382593089c29bfabbc553c6378eee02895aec46ce396cc404ee"
+    },
+    {
+      "path": "THIRD_PARTY_NOTICES/android/d3-time.txt",
+      "bytes": 731,
+      "sha256": "faa682e3e430941f958d26180458f5934a62f58dac4d70ccdd15608c15d0f884"
+    },
+    {
+      "path": "THIRD_PARTY_NOTICES/android/d3-timer.txt",
+      "bytes": 731,
+      "sha256": "e008c5e25a6be382593089c29bfabbc553c6378eee02895aec46ce396cc404ee"
+    },
+    {
+      "path": "THIRD_PARTY_NOTICES/android/d3-transition.txt",
+      "bytes": 731,
+      "sha256": "e008c5e25a6be382593089c29bfabbc553c6378eee02895aec46ce396cc404ee"
+    },
+    {
+      "path": "THIRD_PARTY_NOTICES/android/d3-zoom.txt",
+      "bytes": 731,
+      "sha256": "e008c5e25a6be382593089c29bfabbc553c6378eee02895aec46ce396cc404ee"
+    },
+    {
+      "path": "THIRD_PARTY_NOTICES/android/d3.txt",
+      "bytes": 731,
+      "sha256": "3e6849627f74ff73c257a3ae1efb574015d94fc1035c05ec3c15805165efcbc4"
+    },
+    {
+      "path": "THIRD_PARTY_NOTICES/android/dagre-d3-es.txt",
+      "bytes": 1328,
+      "sha256": "d01eb84ccce437dbf5fd40853bceea0f287930920acea066597a4a25ead63858"
+    },
+    {
+      "path": "THIRD_PARTY_NOTICES/android/dayjs.txt",
+      "bytes": 1072,
+      "sha256": "5faab7526d055651be3aab769d58897be6bd91f3d39d137f25f12dba1b31d5dc"
+    },
+    {
+      "path": "THIRD_PARTY_NOTICES/android/dnsjava.txt",
+      "bytes": 1657,
+      "sha256": "5def9b84004c19824c546fde2159c6a3c53bbf39c120aa6a46e826ddff611f63"
+    },
+    {
+      "path": "THIRD_PARTY_NOTICES/android/es-toolkit.txt",
+      "bytes": 1424,
+      "sha256": "ed68888a2a28f32a05e88f24d4d4ee75075a1bda2b6372a1f2e00fa0576a5524"
+    },
+    {
+      "path": "THIRD_PARTY_NOTICES/android/fastdom.txt",
+      "bytes": 1094,
+      "sha256": "50c0de64f5cd5e39859b43f7eca7f5843fb3c3d5ac7e34a453e27419ad51e08c"
+    },
+    {
+      "path": "THIRD_PARTY_NOTICES/android/hachure-fill.txt",
+      "bytes": 1068,
+      "sha256": "5e807b516a9be9229ed459880bf353a336e2d947867247290680d437017be391"
+    },
+    {
+      "path": "THIRD_PARTY_NOTICES/android/internmap.txt",
+      "bytes": 726,
+      "sha256": "9ea8903938dab5f12c4572d60725069bec2d1b0dc3bcc210b09bae946a5ebb1f"
+    },
+    {
+      "path": "THIRD_PARTY_NOTICES/android/js-yaml.txt",
+      "bytes": 1084,
+      "sha256": "a07bc24468b9654ce76a547d47a2db282d07733b715db4c73a98bd63961f9550"
+    },
+    {
+      "path": "THIRD_PARTY_NOTICES/android/khroma.txt",
+      "bytes": 1105,
+      "sha256": "66b333b0f66759a0b710459e03f7029abe17f4358114a128d2c972e642961b49"
+    },
+    {
+      "path": "THIRD_PARTY_NOTICES/android/layout-base.txt",
+      "bytes": 1069,
+      "sha256": "eabb762d8a95109a39c9be3247325529a5239a7aca327d909c3ccdc41f3a06bf"
+    },
+    {
+      "path": "THIRD_PARTY_NOTICES/android/libffi.txt",
+      "bytes": 1132,
+      "sha256": "2c9c2acb9743e6b007b91350475308aee44691d96aa20eacef8e199988c8c388"
+    },
+    {
+      "path": "THIRD_PARTY_NOTICES/android/libsodium.txt",
+      "bytes": 823,
+      "sha256": "508a76d186356c0dd807a670ef510964f8724557024796a2c426c6c0e19ab683"
+    },
+    {
+      "path": "THIRD_PARTY_NOTICES/android/llama.cpp.txt",
+      "bytes": 1255,
+      "sha256": "f67b78cd4e78f8197550e70b546b23f33040d4d35b045bea1d613cea08648dff"
+    },
+    {
+      "path": "THIRD_PARTY_NOTICES/android/lodash-es.txt",
+      "bytes": 1952,
+      "sha256": "f71e8ed126b46346494aad5486874cd8f0aafe95092ed67d2e3cb6110f939abc"
+    },
+    {
+      "path": "THIRD_PARTY_NOTICES/android/nibor autolink.txt",
+      "bytes": 1132,
+      "sha256": "49280b97baeb6d2ecb624cadbb73c848123c8e39b3a1096dc5902f85f7dd02b2"
+    },
+    {
+      "path": "THIRD_PARTY_NOTICES/android/path-data-parser.txt",
+      "bytes": 1068,
+      "sha256": "e9754a00aebde654e80f40bcf41dab667d6a41dfbbd2912bcf14fb07d468bf71"
+    },
+    {
+      "path": "THIRD_PARTY_NOTICES/android/points-on-curve.txt",
+      "bytes": 1068,
+      "sha256": "e9754a00aebde654e80f40bcf41dab667d6a41dfbbd2912bcf14fb07d468bf71"
+    },
+    {
+      "path": "THIRD_PARTY_NOTICES/android/points-on-path.txt",
+      "bytes": 1062,
+      "sha256": "b6fc1f7f1d96a48bc97176f3dcef959e364c5c17ba44167511de421500a86c6c"
+    },
+    {
+      "path": "THIRD_PARTY_NOTICES/android/roughjs.txt",
+      "bytes": 1068,
+      "sha256": "dca9a392272606ac748ac0976a2a1133f14eef841c27beaa51a844d53c56a09d"
+    },
+    {
+      "path": "THIRD_PARTY_NOTICES/android/sanitize-url.txt",
+      "bytes": 1066,
+      "sha256": "0984740e0c3d725c8044dec7edcefe1dbce180ef5a7bc710c251e19607000158"
+    },
+    {
+      "path": "THIRD_PARTY_NOTICES/android/stylis.txt",
+      "bytes": 1078,
+      "sha256": "88c579c6ee44b41137a21321190d177982e5b17d4fa1b83a4a2e3ea325a8fc9a"
+    },
+    {
+      "path": "THIRD_PARTY_NOTICES/android/ts-dedent.txt",
+      "bytes": 1073,
+      "sha256": "eff13095d9d762c3bd9dda74370c81e2130c28f2691bc455603abf973bac25b9"
+    },
+    {
+      "path": "THIRD_PARTY_NOTICES/android/uuid.txt",
+      "bytes": 1109,
+      "sha256": "beaa6b04fb82e41dd2ad679e19e27953afb5999b1abbb455b6564e78ebfeb332"
+    },
+    {
+      "path": "THIRD_PARTY_NOTICES/android/venn.js.txt",
+      "bytes": 1106,
+      "sha256": "6a3508febf2cfccfee96597394543a6154a4bb0b1f91f28404be42c09e9fcb54"
+    },
+    {
+      "path": "THIRD_PARTY_NOTICES/android/vscode-jsonrpc.txt",
+      "bytes": 1195,
+      "sha256": "5548a6eb47d1cef5bc31fd8957f65fa4d093b6f8f726d4626bc0a72f702822c2"
+    },
+    {
+      "path": "THIRD_PARTY_NOTICES/android/vscode-languageserver-protocol.txt",
+      "bytes": 1245,
+      "sha256": "2a87de7f51c45d61866dcbff14981d1829921e09308edeb120934160a5cf2332"
+    },
+    {
+      "path": "THIRD_PARTY_NOTICES/android/vscode-languageserver-textdocument.txt",
+      "bytes": 1257,
+      "sha256": "dca57c5b833a90ffe838dfce7e2728ccd70192698a2571e3c3d79f6d1ef88328"
+    },
+    {
+      "path": "THIRD_PARTY_NOTICES/android/vscode-languageserver-types.txt",
+      "bytes": 1236,
+      "sha256": "59a12d58f4f6ddeafb3d0508f866db3df715c09f01043c02562c74f159c9341e"
+    },
+    {
+      "path": "THIRD_PARTY_NOTICES/android/vscode-uri.txt",
+      "bytes": 1159,
+      "sha256": "9f2026db317517e486241651f79e4061dfe319dc90d8343bb043f22fbd016615"
+    },
+    {
+      "path": "THIRD_PARTY_NOTICES/kws-model-provenance.json",
+      "bytes": 547,
+      "sha256": "925fccc66b923b98965c6a2e4de235a8013198a9538101459176d64ee30c8c51"
+    },
+    {
+      "path": "THIRD_PARTY_NOTICES/openclaw-LICENSE",
+      "bytes": 1170,
+      "sha256": "73571b25326281d369087f469842c02444fe39faaecebda4d82ed21ff3a1c29d"
+    },
+    {
+      "path": "Test-ReleaseStaging.ps1",
+      "bytes": 1586,
+      "sha256": "a50f3a1560f209c58f032171ef688b1442ddb354a3242759162dcc9b4a1fd632"
+    },
+    {
+      "path": "docs/ARCHITECTURE.de.md",
+      "bytes": 2943,
+      "sha256": "834984c81f0cb4e4335fef57620b5cb7f90720a9ec45e2123f1bcd59fe662362"
+    },
+    {
+      "path": "docs/ARCHITECTURE.md",
+      "bytes": 2612,
+      "sha256": "f7c9f45459cbf813791d37911b7e1887d9156f95817de4959cfed990bdf1f2d2"
+    },
+    {
+      "path": "docs/COMPATIBILITY.de.md",
+      "bytes": 3069,
+      "sha256": "45eb48445f647aa7debfee74bc744e9e51ea617e9a3f767597ff5278843a70d0"
+    },
+    {
+      "path": "docs/COMPATIBILITY.md",
+      "bytes": 3151,
+      "sha256": "92bfef185cdcbdee12b6cc1af79c80a2c43a31bd537f56a5baad3caa9af6964c"
+    },
+    {
+      "path": "docs/INSTALL.de.md",
+      "bytes": 7159,
+      "sha256": "ac8fa81ae01b97004b9c9e1cf00da6342d1f0eb06bfd6b17d7285c9c79dc706c"
+    },
+    {
+      "path": "docs/INSTALL.md",
+      "bytes": 6670,
+      "sha256": "2bf4520bfc333b6f01f42ebe2ad65b7f490e7ac2d03b573de3e3d7370db93a0d"
+    },
+    {
+      "path": "docs/VALIDATION.md",
+      "bytes": 6526,
+      "sha256": "d65b1247e6e921bf00948e63dfba8a207296eaf1f9079e9b42fbbb5c3043918c"
+    },
+    {
+      "path": "docs/assets/hero.png",
+      "bytes": 2163148,
+      "sha256": "0d39ecde366de93ae5e574df02a6bb4c392585f5e6efa726a8d6b9aa47b50f00"
+    },
+    {
+      "path": "docs/assets/horizon-demo-desktop.png",
+      "bytes": 544398,
+      "sha256": "68c835f231ef0993259c0515c0bfccfd1b75d8fc5fd5733454ee8ee8509bf2fc"
+    },
+    {
+      "path": "docs/assets/horizon-demo-portrait.png",
+      "bytes": 285754,
+      "sha256": "19a90fe04a7b5c86f1e0d1306e86f90891445290eac0f6633bf25b1cf5605928"
+    },
+    {
+      "path": "docs/assets/horizon-motion-poster.png",
+      "bytes": 198320,
+      "sha256": "22dcd966ac5a206b1a7548f17372f00a712f6a27ecb0ab9cb7d7feecb135b1de"
+    },
+    {
+      "path": "docs/assets/horizon-motion.gif",
+      "bytes": 2167137,
+      "sha256": "817dade384d64cee06bf2586b5b73905f7c05a56663cf969dc1a028fd7d613cc"
+    },
+    {
+      "path": "docs/assets/horizon-motion.mp4",
+      "bytes": 696256,
+      "sha256": "88be2e01eb64cad73861f56bd91173f2c81d681afdcd3165922a0d01d1bd9f1a"
+    },
+    {
+      "path": "docs/assets/how-it-works.html",
+      "bytes": 13128,
+      "sha256": "9f6f734df02af85b4db500b55ce1063e2f54660e234cb7e3adc080d55fe25d94"
+    },
+    {
+      "path": "docs/assets/how-it-works.png",
+      "bytes": 503721,
+      "sha256": "5a20745b7e73f87a7259cb1011fd958aa9c186ba6f8f4a66ace6ca79e2f9927c"
+    },
+    {
+      "path": "docs/assets/how-it-works.svg",
+      "bytes": 15006,
+      "sha256": "9d8033421450d7322aa23a1338a454249b43631ed8a26675c36619907cac1151"
+    },
+    {
+      "path": "docs/assets/orb-showcase.html",
+      "bytes": 3001,
+      "sha256": "6137971912780d14ef21d62239bd2e86f9a8b3cfac229d3b016d135c67012689"
+    },
+    {
+      "path": "docs/assets/showcase-activity.png",
+      "bytes": 200574,
+      "sha256": "b6dba3a899b5e03027e559b8c5d29cbfecfbc3f1c85d8e9ab54ad061a02144a8"
+    },
+    {
+      "path": "docs/assets/showcase-agenda.png",
+      "bytes": 172737,
+      "sha256": "2f3293c92549ec92bed0a8706c31a360d90679f6b9ffde764db72a02dade1415"
+    },
+    {
+      "path": "docs/assets/showcase-ambient.png",
+      "bytes": 31358,
+      "sha256": "e7a47001b8194cf90bae84ac577c5999f2efabf378032da84aa43290a59558a2"
+    },
+    {
+      "path": "docs/assets/showcase-home-control.png",
+      "bytes": 173518,
+      "sha256": "9dd7d15665e10e07fb2f9db5498be98159909f76598dfd07d5af0245dba39dec"
+    },
+    {
+      "path": "docs/assets/showcase-home.png",
+      "bytes": 292730,
+      "sha256": "bbb2cac4939a41edbb1e9649e36e244f359c73a271edad9f878728d587598376"
+    },
+    {
+      "path": "docs/assets/showcase-music.png",
+      "bytes": 184251,
+      "sha256": "759c5962dcf79076fa83d20265e079068ca6e870a040f49ec235a34d357b4179"
+    },
+    {
+      "path": "docs/assets/showcase-portrait.png",
+      "bytes": 254035,
+      "sha256": "1626748d2faabcf6002745eb126e0ca9c3310430877e2d5d313d6e3d4b6f1997"
+    },
+    {
+      "path": "docs/assets/showcase-weather.png",
+      "bytes": 183128,
+      "sha256": "f5e31f947156ca838f340a9772bbf3e4114ffd8dbb0f058eb4115cd3b23eebcb"
+    },
+    {
+      "path": "integrations/openclaw/FIXTURES.md",
+      "bytes": 390,
+      "sha256": "a76ee5f7bf99c7e79f616f63e10ea178041c25797eefefdfb92666f2613896b9"
+    },
+    {
+      "path": "integrations/openclaw/SKILL.md",
+      "bytes": 3158,
+      "sha256": "fca5eedae7367f566847cc15b4ceb5ca33264119ad59d396fe6d4a4be28bd0c3"
+    },
+    {
+      "path": "integrations/openclaw/example-plan.json",
+      "bytes": 199,
+      "sha256": "75d2e5cc3a4b73756dadbac6f52e8d72af4de7ad4b363d7300254105a75c829f"
+    },
+    {
+      "path": "integrations/openclaw/fixtures/pinned-nodes-describe-pending-reapproval.json",
+      "bytes": 491,
+      "sha256": "22d8431bd800faa6f1767daf901984bd374ec133562d7f31be7917414d21df66"
+    },
+    {
+      "path": "integrations/openclaw/jarvis_horizon.py",
+      "bytes": 12732,
+      "sha256": "482527c2e7fcdb0b4addbae12943c63672472f86e8c18eb51ca8048814cfb946"
+    },
+    {
+      "path": "integrations/openclaw/test_jarvis_horizon.py",
+      "bytes": 7703,
+      "sha256": "8fabdfb47a8b7015fd95c29fb51b5985117c02f109444a45338d6f2bd345700c"
+    },
+    {
+      "path": "overlay/apps/android/THIRD_PARTY_LICENSES/openclaw/licenses/JetBrains Mono.txt",
+      "bytes": 4399,
+      "sha256": "b2fe5e8987594e9ffd1d2ca52a2f5d73eb8335243893c5d6254b5ad69269591d"
+    },
+    {
+      "path": "overlay/apps/android/THIRD_PARTY_LICENSES/openclaw/licenses/ONNX Runtime.txt",
+      "bytes": 1218,
+      "sha256": "d8f78cd32c613a8971d23aa0e508dcef05fd69e6520af4276afdfc9692eadc53"
+    },
+    {
+      "path": "overlay/apps/android/THIRD_PARTY_LICENSES/openclaw/licenses/Sherpa-ONNX and Zipformer KWS model.txt",
+      "bytes": 12742,
+      "sha256": "619f1486c3627c3fe6879f23ad5e086e4f14431113454fc843f88f206ad2ee61"
+    },
+    {
+      "path": "overlay/apps/android/THIRD_PARTY_LICENSES/openclaw/licenses/Silero VAD.txt",
+      "bytes": 1317,
+      "sha256": "206ed510f5a00749b65a27ea81256c11cbb239972dad07be391495816fce076a"
+    },
+    {
+      "path": "overlay/apps/android/THIRD_PARTY_LICENSES/openclaw/licenses/Space Grotesk.txt",
+      "bytes": 4495,
+      "sha256": "564ce565c371c5e5bbf286006565a7c9aa55a9f56e7ca58d56e05d649dd61a72"
+    },
+    {
+      "path": "overlay/apps/android/THIRD_PARTY_LICENSES/openclaw/licenses/Stream WebRTC Android.txt",
+      "bytes": 522,
+      "sha256": "a7dc7a6794bb9ccce2a29aaea1be84d128452d429b1fe383041c813ec09f0e72"
+    },
+    {
+      "path": "overlay/apps/android/THIRD_PARTY_LICENSES/openclaw/licenses/Vosk.txt",
+      "bytes": 10173,
+      "sha256": "bb618af833c817ab01c1564bd3ec75ba4b4f9cf30910a4a2168e30a674ee8cc6"
+    },
+    {
+      "path": "overlay/apps/android/app/build.gradle.kts",
+      "bytes": 26315,
+      "sha256": "84aec7728a56793a31d60bb5f666577be10cc79c58bc7e2adf09b93a4bc3bac5"
+    },
+    {
+      "path": "overlay/apps/android/app/proguard-rules.pro",
+      "bytes": 988,
+      "sha256": "d9a00d875b39901e9b0988b313925cc4dec963a5900f92d00b40384523ee1fcf"
+    },
+    {
+      "path": "overlay/apps/android/app/src/main/AndroidManifest.xml",
+      "bytes": 10967,
+      "sha256": "878ec946dac9e9ffbd60b02b38b05f48bada4b505420e89579d0c6e3c25f2848"
+    },
+    {
+      "path": "overlay/apps/android/app/src/main/assets/jarvis/ACKNOWLEDGEMENT_TONES.md",
+      "bytes": 155,
+      "sha256": "6df3de208836f35ff344f97ec706e307d0e3e608526c7dad7db1632a0a2a851f"
+    },
+    {
+      "path": "overlay/apps/android/app/src/main/assets/jarvis/horizon/css/caption-overrides.css",
+      "bytes": 33088,
+      "sha256": "fcccd20535027df80e27cd24cf1fc016fee5bc0950d58e117a17d0d1c96a15aa"
+    },
+    {
+      "path": "overlay/apps/android/app/src/main/assets/jarvis/horizon/css/jarvis-horizon.css",
+      "bytes": 14644,
+      "sha256": "a917a424a38ef0553be7de613f08a329a0c8875e8baaf63f4078487df654310e"
+    },
+    {
+      "path": "overlay/apps/android/app/src/main/assets/jarvis/horizon/fonts/jetbrains-mono.woff2",
+      "bytes": 31432,
+      "sha256": "83c005d49d8a6a50474c73a5a36ac0468076e9c4a29da7bdb14995d80560a5be"
+    },
+    {
+      "path": "overlay/apps/android/app/src/main/assets/jarvis/horizon/fonts/space-grotesk.woff2",
+      "bytes": 22288,
+      "sha256": "0640890476fc1198ab4de571fb658de443c4d85b66466ec09534a8737ab1ce9d"
+    },
+    {
+      "path": "overlay/apps/android/app/src/main/assets/jarvis/horizon/index.html",
+      "bytes": 6509,
+      "sha256": "81c9799c9f5d15c1ff6ac14eec0971afa523ec0ccababb972430f86dd7e0b1ca"
+    },
+    {
+      "path": "overlay/apps/android/app/src/main/assets/jarvis/horizon/js/app.js",
+      "bytes": 46355,
+      "sha256": "c85e1e3a44c64c9fc7d6bf38bd687e5cadc33f63b239950e1dacaf5b6be1e710"
+    },
+    {
+      "path": "overlay/apps/android/app/src/main/assets/jarvis/horizon/js/galactic-saver.js",
+      "bytes": 6661,
+      "sha256": "9ba0f062d73fd62af7e2db16ab622cb529c5a0a4544a429c9de2e13b28a118f8"
+    },
+    {
+      "path": "overlay/apps/android/app/src/main/assets/jarvis/horizon/js/jarvis-orb.js",
+      "bytes": 22552,
+      "sha256": "de2e9cfeb7cef351eb22b0f8ad1952633ba27363f194fb091d7891187892f395"
+    },
+    {
+      "path": "overlay/apps/android/app/src/main/assets/jarvis/wake-model/decoder.onnx",
+      "bytes": 759829,
+      "sha256": "63a22dd60f40fff082ac3e09afa507f6787da36df76ded2fbe145fa233e22c21"
+    },
+    {
+      "path": "overlay/apps/android/app/src/main/assets/jarvis/wake-model/encoder.onnx",
+      "bytes": 4599656,
+      "sha256": "408bbd740838c42d5bf6d1c5b80b3c88b616c7860b92d980328b5b068c76ae48"
+    },
+    {
+      "path": "overlay/apps/android/app/src/main/assets/jarvis/wake-model/joiner.onnx",
+      "bytes": 86629,
+      "sha256": "190d4067b4cc20b72a42a1916e69d92052000fb7051a427ebb1bc72a69207dc1"
+    },
+    {
+      "path": "overlay/apps/android/app/src/main/assets/jarvis/wake-model/keywords.txt",
+      "bytes": 100,
+      "sha256": "cc2701ddfbce07e4bd876aa246067c5791efca24182372838ad0e1f853a2668e"
+    },
+    {
+      "path": "overlay/apps/android/app/src/main/assets/jarvis/wake-model/silero-vad.onnx",
+      "bytes": 212860,
+      "sha256": "c36d490aff5ab924ca6c7aeec4d8f6bd3d22db6fa17611b9c5b17eae58ac3a20"
+    },
+    {
+      "path": "overlay/apps/android/app/src/main/assets/jarvis/wake-model/tokens.txt",
+      "bytes": 1928,
+      "sha256": "2d3f32311f9b692b964da3c90e830258d3e78e013cb0c992dbfb15cd5a1a71b0"
+    },
+    {
+      "path": "overlay/apps/android/app/src/main/assets/jarvis/wake/bin_da.wav",
+      "bytes": 4204,
+      "sha256": "55401ea39735e505f0b4df6db217cbed8cb24dc6d28929bdc3df133c0ecf88a6"
+    },
+    {
+      "path": "overlay/apps/android/app/src/main/assets/jarvis/wake/ja_boss.wav",
+      "bytes": 4204,
+      "sha256": "1b9f7e5b51ee7dc74dee13c0f3403579e55ca8db794f50654dd51e7217a6985f"
+    },
+    {
+      "path": "overlay/apps/android/app/src/main/assets/jarvis/wake/was_gibts.wav",
+      "bytes": 4204,
+      "sha256": "4f71aa2853cd9d018cea282cf98ce0aca66d9ae6f6b11aa7ad22f8bef16a26aa"
+    },
+    {
+      "path": "overlay/apps/android/app/src/main/assets/vosk-model-small-en-us-0.15/README",
+      "bytes": 199,
+      "sha256": "c0cf286e4f7783306c5f6469b37db69228fb16803b03cae661edb2d7bba64ebb"
+    },
+    {
+      "path": "overlay/apps/android/app/src/main/assets/vosk-model-small-en-us-0.15/am/final.mdl",
+      "bytes": 15962575,
+      "sha256": "75370a0137f9daf8f469dedd7daa4513ae7a621f03240c6e512e2b50b656a7b6"
+    },
+    {
+      "path": "overlay/apps/android/app/src/main/assets/vosk-model-small-en-us-0.15/conf/mfcc.conf",
+      "bytes": 131,
+      "sha256": "1e2228006d01d805ad1c267fee9f79709ca87ac51bd82b0e3f5c69ba543f0fc4"
+    },
+    {
+      "path": "overlay/apps/android/app/src/main/assets/vosk-model-small-en-us-0.15/conf/model.conf",
+      "bytes": 290,
+      "sha256": "8f14cb1eeb07c762c371db648c6be688d347236155ca0f64fb13b6567a8ce81f"
+    },
+    {
+      "path": "overlay/apps/android/app/src/main/assets/vosk-model-small-en-us-0.15/graph/Gr.fst",
+      "bytes": 24013795,
+      "sha256": "023c8b7e30704a9e37765c635c252e608a02f361235bf94abdcf2a5225d85b20"
+    },
+    {
+      "path": "overlay/apps/android/app/src/main/assets/vosk-model-small-en-us-0.15/graph/HCLr.fst",
+      "bytes": 22416994,
+      "sha256": "5caafba3081e1646545ac6bff0dd7a318e53dcbdc86f237909ce1d2ac1293d34"
+    },
+    {
+      "path": "overlay/apps/android/app/src/main/assets/vosk-model-small-en-us-0.15/graph/disambig_tid.int",
+      "bytes": 102,
+      "sha256": "9ad87cc166d0998f08f758f47a6223a120dfffcbee805c4849c3aa5e6bb3c0fc"
+    },
+    {
+      "path": "overlay/apps/android/app/src/main/assets/vosk-model-small-en-us-0.15/graph/phones/word_boundary.int",
+      "bytes": 1761,
+      "sha256": "da199d9c991e0e84681ddbb34627b915b26302d50a8fdaa23c51e2bc3a50b5c3"
+    },
+    {
+      "path": "overlay/apps/android/app/src/main/assets/vosk-model-small-en-us-0.15/ivector/final.dubm",
+      "bytes": 168048,
+      "sha256": "8c5d7dd69d2122313baaf19f61f35dd3fa18b70c62ac0687e311e1c46e6daca7"
+    },
+    {
+      "path": "overlay/apps/android/app/src/main/assets/vosk-model-small-en-us-0.15/ivector/final.ie",
+      "bytes": 8288887,
+      "sha256": "3f37faf90c375b9e4740b569398b5829ed9cc07d19be6d441f72c3b71d7efcc6"
+    },
+    {
+      "path": "overlay/apps/android/app/src/main/assets/vosk-model-small-en-us-0.15/ivector/final.mat",
+      "bytes": 44975,
+      "sha256": "ddd83586dc5f928cda8738b922c85ffe38fc789cb5f9151a712ca12f37265382"
+    },
+    {
+      "path": "overlay/apps/android/app/src/main/assets/vosk-model-small-en-us-0.15/ivector/global_cmvn.stats",
+      "bytes": 1080,
+      "sha256": "33be09afcc80059847a275c3d043b51f1ab954c7c2438ddbbf4745e8ba144ff9"
+    },
+    {
+      "path": "overlay/apps/android/app/src/main/assets/vosk-model-small-en-us-0.15/ivector/online_cmvn.conf",
+      "bytes": 95,
+      "sha256": "a2f3571754b64297cb7efb2e7ca3df61995c5a45fcbb97188f90613552bb2dfe"
+    },
+    {
+      "path": "overlay/apps/android/app/src/main/assets/vosk-model-small-en-us-0.15/ivector/splice.conf",
+      "bytes": 35,
+      "sha256": "9f0c5f7c82d18eaf25d8bce470efa9f7741f88411fe428774bc0a9bb69a24756"
+    },
+    {
+      "path": "overlay/apps/android/app/src/main/assets/vosk-model-small-en-us-0.15/uuid",
+      "bytes": 37,
+      "sha256": "c78e983c5d610825a3fb6e64d86a7d792db288317c69fc5883269ce01e095a18"
+    },
+    {
+      "path": "overlay/apps/android/app/src/main/cpp/Android.mk",
+      "bytes": 300,
+      "sha256": "f1491a06911ae17c2bdb7068c357a396d73a7d00214c7756fc2d904d7654ad27"
+    },
+    {
+      "path": "overlay/apps/android/app/src/main/cpp/Application.mk",
+      "bytes": 51,
+      "sha256": "011683f322bd54c0831013bd2dbaefb6f5b95397d9bd70a60b3c716fd619244c"
+    },
+    {
+      "path": "overlay/apps/android/app/src/main/cpp/include/sherpa-onnx/c-api/c-api.h",
+      "bytes": 167657,
+      "sha256": "2a1b95084be8fd1deb3228fcad2fd3f7f0258b64582f7402281ec174c7b7f4ce"
+    },
+    {
+      "path": "overlay/apps/android/app/src/main/cpp/jarvis_wake_jni.cpp",
+      "bytes": 10280,
+      "sha256": "3ef60fc5134f12a34b7d4213a0611c4da76f172d1eaf37acc118d7b815621ba9"
+    },
+    {
+      "path": "overlay/apps/android/app/src/main/java/ai/openclaw/app/AssistantLaunch.kt",
+      "bytes": 7438,
+      "sha256": "e549ebd512dfe25c2d8e5796fdd0237dc4b51f0f565c60ccc0eeeaedd5810276"
+    },
+    {
+      "path": "overlay/apps/android/app/src/main/java/ai/openclaw/app/ConversationNotifications.kt",
+      "bytes": 25574,
+      "sha256": "3514857757b190a77ddbc38304d7b1cbda68577d1f24c9d72e64b113980b494f"
+    },
+    {
+      "path": "overlay/apps/android/app/src/main/java/ai/openclaw/app/JarvisHealth.kt",
+      "bytes": 2154,
+      "sha256": "a7ebc9efa7a0eff4c3c6eae3aa1b7ce0501daa0dfed9521e475c5502f9d4c1b5"
+    },
+    {
+      "path": "overlay/apps/android/app/src/main/java/ai/openclaw/app/MainActivity.kt",
+      "bytes": 14281,
+      "sha256": "cd8081dd8d40b0fdd8ea2783b89c2c82b2feede65c63594e150d5b070fb40f50"
+    },
+    {
+      "path": "overlay/apps/android/app/src/main/java/ai/openclaw/app/MainViewModel.kt",
+      "bytes": 86182,
+      "sha256": "9f6483182ea53e248869536871c8c3f90a79066ab6c60101285a9d49f4505b6b"
+    },
+    {
+      "path": "overlay/apps/android/app/src/main/java/ai/openclaw/app/NodeForegroundService.kt",
+      "bytes": 13703,
+      "sha256": "d5d01b0b7abdba135d76d04bb82a6e9c5be86582d24f7ba17516ca502d414130"
+    },
+    {
+      "path": "overlay/apps/android/app/src/main/java/ai/openclaw/app/NodeRuntime.kt",
+      "bytes": 436766,
+      "sha256": "6c82d5f4c48e63903a8c8ab6c81ba9ce60b0188202243f18cf6759ab92eb49db"
+    },
+    {
+      "path": "overlay/apps/android/app/src/main/java/ai/openclaw/app/chat/VoiceNoteRecorderController.kt",
+      "bytes": 10304,
+      "sha256": "80df17c582e367af1eed18ac1e6c592ac634917df419d354c893f2f8c1f7501c"
+    },
+    {
+      "path": "overlay/apps/android/app/src/main/java/ai/openclaw/app/gateway/GatewayDiscovery.kt",
+      "bytes": 21063,
+      "sha256": "abcebfe93e8bf986d484817924ecf04516adceb6b5b6c0caa9581230214ea016"
+    },
+    {
+      "path": "overlay/apps/android/app/src/main/java/ai/openclaw/app/gateway/GatewaySession.kt",
+      "bytes": 111793,
+      "sha256": "59245e170b5eaa2861b0f2bd37cd869f05ee56f0225e6c2f0b0e11cf31823a83"
+    },
+    {
+      "path": "overlay/apps/android/app/src/main/java/ai/openclaw/app/home/AlexaAnnouncement.kt",
+      "bytes": 7176,
+      "sha256": "b450b17ad81d8baf536fdf25e68139bec3641cf49006f22bbe08d5e67f35e045"
+    },
+    {
+      "path": "overlay/apps/android/app/src/main/java/ai/openclaw/app/home/AlexaAnnouncementController.kt",
+      "bytes": 12198,
+      "sha256": "4020fa032124864940dded25fdd2f71518561f73bf51a4716da9dac151ee6a0b"
+    },
+    {
+      "path": "overlay/apps/android/app/src/main/java/ai/openclaw/app/home/AmazonNotice.kt",
+      "bytes": 9025,
+      "sha256": "1d68d297aac5b28d039a811fd69b4afb2be9be4d4f5906589e0903c6d2ef9c9e"
+    },
+    {
+      "path": "overlay/apps/android/app/src/main/java/ai/openclaw/app/home/EufyP2pPreparation.kt",
+      "bytes": 7588,
+      "sha256": "1ca1ad9fd52e374eb08930a67024d90bb6fc2fd07f66cc01206a7d4e66e8508c"
+    },
+    {
+      "path": "overlay/apps/android/app/src/main/java/ai/openclaw/app/home/Go2RtcIntercomBridge.kt",
+      "bytes": 3284,
+      "sha256": "61b23c8ae49024e20d4a7233508e0c67b88890fddd27fb10f1b3bcdf27ce7686"
+    },
+    {
+      "path": "overlay/apps/android/app/src/main/java/ai/openclaw/app/home/HomeDashboardModels.kt",
+      "bytes": 9181,
+      "sha256": "11903632df33a0c65db184bd75f345e213945138ee0f645cfd3b83a166a035fc"
+    },
+    {
+      "path": "overlay/apps/android/app/src/main/java/ai/openclaw/app/home/HomeDashboardRepository.kt",
+      "bytes": 91562,
+      "sha256": "abfc3cbb8604bbc8e82b4a32a063ed4510c29f9ef8a8499040e6559b9fa289d4"
+    },
+    {
+      "path": "overlay/apps/android/app/src/main/java/ai/openclaw/app/home/HorizonHomeChangeTracker.kt",
+      "bytes": 4731,
+      "sha256": "d1bd4fee0d15235c49ac61e06f83ba324d71d1177c3904799a8c745fd0327c00"
+    },
+    {
+      "path": "overlay/apps/android/app/src/main/java/ai/openclaw/app/home/HorizonMorningFacts.kt",
+      "bytes": 2638,
+      "sha256": "7ea45ab7fa6b4309b9360fc0ed5b79e71c0a3f7150ad2ecae19282aa683d13c1"
+    },
+    {
+      "path": "overlay/apps/android/app/src/main/java/ai/openclaw/app/home/HorizonPresentationRepository.kt",
+      "bytes": 6562,
+      "sha256": "a18c3070c677a5343f9ce32aa9089c4c77a18d9d75835d6c5b39a8e1b580a03f"
+    },
+    {
+      "path": "overlay/apps/android/app/src/main/java/ai/openclaw/app/home/HorizonVoicePresentationCoordinator.kt",
+      "bytes": 13560,
+      "sha256": "3e9da6c6e2de2d31a07b0e29b482ebf3d1b4f227e5df11e980646bdee1f40f07"
+    },
+    {
+      "path": "overlay/apps/android/app/src/main/java/ai/openclaw/app/home/IncomingMessageNotice.kt",
+      "bytes": 8787,
+      "sha256": "f72f17f523c023c239abb55121eadc4f509ab842a7599a5c70185b6bc9ee3aa1"
+    },
+    {
+      "path": "overlay/apps/android/app/src/main/java/ai/openclaw/app/home/JarvisAnnouncementChime.kt",
+      "bytes": 1172,
+      "sha256": "cb4a12896a5af746ca65bc98e3df419becefda7642f5d1e54ee8878d5036c973"
+    },
+    {
+      "path": "overlay/apps/android/app/src/main/java/ai/openclaw/app/home/RingAlertController.kt",
+      "bytes": 7050,
+      "sha256": "302c620cf842da2fc0b07c27c123b196fcc7ea93a19cc5c5c1847870b7cbeebc"
+    },
+    {
+      "path": "overlay/apps/android/app/src/main/java/ai/openclaw/app/home/RingCallPresentation.kt",
+      "bytes": 4804,
+      "sha256": "a3e8f6f9c72cdc5662ffe59b1b9f2d7d5469ad494e79fe8420e915d3703388a4"
+    },
+    {
+      "path": "overlay/apps/android/app/src/main/java/ai/openclaw/app/home/RingIntercomMode.kt",
+      "bytes": 936,
+      "sha256": "6cb82dd030b0c4fe044d93bf3930b707c33e8f268cb18188a09e6e2c7c260021"
+    },
+    {
+      "path": "overlay/apps/android/app/src/main/java/ai/openclaw/app/home/RingWebRtcSession.kt",
+      "bytes": 11411,
+      "sha256": "7c002f7740ece0a2141576b762769cc633b24bde2985f2525c314533e678b559"
+    },
+    {
+      "path": "overlay/apps/android/app/src/main/java/ai/openclaw/app/home/timers/JarvisScheduleAlertService.kt",
+      "bytes": 4458,
+      "sha256": "57569aa06b9b712dc05f201adbd0d51e59ed072ac06bd96029415676eb866ba5"
+    },
+    {
+      "path": "overlay/apps/android/app/src/main/java/ai/openclaw/app/home/timers/JarvisScheduleRepository.kt",
+      "bytes": 18254,
+      "sha256": "471f97c18c36248ac482e171ada4f2573d51a095315cd5360439640204d0d25e"
+    },
+    {
+      "path": "overlay/apps/android/app/src/main/java/ai/openclaw/app/node/DeviceHandler.kt",
+      "bytes": 18731,
+      "sha256": "eaf717ced961b2f2460dc66de3887d6d2fa894906c46d68fefd68b8431ace6d9"
+    },
+    {
+      "path": "overlay/apps/android/app/src/main/java/ai/openclaw/app/node/DeviceNotificationListenerService.kt",
+      "bytes": 24601,
+      "sha256": "7121e4df32e7bcc1e80b4ba0a7fc5917a144d89381088bdf71f65dd7088020bf"
+    },
+    {
+      "path": "overlay/apps/android/app/src/main/java/ai/openclaw/app/node/HorizonPresentationHandler.kt",
+      "bytes": 7148,
+      "sha256": "fe61fedbe3fb87a856baa7cd39d2eb7a225d4aa4b72e43d7c20c3aa9d787961d"
+    },
+    {
+      "path": "overlay/apps/android/app/src/main/java/ai/openclaw/app/node/InvokeDispatcher.kt",
+      "bytes": 10436,
+      "sha256": "57896867d12e584161d473f2d8adbe2dc212ee7e89b6df54907de7ce0418e857"
+    },
+    {
+      "path": "overlay/apps/android/app/src/main/java/ai/openclaw/app/node/JarvisDisplayHandler.kt",
+      "bytes": 6534,
+      "sha256": "d2342e6eb27d3230db3220b669a7d32a0d5c58b7c0ed9fbae5b5263a9b02b58f"
+    },
+    {
+      "path": "overlay/apps/android/app/src/main/java/ai/openclaw/app/node/JarvisMediaHandler.kt",
+      "bytes": 7692,
+      "sha256": "17b6f31512d94ece4cff581501e9d8cc472851a522fdf009d9066a8a3b3cbfb1"
+    },
+    {
+      "path": "overlay/apps/android/app/src/main/java/ai/openclaw/app/node/JarvisScheduleHandler.kt",
+      "bytes": 7717,
+      "sha256": "ee5f9c2a91bccac81b6450ef9f79b133d448624870fd136de00aa1a78d0be3b5"
+    },
+    {
+      "path": "overlay/apps/android/app/src/main/java/ai/openclaw/app/node/LocationCaptureManager.kt",
+      "bytes": 5509,
+      "sha256": "7290faba5a7319b2342c3372f00687781bbb3f95b70130d616b010e3fa707d11"
+    },
+    {
+      "path": "overlay/apps/android/app/src/main/java/ai/openclaw/app/ui/JarvisAmbient.kt",
+      "bytes": 4123,
+      "sha256": "4b5f43cb21713601b5af7a21da8c7b8ce1cfb334dc7abc6549acf2da74a075ec"
+    },
+    {
+      "path": "overlay/apps/android/app/src/main/java/ai/openclaw/app/ui/JarvisAnnouncementPanel.kt",
+      "bytes": 4705,
+      "sha256": "4f1508deef45711a92d57654cc02054537067347280ac083ab56cf0f78c15c85"
+    },
+    {
+      "path": "overlay/apps/android/app/src/main/java/ai/openclaw/app/ui/JarvisConversationPresentation.kt",
+      "bytes": 778,
+      "sha256": "6ed8778c0ad4ce05138ff0439d85bfb405ddd9572f9d840d025cffce000e5c0b"
+    },
+    {
+      "path": "overlay/apps/android/app/src/main/java/ai/openclaw/app/ui/JarvisHomePanel.kt",
+      "bytes": 33157,
+      "sha256": "a70365c9ed689cac70efda56d4f1e3aa210b3367767d55c92aeaa76634b868bf"
+    },
+    {
+      "path": "overlay/apps/android/app/src/main/java/ai/openclaw/app/ui/JarvisMediaPanel.kt",
+      "bytes": 12037,
+      "sha256": "de961eb3eb6ea0719880eb5f9164ec31903810723218c795c91fa59adc54c4e7"
+    },
+    {
+      "path": "overlay/apps/android/app/src/main/java/ai/openclaw/app/ui/JarvisSchedulePanel.kt",
+      "bytes": 3694,
+      "sha256": "eba2dc68b2c82cd4d8a174fa53538c2565eee4dc45e37fbf6235f1521a120246"
+    },
+    {
+      "path": "overlay/apps/android/app/src/main/java/ai/openclaw/app/ui/JarvisScreen.kt",
+      "bytes": 63195,
+      "sha256": "0cf91054f4d9dab312735e7cb05adae5925b6ac99b98de5da25456b276cda0f6"
+    },
+    {
+      "path": "overlay/apps/android/app/src/main/java/ai/openclaw/app/ui/OpenClawTheme.kt",
+      "bytes": 2880,
+      "sha256": "51e1255bed429ab41b9bc14141a0fbe0e93058d97e8c82d1efc49735c2e02245"
+    },
+    {
+      "path": "overlay/apps/android/app/src/main/java/ai/openclaw/app/ui/SettingsScreens.kt",
+      "bytes": 131983,
+      "sha256": "3e27b4af8be9a2e7b1b125ce947880bae457c67e4e2f6568829b55b0870f3d5a"
+    },
+    {
+      "path": "overlay/apps/android/app/src/main/java/ai/openclaw/app/ui/ShellScreen.kt",
+      "bytes": 64655,
+      "sha256": "e002bb5c63b9c762659fa2aac44ce44e2ad304b7c789c177a7892ce505ddc302"
+    },
+    {
+      "path": "overlay/apps/android/app/src/main/java/ai/openclaw/app/ui/SidebarContent.kt",
+      "bytes": 52657,
+      "sha256": "d9868fc6addb082415a268ea2c65279761fb4012050820795a5eecb43f722d63"
+    },
+    {
+      "path": "overlay/apps/android/app/src/main/java/ai/openclaw/app/ui/chat/ChatCameraActivity.kt",
+      "bytes": 14821,
+      "sha256": "5830e4820246b0ecc6d94b16d1f3002683911f37bb531713b755d90ee9d42729"
+    },
+    {
+      "path": "overlay/apps/android/app/src/main/java/ai/openclaw/app/ui/chat/ChatDictation.kt",
+      "bytes": 17917,
+      "sha256": "e28ac8167f713f729acb5cbd5b6464d4a6ab94538ab14b5a203b24431fdf1b61"
+    },
+    {
+      "path": "overlay/apps/android/app/src/main/java/ai/openclaw/app/ui/chat/ChatMessageActions.kt",
+      "bytes": 8677,
+      "sha256": "e26e40245120cbb6422470cf6661575e3dc46c8532f2e5678f35183faf8fc354"
+    },
+    {
+      "path": "overlay/apps/android/app/src/main/java/ai/openclaw/app/ui/chat/ChatWidgetExport.kt",
+      "bytes": 9835,
+      "sha256": "af78290a2f3dda8f2750f7ba7e4310be5b0d2878b75cac165c46d7f9f1fe1fe9"
+    },
+    {
+      "path": "overlay/apps/android/app/src/main/java/ai/openclaw/app/ui/design/OpenClawMascot.kt",
+      "bytes": 14216,
+      "sha256": "1171b0ab59e22800fe03e8307ffe9686298ab73b0b9d4324e73a8fcea8aa1813"
+    },
+    {
+      "path": "overlay/apps/android/app/src/main/java/ai/openclaw/app/ui/horizon/HorizonSnapshotFactory.kt",
+      "bytes": 24301,
+      "sha256": "dd7012214f0503d3c2ccad5a4bef66dd6a357dc57b08a9eaf8f3e78726b54a8b"
+    },
+    {
+      "path": "overlay/apps/android/app/src/main/java/ai/openclaw/app/ui/horizon/JarvisHorizonWebView.kt",
+      "bytes": 15144,
+      "sha256": "b1dbbd7421afb2a7a520c1b222929d7b83ff32b4221c644408f9bfba902e95a9"
+    },
+    {
+      "path": "overlay/apps/android/app/src/main/java/ai/openclaw/app/update/JarvisAppUpdate.kt",
+      "bytes": 4839,
+      "sha256": "aec69d4fcfd35ac7024177585272739d6139d399778c569083bb408d0c3338cd"
+    },
+    {
+      "path": "overlay/apps/android/app/src/main/java/ai/openclaw/app/update/JarvisAppUpdateManager.kt",
+      "bytes": 40838,
+      "sha256": "47de192ff2ed7790c6be39c8966adef0b2268273b0a67c750f9fb4f66356d06c"
+    },
+    {
+      "path": "overlay/apps/android/app/src/main/java/ai/openclaw/app/voice/AndroidAudioInputSession.kt",
+      "bytes": 24933,
+      "sha256": "313485209f960d54b037c15ad3415e15d51a0e7eb87591e1b8223d95a8daca07"
+    },
+    {
+      "path": "overlay/apps/android/app/src/main/java/ai/openclaw/app/voice/JarvisConversationLifecycle.kt",
+      "bytes": 4411,
+      "sha256": "94257471f0d57cea34e547ab585199e45797b241d4598176b12db3d4bf682803"
+    },
+    {
+      "path": "overlay/apps/android/app/src/main/java/ai/openclaw/app/voice/JarvisToolDetail.kt",
+      "bytes": 5287,
+      "sha256": "81f3a3beb27df334931a0b1e2c004964f2ef88351218fd4e3d7d2ba215e32f6d"
+    },
+    {
+      "path": "overlay/apps/android/app/src/main/java/ai/openclaw/app/voice/JarvisWakeAcknowledgement.kt",
+      "bytes": 4739,
+      "sha256": "b0df97edea25326816c8c248c7986bf2228ac486732c54e38100b7b4077c11a4"
+    },
+    {
+      "path": "overlay/apps/android/app/src/main/java/ai/openclaw/app/voice/RealtimeAgentCoordinator.kt",
+      "bytes": 24760,
+      "sha256": "0c50d57f2d9909b133135138ffcc621a7832e3042c39d79adcd4481c406cef20"
+    },
+    {
+      "path": "overlay/apps/android/app/src/main/java/ai/openclaw/app/voice/RealtimeAudioIngressBudget.kt",
+      "bytes": 2326,
+      "sha256": "215ed323ab8cdd994b00f560c73d9ff7a801d4b3f371b1da91045b5c9f3caa19"
+    },
+    {
+      "path": "overlay/apps/android/app/src/main/java/ai/openclaw/app/voice/RealtimeAudioRoute.kt",
+      "bytes": 1940,
+      "sha256": "472e11097bccf77cfb69fb7a6edb40cea16d32e686ea6f19eb8a6240fbecccd2"
+    },
+    {
+      "path": "overlay/apps/android/app/src/main/java/ai/openclaw/app/voice/RealtimeCommunicationAudio.kt",
+      "bytes": 7826,
+      "sha256": "032f4f78766f6d0bdc42127b1189961481459cff136761dcd21f8b194c7593c0"
+    },
+    {
+      "path": "overlay/apps/android/app/src/main/java/ai/openclaw/app/voice/RealtimeOrderedAudioPacer.kt",
+      "bytes": 2505,
+      "sha256": "32f28f321ee24b9fff409f2a65a9efee4799848c0747fa9dfb8210a7141827dd"
+    },
+    {
+      "path": "overlay/apps/android/app/src/main/java/ai/openclaw/app/voice/RealtimePlayout.kt",
+      "bytes": 39145,
+      "sha256": "1bd170fc96e793e2636d5411546da83b008fb64a26174206ddd5eb679141d521"
+    },
+    {
+      "path": "overlay/apps/android/app/src/main/java/ai/openclaw/app/voice/SherpaJarvisVoiceWakeRecognizer.kt",
+      "bytes": 43681,
+      "sha256": "d9a1bcc96e44d999366099f2344292f75822a4fd4063bdb7e9243071ce835b06"
+    },
+    {
+      "path": "overlay/apps/android/app/src/main/java/ai/openclaw/app/voice/SherpaWakeKeywordSpotter.kt",
+      "bytes": 5457,
+      "sha256": "eab588a2b86c7401255d4355f302a8029cc5051ec28671a0f3bb31a91919ab1a"
+    },
+    {
+      "path": "overlay/apps/android/app/src/main/java/ai/openclaw/app/voice/TalkAudioLevel.kt",
+      "bytes": 2975,
+      "sha256": "76374a48676c523f39284e83f78de6cc6fa73f066cf79ffa3d6351475e7756e8"
+    },
+    {
+      "path": "overlay/apps/android/app/src/main/java/ai/openclaw/app/voice/TalkModeGatewayConfig.kt",
+      "bytes": 6015,
+      "sha256": "277b9f511d7f28704132562e82576f65dd6acffcfd54b6a94aedea8d393e04d0"
+    },
+    {
+      "path": "overlay/apps/android/app/src/main/java/ai/openclaw/app/voice/TalkModeManager.kt",
+      "bytes": 215187,
+      "sha256": "593def2bb4fbaa5be277f1485c5741af476a1e314dd0376f09f42eba41ddaa02"
+    },
+    {
+      "path": "overlay/apps/android/app/src/main/java/ai/openclaw/app/voice/VoiceWakeManager.kt",
+      "bytes": 60942,
+      "sha256": "5ec1e9edc3b479e2b596607019e3038f48e48c5270f373686ac15d20d7d89227"
+    },
+    {
+      "path": "overlay/apps/android/app/src/main/java/ai/openclaw/app/voice/VoiceWakePreferences.kt",
+      "bytes": 5771,
+      "sha256": "99143c9b319e11fa18683edb77e61095d10a4861dcc57ee3570edc044758829d"
+    },
+    {
+      "path": "overlay/apps/android/app/src/main/res/drawable-nodpi/jarvis_horizon_core.png",
+      "bytes": 1489110,
+      "sha256": "76ffad2132e1b0cf7019a2f8558be06b975c7b3909976b38bed6e473b1c8d480"
+    },
+    {
+      "path": "overlay/apps/android/app/src/main/res/drawable-nodpi/jarvis_horizon_core_v2.png",
+      "bytes": 1569150,
+      "sha256": "9183ad8ea2495d6374fa64cfc1dc1a1e9d2bbff008ef2f297b8d06d34abbbcc5"
+    },
+    {
+      "path": "overlay/apps/android/app/src/main/res/drawable-nodpi/jarvis_horizon_nebula.png",
+      "bytes": 1701644,
+      "sha256": "56fb7a6a40a19c25707caac5a83f9e6f6f7cdfdf11dcf88731007e58993e002c"
+    },
+    {
+      "path": "overlay/apps/android/app/src/main/res/drawable-nodpi/jarvis_weather_day.png",
+      "bytes": 1901959,
+      "sha256": "9d06c45f366d0d54031b5f7503a38b3ef674a3a665b1499f46974f64a8a3747b"
+    },
+    {
+      "path": "overlay/apps/android/app/src/main/res/drawable-nodpi/jarvis_weather_night.png",
+      "bytes": 1756808,
+      "sha256": "f4b47c0958867507beda6fe4a4c82e1308b910f0dc1f4d3f3d434afae646a611"
+    },
+    {
+      "path": "overlay/apps/android/app/src/main/res/values-night/themes.xml",
+      "bytes": 503,
+      "sha256": "04826f02bfa28f62e5e0f05acb51807daeba9f01ce448e16763a8f12f5169741"
+    },
+    {
+      "path": "overlay/apps/android/app/src/main/res/values/strings.xml",
+      "bytes": 282356,
+      "sha256": "6d4b782913ed0c4410640ce9f47b5239fb3fe665a9528f5d90d502103c44ff49"
+    },
+    {
+      "path": "overlay/apps/android/app/src/main/res/values/themes.xml",
+      "bytes": 464,
+      "sha256": "6618ea0831527478d37ce81f181f3f6ffc526d7d02095fe1f2cfb82ca27e2762"
+    },
+    {
+      "path": "overlay/apps/android/app/src/test/java/ai/openclaw/app/AndroidLicenseNoticesTest.kt",
+      "bytes": 4817,
+      "sha256": "10548f4cac8ffdbbc66a91da554f0df0d8eafdd6b71ab257d0f84431ce9c6d1d"
+    },
+    {
+      "path": "overlay/apps/android/app/src/test/java/ai/openclaw/app/NodeForegroundServiceTest.kt",
+      "bytes": 126721,
+      "sha256": "bd8066a5bdef43c3e81dc5104865e996cf931ab668e389e46028b60df8e0d0df"
+    },
+    {
+      "path": "overlay/apps/android/app/src/test/java/ai/openclaw/app/VoiceWakeRuntimeTest.kt",
+      "bytes": 9610,
+      "sha256": "ae0b71ec625a44806c15eba41bd7a95ddde85b02805d3dcac68846f5c229626a"
+    },
+    {
+      "path": "overlay/apps/android/app/src/test/java/ai/openclaw/app/gateway/GatewaySessionCustomHeadersTest.kt",
+      "bytes": 56904,
+      "sha256": "906f894c185bd938ed3723bb55b31c1dffa5b545b44276c8ada0bdf5894d87e3"
+    },
+    {
+      "path": "overlay/apps/android/app/src/test/java/ai/openclaw/app/node/InvokeDispatcherTest.kt",
+      "bytes": 22071,
+      "sha256": "e6dfd37d95f62bb2cdc4c8b30aac547e1043eac57fc427485f9343d602f5e55e"
+    },
+    {
+      "path": "overlay/apps/android/app/src/test/java/ai/openclaw/app/ui/HorizonLayoutTest.kt",
+      "bytes": 4640,
+      "sha256": "c15d569bb2958292f64aca30c91e97b356eb600dd19d5419a2125338af575a61"
+    },
+    {
+      "path": "overlay/apps/android/app/src/test/java/ai/openclaw/app/ui/SidebarNavigationAccessibilityTest.kt",
+      "bytes": 14804,
+      "sha256": "3f341e28a5642782d6a30d7924bc4e7e673950e1e52d3e6bd987f2e98dc8ceb8"
+    },
+    {
+      "path": "overlay/apps/android/app/src/test/java/ai/openclaw/app/ui/chat/ChatComposerLayoutTest.kt",
+      "bytes": 311365,
+      "sha256": "0225b4e5ae447530bd47bd1b7d3e07d12c8124f1b1a77c154bb988fd8453e698"
+    },
+    {
+      "path": "overlay/apps/android/app/src/test/java/ai/openclaw/app/voice/RealtimePlayoutTest.kt",
+      "bytes": 49496,
+      "sha256": "edeb37bbccf7ed5699c884c345d583e46e0643aa9a94b3a83cc49556286fc0bc"
+    },
+    {
+      "path": "overlay/apps/android/app/src/test/java/ai/openclaw/app/voice/TalkModeManagerTest.kt",
+      "bytes": 268927,
+      "sha256": "53a61cc31fd41f33a8a5cd77bc995b0047290b4ddc0e9f597324b275a6bec280"
+    },
+    {
+      "path": "overlay/apps/android/gradle/libs.versions.toml",
+      "bytes": 7918,
+      "sha256": "2aeb5f98d5b0efdd94294bda596b8070a625eba0c1c44e809711f3ad8ecde133"
+    },
+    {
+      "path": "overlay/apps/android/wear-shared/build.gradle.kts",
+      "bytes": 932,
+      "sha256": "ed74fdf01b4b39bd5b0db1ecd79b962933434ebcbb6f8f150b4ccbd80df066ac"
+    },
+    {
+      "path": "pi/.gitignore",
+      "bytes": 51,
+      "sha256": "80d7d2dc1e965e0641540da69893cc392830fd35fd1f2c7570a79fd59be84e1a"
+    },
+    {
+      "path": "pi/app/VERSION",
+      "bytes": 12,
+      "sha256": "485af64c50a5f6711ebb0dd32ae044b9284aaa21c81f8e23e62c5de863e39750"
+    },
+    {
+      "path": "pi/app/gateway.py",
+      "bytes": 8960,
+      "sha256": "62feb22aaaa40065ec4a275e37ae58513d500abd3efa5dd7077df16b6ff06867"
+    },
+    {
+      "path": "pi/app/horizon/css/caption-overrides.css",
+      "bytes": 33603,
+      "sha256": "012fc2aea6c1b6390f9a5c7f68df984760fbb821c6a7002428f5673664f4be2b"
+    },
+    {
+      "path": "pi/app/horizon/css/jarvis-horizon.css",
+      "bytes": 14362,
+      "sha256": "74eae1fa5c6df21e74fab6d5bc48c8fd09c8c2aeb7413f7ed04b1d31a1715308"
+    },
+    {
+      "path": "pi/app/horizon/fonts/LICENSE-JetBrains-Mono-OFL-1.1.txt",
+      "bytes": 4399,
+      "sha256": "b2fe5e8987594e9ffd1d2ca52a2f5d73eb8335243893c5d6254b5ad69269591d"
+    },
+    {
+      "path": "pi/app/horizon/fonts/LICENSE-Space-Grotesk-OFL-1.1.txt",
+      "bytes": 4495,
+      "sha256": "564ce565c371c5e5bbf286006565a7c9aa55a9f56e7ca58d56e05d649dd61a72"
+    },
+    {
+      "path": "pi/app/horizon/fonts/jetbrains-mono.woff2",
+      "bytes": 31432,
+      "sha256": "83c005d49d8a6a50474c73a5a36ac0468076e9c4a29da7bdb14995d80560a5be"
+    },
+    {
+      "path": "pi/app/horizon/fonts/space-grotesk.woff2",
+      "bytes": 22288,
+      "sha256": "0640890476fc1198ab4de571fb658de443c4d85b66466ec09534a8737ab1ce9d"
+    },
+    {
+      "path": "pi/app/horizon/index.html",
+      "bytes": 6464,
+      "sha256": "213422bbfe884e1c51844197b1ad46c857b0a501c9ffa687d9d88ada676583df"
+    },
+    {
+      "path": "pi/app/horizon/js/app.js",
+      "bytes": 44446,
+      "sha256": "1f54e61b069b76cd20fde9e6b02c7e0eb4e6729481c1f776376a57bcf1acfcbc"
+    },
+    {
+      "path": "pi/app/horizon/js/galactic-saver.js",
+      "bytes": 6679,
+      "sha256": "aed062d5b60e4feafb375a47d7d7f4b87e143e901e52bdbba3810ef3971c0571"
+    },
+    {
+      "path": "pi/app/horizon/js/jarvis-orb.js",
+      "bytes": 22995,
+      "sha256": "e6c56d30909be5aeaba52011a649a7203dc8da9657361757f550b418957d1003"
+    },
+    {
+      "path": "pi/app/horizon/mic-worklet.js",
+      "bytes": 1834,
+      "sha256": "761e1ae916079dd1c98d3ce2b20c5c3b408a4112fb48bf28f68fbafcc6859cb8"
+    },
+    {
+      "path": "pi/app/horizon/mirror-client.js",
+      "bytes": 24164,
+      "sha256": "28c4c2ac2fd23fd9ec7ce5b622a1855b5f2197620be85e76278b43a8160e46c2"
+    },
+    {
+      "path": "pi/app/horizon/mirror.css",
+      "bytes": 157,
+      "sha256": "1f1c0b9de1d37d3cc531a59d2e123adfbef5b4680e5b357dd703dd0b5fff7c51"
+    },
+    {
+      "path": "pi/app/server.py",
+      "bytes": 21994,
+      "sha256": "903ef798c2aec887ddc682db1a547c22f64a4ab8dd81c183aeae0d8bdc01a8f1"
+    },
+    {
+      "path": "pi/app/test_galactic_saver.js",
+      "bytes": 3413,
+      "sha256": "603e69bb9b79a169946ca4b55af85ffefb3f862979bec14a8119c250d281ac54"
+    },
+    {
+      "path": "pi/app/test_horizon_clock_tick.js",
+      "bytes": 2814,
+      "sha256": "a3af6ea7a7b146c0600c593acf34f6a19a329b23f369d906c2df838d037f22d2"
+    },
+    {
+      "path": "pi/app/test_horizon_landscape_layout.js",
+      "bytes": 1312,
+      "sha256": "8d8bb1e07265f0a8cde5d80c14a04943ec5942730f3c344bb94950b48708f8d7"
+    },
+    {
+      "path": "pi/app/test_jarvis_orb_cadence.js",
+      "bytes": 3651,
+      "sha256": "546512361fbdc99d883edc31bde4a5c44fb0900605cdae4cf1c262401f3b5bbc"
+    },
+    {
+      "path": "pi/app/test_mic_worklet.js",
+      "bytes": 1328,
+      "sha256": "a0a988f9bb45304c8905923df87a43176b3d8991a99ba43e7ab31ec990c2de71"
+    },
+    {
+      "path": "pi/app/test_mirror_client_mic.js",
+      "bytes": 17838,
+      "sha256": "b2e4dfe06a44b7bdd4b23e17218a54865870b0024a325556498adcb95d959eac"
+    },
+    {
+      "path": "pi/app/test_voice.py",
+      "bytes": 16990,
+      "sha256": "824606ef2f63a067f8b5785cdca7980f7fdba6022345026cb28125cca290e1e6"
+    },
+    {
+      "path": "pi/app/tests/test_gateway.py",
+      "bytes": 8800,
+      "sha256": "b2d040c0df49cd53a6b8ae2714bd8d65d2a603fab3285837ceec570aee305709"
+    },
+    {
+      "path": "pi/app/tests/test_microphone.py",
+      "bytes": 1424,
+      "sha256": "232cccba7ae0c3beee0874690cb95685ef834321adc1bc962f4504e06797c8a3"
+    },
+    {
+      "path": "pi/app/voice.py",
+      "bytes": 28100,
+      "sha256": "50fb3468591fbc69dd4389f4668a556bfccca37adbaa7baca722477ef0b52084"
+    },
+    {
+      "path": "pi/assets.lock.json",
+      "bytes": 1520,
+      "sha256": "c8f9d7f246a8ea79faf8cb9cdaf93b883343f57211a1e96e25c135abaf63fbe0"
+    },
+    {
+      "path": "pi/config.example.json",
+      "bytes": 619,
+      "sha256": "73dc5b05c32e7df99fd2fdd248347bfc920cfc5a6cff61c3a145a8bb5391d3a3"
+    },
+    {
+      "path": "pi/install-pi.sh",
+      "bytes": 6324,
+      "sha256": "67bbbe38f74201ef963318c877fa2d30dc5116bd04492702bd05f1b8615b551e"
+    },
+    {
+      "path": "pi/models/LICENSE-Sherpa-ONNX-Zipformer-KWS-Apache-2.0.txt",
+      "bytes": 12742,
+      "sha256": "619f1486c3627c3fe6879f23ad5e086e4f14431113454fc843f88f206ad2ee61"
+    },
+    {
+      "path": "pi/models/LICENSE-Silero-VAD-Apache-2.0.txt",
+      "bytes": 1317,
+      "sha256": "206ed510f5a00749b65a27ea81256c11cbb239972dad07be391495816fce076a"
+    },
+    {
+      "path": "pi/models/wake/decoder.onnx",
+      "bytes": 759829,
+      "sha256": "63a22dd60f40fff082ac3e09afa507f6787da36df76ded2fbe145fa233e22c21"
+    },
+    {
+      "path": "pi/models/wake/encoder.onnx",
+      "bytes": 4599656,
+      "sha256": "408bbd740838c42d5bf6d1c5b80b3c88b616c7860b92d980328b5b068c76ae48"
+    },
+    {
+      "path": "pi/models/wake/joiner.onnx",
+      "bytes": 86629,
+      "sha256": "190d4067b4cc20b72a42a1916e69d92052000fb7051a427ebb1bc72a69207dc1"
+    },
+    {
+      "path": "pi/models/wake/keywords.txt",
+      "bytes": 100,
+      "sha256": "cc2701ddfbce07e4bd876aa246067c5791efca24182372838ad0e1f853a2668e"
+    },
+    {
+      "path": "pi/models/wake/silero-vad.onnx",
+      "bytes": 212860,
+      "sha256": "c36d490aff5ab924ca6c7aeec4d8f6bd3d22db6fa17611b9c5b17eae58ac3a20"
+    },
+    {
+      "path": "pi/models/wake/tokens.txt",
+      "bytes": 1928,
+      "sha256": "2d3f32311f9b692b964da3c90e830258d3e78e013cb0c992dbfb15cd5a1a71b0"
+    },
+    {
+      "path": "pi/provision/51-jarvis-a2dp.conf",
+      "bytes": 471,
+      "sha256": "0e3e12d5243d480812a33835d29ee4c29b2e2319323e314e7f05cd95d15f18c2"
+    },
+    {
+      "path": "pi/provision/Xwrapper.config",
+      "bytes": 194,
+      "sha256": "78a68c324af45facc61e1ce8fafaef8c206c54a7c2dd43700d2e9465c8820ad8"
+    },
+    {
+      "path": "pi/provision/bin/basic-health.sh",
+      "bytes": 401,
+      "sha256": "771d8b5c71bb7aba681eebc71fd1c536e5e8d70f1773dbdaa299847a9c5ca186"
+    },
+    {
+      "path": "pi/provision/bin/bt-reconnect.sh",
+      "bytes": 8741,
+      "sha256": "8675b49c886647a53e1bfc353cb1134fb1453923e013f1d4a1de31de44443370"
+    },
+    {
+      "path": "pi/provision/bin/kiosk-session.sh",
+      "bytes": 2877,
+      "sha256": "a8455f708b622e781f04cf00aa67ede47609d7e4f2cde40b95eb791f7d374f86"
+    },
+    {
+      "path": "pi/provision/bin/staged-app-updater.py",
+      "bytes": 9848,
+      "sha256": "4e0848b2cfe2b7a52e5373055b264f0ccdffbd3c060dd7152e76120a31aca745"
+    },
+    {
+      "path": "pi/provision/bin/test_staged_app_updater.py",
+      "bytes": 1275,
+      "sha256": "9372013fb774fffdb7aebfbcc58ebf3a5d98d8c1b2a069300a7d28f4e5ba370b"
+    },
+    {
+      "path": "pi/provision/chromium-policies/jarvis.json",
+      "bytes": 96,
+      "sha256": "bef5fc2fd2f54ed570f704a6995f7f1f572bbd6c016ea6adb461a44ed6a66568"
+    },
+    {
+      "path": "pi/provision/ota.pub.example",
+      "bytes": 153,
+      "sha256": "1571cd2a3fd0bf5293144f6abf38fc62b99cbe4c346e9b02675932596786ae90"
+    },
+    {
+      "path": "pi/provision/systemd/jarvis-basic-health.service",
+      "bytes": 199,
+      "sha256": "ecb0e44c0efdc79ab1696d437bd44756f024c3ccf313bfa72c40d7f2e08d5acf"
+    },
+    {
+      "path": "pi/provision/systemd/jarvis-bt-reconnect.service",
+      "bytes": 267,
+      "sha256": "1d1d5b11fb4743f9685734077a0794364839dfb8e0dffa90a64fceb4f4be8882"
+    },
+    {
+      "path": "pi/provision/systemd/jarvis-bt-reconnect.timer",
+      "bytes": 195,
+      "sha256": "d0e43e99daccfbad5125ba5d26928169f0225acb654b3bfec2988df8a375b4bc"
+    },
+    {
+      "path": "pi/provision/systemd/jarvis-kiosk.service",
+      "bytes": 859,
+      "sha256": "695b6a8c5e74944090dac616dea02cf699a2d74807f905c883c6c82f822ede0d"
+    },
+    {
+      "path": "pi/provision/systemd/jarvis-mirror.service",
+      "bytes": 597,
+      "sha256": "4c83167f60434122a4a12f00b7ffa02e394be4044f805c356bd680a4dd4a9ac0"
+    },
+    {
+      "path": "pi/provision/systemd/jarvis-ota.service",
+      "bytes": 250,
+      "sha256": "7dffacb0d4baeefac345eed92764c534d99dbc5d8678d7b69f0ed6c30a432bf3"
+    },
+    {
+      "path": "pi/provision/systemd/jarvis-ota.timer",
+      "bytes": 192,
+      "sha256": "a343f82404ee7e083c5ac35fac14d8aa56dc9d9434b84decc7e7aaf253ef9ee3"
+    },
+    {
+      "path": "pi/requirements.txt",
+      "bytes": 166,
+      "sha256": "022e1f949d4fdcbdd22c5618f28fb46af6b261668b95bbbe05d7a4937cfa1a26"
+    },
+    {
+      "path": "third_party/sherpa-clock1/LICENSE-APACHE-2.0",
+      "bytes": 11358,
+      "sha256": "cfc7749b96f63bd31c3c42b5c471bf756814053e847c10f3eb003417bc523d30"
+    },
+    {
+      "path": "third_party/sherpa-clock1/REBUILD.md",
+      "bytes": 1508,
+      "sha256": "2b06399c78093f494afea10b689c9e43fe7f10fd3e28d5d4a62c6b93cb3a2943"
+    },
+    {
+      "path": "third_party/sherpa-clock1/keyword-frame-offset-clock1.patch",
+      "bytes": 494,
+      "sha256": "b0db124978ac84496456bc5d488d4f6ba0d72ee6eccc5dd5e23ab8c9a5ff357e"
+    },
+    {
+      "path": "third_party/sherpa-clock1/sherpa-onnx-1.13.8-jarvis-clock1.aar",
+      "bytes": 49172820,
+      "sha256": "43f894bedb548210f098dcc0fb2b8c52e1ff576354b8ed53db05840e07015b74"
+    },
+    {
+      "path": "third_party/sherpa-clock1/sherpa-onnx-1.13.8-jarvis-clock1.aar.manifest.json",
+      "bytes": 497,
+      "sha256": "8a9419433a9320f49998a45edf90dd189aed2523d00b288d90fdc6adb7a962bc"
+    },
+    {
+      "path": "tools/check-release-paths.py",
+      "bytes": 2373,
+      "sha256": "27a3853522942cbf4818ca04f30b856237ee459b03df7c05b23b40d6a9a8b783"
+    }
+  ],
+  "payloadScope": "All tracked release payloads except ASSET_LOCK.json and release-manifest.json, which are integrity metadata. Git history, ignored build checkouts, keys, caches, recordings and local validation are excluded."
+}

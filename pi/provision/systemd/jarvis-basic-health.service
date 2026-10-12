@@ -1,0 +1,10 @@
+[Unit]
+Description=Check local Jarvis Mirror backend health
+After=jarvis-mirror.service
+
+[Service]
+Type=oneshot
+ExecStart=/opt/jarvis-mirror/bin/basic-health.sh
+
+[Install]
+WantedBy=multi-user.target

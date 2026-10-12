@@ -1,0 +1,28 @@
+.upstream/
+artifacts/
+*.apk
+*.aab
+*.aar
+*.wav
+*.pcm
+.gradle/
+build/
+.env
+*.keystore
+*.jks
+!third_party/sherpa-clock1/*.aar
+!overlay/apps/android/app/src/main/assets/jarvis/wake/bin_da.wav
+!overlay/apps/android/app/src/main/assets/jarvis/wake/ja_boss.wav
+!overlay/apps/android/app/src/main/assets/jarvis/wake/was_gibts.wav
+
+# Generated local validation/cache state
+__pycache__/
+*.py[cod]
+.pytest_cache/
+*.sqlite3
+*.sqlite3-*
+visual-validation/
+.playwright-cli/
+
+# Reproducible local checkout (not release source)
+android-source/

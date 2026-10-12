@@ -1,0 +1,30 @@
+{
+  "gatewayUrl": "",
+  "gatewayToken": "",
+  "nodeName": "Jarvis Mirror",
+  "identityDir": "/var/lib/jarvis-mirror",
+  "locale": "de-DE",
+  "haUrl": "",
+  "haToken": "",
+  "weatherEntity": "",
+  "mediaEntity": "",
+  "calendarEntities": [],
+  "homeEntities": [],
+  "homeName": "Zuhause",
+  "bt_mac": "",
+  "bt_name": "",
+  "bt_name_prefix": "",
+  "display": {
+    "rotation": "normal",
+    "scale": null
+  },
+  "voice": {
+    "gateway_url": "",
+    "session_key": "",
+    "wake_model_dir": "/opt/jarvis-mirror/models/wake"
+  },
+  "ota": {
+    "manifest_url": "",
+    "health_url": "http://127.0.0.1:8765/healthz"
+  }
+}

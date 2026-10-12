@@ -1,0 +1,26 @@
+{
+  "ts": 0,
+  "nodeId": "ios-node",
+  "displayName": "iOS Node",
+  "caps": [
+    "camera"
+  ],
+  "commands": [
+    "camera.snap\\u001b[2J\\neffective-spoof"
+  ],
+  "approvalState": "pending-reapproval",
+  "pendingRequestId": "request-approval",
+  "pendingDeclaredCaps": [
+    "camera",
+    "canvas"
+  ],
+  "pendingDeclaredCommands": [
+    "camera.snap",
+    "canvas.eval\\u001b[2K",
+    "canvas.snapshot"
+  ],
+  "pendingDeclaredPermissions": {
+    "camera": true
+  },
+  "connected": true
+}

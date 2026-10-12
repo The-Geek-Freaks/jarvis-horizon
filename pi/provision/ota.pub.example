@@ -1,0 +1,4 @@
+# PEM-encoded Ed25519 public key. Replace on the provisioned device before OTA is enabled.
+# -----BEGIN PUBLIC KEY-----
+# ...
+# -----END PUBLIC KEY-----

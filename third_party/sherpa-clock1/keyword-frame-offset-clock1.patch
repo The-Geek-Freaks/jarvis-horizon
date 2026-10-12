@@ -1,0 +1,10 @@
+diff --git a/sherpa-onnx/csrc/keyword-spotter-transducer-impl.h b/sherpa-onnx/csrc/keyword-spotter-transducer-impl.h
+--- a/sherpa-onnx/csrc/keyword-spotter-transducer-impl.h
++++ b/sherpa-onnx/csrc/keyword-spotter-transducer-impl.h
+@@
+     SHERPA_ONNX_CHECK_EQ(r.hyps.Size(), 1);
+ 
++    // Jarvis clock1: preserve physical feature-clock origin across automatic KWS reset.
++    r.frame_offset = stream->GetNumProcessedFrames() / 4;
++
+     SHERPA_ONNX_CHECK(stream->GetContextGraph() != nullptr);
