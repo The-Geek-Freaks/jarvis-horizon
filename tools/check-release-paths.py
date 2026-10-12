@@ -17,6 +17,7 @@ PATTERNS = {
 }
 MAX_BYTES = 768 * 1024 * 1024
 MAX_MEMBER = 256 * 1024 * 1024
+MAX_INPUT = 512 * 1024 * 1024
 
 
 def inspect(data, name, budget, hits, depth=0):
@@ -47,7 +48,7 @@ def main():
     for artifact in args.artifacts:
         hits = []
         try:
-            if artifact.stat().st_size > MAX_MEMBER:
+            if artifact.stat().st_size > MAX_INPUT:
                 raise ValueError("input byte limit reached")
             inspect(artifact.read_bytes(), artifact.name, [0], hits)
         except (OSError, ValueError, zipfile.BadZipFile, RuntimeError) as error:

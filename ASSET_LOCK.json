@@ -73,13 +73,13 @@
     },
     {
       "path": "README.de.md",
-      "bytes": 9397,
-      "sha256": "d9bd0faeb437a40e3a348cec2ec794db74a1859df944d49a3123db63929e1655"
+      "bytes": 9396,
+      "sha256": "fe01b591c6c6075363eb8288b69a114a7dd6a925fe61c2656c3544faab36fe8e"
     },
     {
       "path": "README.md",
-      "bytes": 8789,
-      "sha256": "7696a4185268e61462d500926b4bcb921e924c19e71dd5ea8c4965f9e27e8543"
+      "bytes": 8788,
+      "sha256": "873dd566ba71be91b5b82943e6cd7ae37a08a5aa5308697e513f832668f6d25b"
     },
     {
       "path": "THIRD_PARTY_NOTICES.md",
@@ -648,8 +648,8 @@
     },
     {
       "path": "docs/VALIDATION.md",
-      "bytes": 6526,
-      "sha256": "d65b1247e6e921bf00948e63dfba8a207296eaf1f9079e9b42fbbb5c3043918c"
+      "bytes": 7410,
+      "sha256": "bbd9371849e930d58b056a3d6085dd465396e21ccb2db52d064e7e783f955663"
     },
     {
       "path": "docs/assets/hero.png",
@@ -1363,8 +1363,8 @@
     },
     {
       "path": "overlay/apps/android/app/src/main/java/ai/openclaw/app/voice/TalkModeManager.kt",
-      "bytes": 215187,
-      "sha256": "593def2bb4fbaa5be277f1485c5741af476a1e314dd0376f09f42eba41ddaa02"
+      "bytes": 217296,
+      "sha256": "b4d8a5676a7409b7ecd212580921d65d7c308e68a83cc00dc7e95efde3852e30"
     },
     {
       "path": "overlay/apps/android/app/src/main/java/ai/openclaw/app/voice/VoiceWakeManager.kt",
@@ -1442,19 +1442,24 @@
       "sha256": "e6dfd37d95f62bb2cdc4c8b30aac547e1043eac57fc427485f9343d602f5e55e"
     },
     {
+      "path": "overlay/apps/android/app/src/test/java/ai/openclaw/app/ui/CommandPaletteLogicTest.kt",
+      "bytes": 31178,
+      "sha256": "1a208bfef257e8054d18ae54dc5391a2b6ddcab9cb0043f3438c887eb9fab828"
+    },
+    {
       "path": "overlay/apps/android/app/src/test/java/ai/openclaw/app/ui/HorizonLayoutTest.kt",
       "bytes": 4640,
       "sha256": "c15d569bb2958292f64aca30c91e97b356eb600dd19d5419a2125338af575a61"
     },
     {
       "path": "overlay/apps/android/app/src/test/java/ai/openclaw/app/ui/SidebarNavigationAccessibilityTest.kt",
-      "bytes": 14804,
-      "sha256": "3f341e28a5642782d6a30d7924bc4e7e673950e1e52d3e6bd987f2e98dc8ceb8"
+      "bytes": 15656,
+      "sha256": "93f4ff09c4984e5ecedab3289cb1c3d709b49f7503aa8b38cd20fdb22796cda2"
     },
     {
       "path": "overlay/apps/android/app/src/test/java/ai/openclaw/app/ui/chat/ChatComposerLayoutTest.kt",
-      "bytes": 311365,
-      "sha256": "0225b4e5ae447530bd47bd1b7d3e07d12c8124f1b1a77c154bb988fd8453e698"
+      "bytes": 312355,
+      "sha256": "d49303dd08fce9468227dcbcb7013b95947169656ebe11656cfca734a8882536"
     },
     {
       "path": "overlay/apps/android/app/src/test/java/ai/openclaw/app/voice/RealtimePlayoutTest.kt",
@@ -1463,8 +1468,8 @@
     },
     {
       "path": "overlay/apps/android/app/src/test/java/ai/openclaw/app/voice/TalkModeManagerTest.kt",
-      "bytes": 268927,
-      "sha256": "53a61cc31fd41f33a8a5cd77bc995b0047290b4ddc0e9f597324b275a6bec280"
+      "bytes": 273064,
+      "sha256": "e51f2dd330d6a64b11a8fb8460713868e7e789f4f9b68130a197fa9ef9435660"
     },
     {
       "path": "overlay/apps/android/gradle/libs.versions.toml",
@@ -1483,13 +1488,13 @@
     },
     {
       "path": "pi/app/VERSION",
-      "bytes": 12,
-      "sha256": "485af64c50a5f6711ebb0dd32ae044b9284aaa21c81f8e23e62c5de863e39750"
+      "bytes": 14,
+      "sha256": "ed41d33f787456abe92ea03b820e4c832b1e2b9e6867242eaea03258bae8d119"
     },
     {
       "path": "pi/app/gateway.py",
-      "bytes": 8960,
-      "sha256": "62feb22aaaa40065ec4a275e37ae58513d500abd3efa5dd7077df16b6ff06867"
+      "bytes": 8959,
+      "sha256": "6db1b963f5c0d19ac93ea47c315509773aeeb498eb1a518dd2223f0aecfed04a"
     },
     {
       "path": "pi/app/horizon/css/caption-overrides.css",
@@ -1608,8 +1613,8 @@
     },
     {
       "path": "pi/app/voice.py",
-      "bytes": 28100,
-      "sha256": "50fb3468591fbc69dd4389f4668a556bfccca37adbaa7baca722477ef0b52084"
+      "bytes": 28099,
+      "sha256": "0629eac6af166a3f7d259721f570d156ff7e7aa3c6a3e433811ea5e04247323f"
     },
     {
       "path": "pi/assets.lock.json",
@@ -1778,8 +1783,8 @@
     },
     {
       "path": "tools/check-release-paths.py",
-      "bytes": 2373,
-      "sha256": "27a3853522942cbf4818ca04f30b856237ee459b03df7c05b23b40d6a9a8b783"
+      "bytes": 2402,
+      "sha256": "75f6e42bb3d312e0d6743137540330f578bed2364a0e2ed0b4737d7d5c3b2eda"
     }
   ],
   "payloadScope": "All tracked release payloads except ASSET_LOCK.json and release-manifest.json, which are integrity metadata. Git history, ignored build checkouts, keys, caches, recordings and local validation are excluded."

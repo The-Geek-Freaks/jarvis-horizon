@@ -339,6 +339,10 @@ class TalkModeManager internal constructor(
     private const val TOOL_ACTIVITY_SETTLE_MILLIS = 9_000L
     private const val TOOL_ACTIVITY_STALE_MILLIS = JarvisConversationLifecycle.STALLED_TIMEOUT_MS
     private const val maxPendingRealtimeConsultRequests = 8
+    // A provider can deliver the final PCM callbacks for one response after it has admitted
+    // the next response. Keep a small, session-local ownership history so those callbacks
+    // cannot be rebound to newer work.
+    private const val maxRetainedRealtimeOutputOwners = 16
     private const val maxConversationEntries = 40
     private const val realtimeUserFinalRewriteGraceMs = 1_500L
     private const val pushToTalkSampleRateHz = 16_000
@@ -1052,6 +1056,14 @@ class TalkModeManager internal constructor(
   )
 
   @Volatile private var realtimeOutputTurn: RealtimeOutputTurn? = null
+  /**
+   * Session-local output ownership indexed by provider turn ID. [realtimeOutputTurn] remains
+   * the currently active turn for cancellation; this bounded history only serves late PCM and
+   * terminal callbacks that still belong to an older physical playback.
+   *
+   * All accesses happen while [realtimeCapturePauseLock] is held.
+   */
+  private val realtimeOutputOwners = LinkedHashMap<String, TalkStatusOwner>()
   private val realtimeOutputCancellationMutex = Mutex()
 
   @Volatile
@@ -3011,13 +3023,40 @@ class TalkModeManager internal constructor(
 
   // Playback retains the response that admitted it, even after newer work starts.
   private fun realtimeOutputStatusOwner(turnId: String?): TalkStatusOwner {
-    val output = realtimeOutputTurn
-    // Consult work has no provider response yet. Only subsequent output may adopt it;
-    // a terminal event or a previously queued playback callback cannot finish it.
-    val awaitingOutput = currentStatus.awaitingAgent && currentStatus.owner.responseTurnId == null
-    if (!turnId.isNullOrBlank() && output?.id == turnId && !awaitingOutput) return output.statusOwner
-    return currentStatus.owner.also { realtimeOutputTurn = RealtimeOutputTurn(turnId, it) }
+    if (turnId.isNullOrBlank()) {
+      return currentStatus.owner.also { realtimeOutputTurn = RealtimeOutputTurn(null, it) }
+    }
+    realtimeOutputOwners[turnId]?.let { return it }
+
+    val current = currentStatus
+    // A typed provider turn is authoritative only after responseStarted has admitted that same
+    // turn. Retain the old no-responseStarted behavior for an otherwise idle legacy relay, but
+    // never let an unrecognized typed callback adopt pending consult work: it may be delayed PCM
+    // from an evicted, earlier turn.
+    val ownsCurrentStatus =
+      current.owner.responseTurnId == turnId ||
+        (!current.awaitingAgent && current.owner.responseTurnId == null)
+    // Unknown old callbacks can arrive after their bounded history was evicted. Give those
+    // callbacks a detached owner: audible playback remains correct, while status completion
+    // cannot clear the current response.
+    val owner = if (ownsCurrentStatus) current.owner else TalkStatusOwner(turnId)
+    if (realtimeOutputOwners.size >= maxRetainedRealtimeOutputOwners) {
+      realtimeOutputOwners.entries.iterator().also { iterator ->
+        if (iterator.hasNext()) {
+          iterator.next()
+          iterator.remove()
+        }
+      }
+    }
+    realtimeOutputOwners[turnId] = owner
+    if (ownsCurrentStatus) realtimeOutputTurn = RealtimeOutputTurn(turnId, owner)
+    return owner
   }
+
+  private fun realtimeOutputStatusOwnerForTurn(turnId: String?): TalkStatusOwner? =
+    turnId?.takeIf(String::isNotBlank)?.let { id ->
+      realtimeOutputOwners[id] ?: realtimeOutputTurn?.takeIf { it.id == id }?.statusOwner
+    }
 
   private fun handleRealtimeTalkEvent(
     payloadJson: String?,
@@ -3079,6 +3118,9 @@ class TalkModeManager internal constructor(
         "responseStarted" -> {
           val responseTurnId = obj["turnId"].asJsonStringOrNull()?.takeIf(String::isNotBlank) ?: return
           if (realtimeOutputSuppressed || realtimeOutputTurn?.id == responseTurnId) return
+          // Turn IDs are provider-session scoped. If a relay ever reuses one, a fresh response
+          // must own its new status instead of inheriting a retired callback owner.
+          realtimeOutputOwners.remove(responseTurnId)
           setStatus(TalkStatus(nativeText("Thinking…"), TalkStatusState.Active, awaitingAgent = true, owner = TalkStatusOwner(responseTurnId)))
           realtimeOutputStatusOwner(responseTurnId)
         }
@@ -3113,9 +3155,9 @@ class TalkModeManager internal constructor(
         }
 
         "audioDone" -> {
-          val output = realtimeOutputTurn?.takeIf { !turnId.isNullOrBlank() && it.id == turnId } ?: return
+          val statusOwner = realtimeOutputStatusOwnerForTurn(turnId) ?: return
           // Empty responses settle too; queued PCM still owns its physical drain.
-          afterDispatch = owner?.let { realtimePlayout.audioDone(it, output.statusOwner) }
+          afterDispatch = owner?.let { realtimePlayout.audioDone(it, statusOwner) }
         }
 
         "clear" -> {
@@ -3507,6 +3549,7 @@ class TalkModeManager internal constructor(
     if (!preserveVoiceChange) realtimeCapturePause = null
     realtimeOutputSuppressed = false
     realtimeOutputTurn = null
+    realtimeOutputOwners.clear()
     pendingRealtimeOutputClear?.cancel()
     pendingRealtimeOutputClear = null
     realtimeAgentCoordinator.endSession(sessionId)

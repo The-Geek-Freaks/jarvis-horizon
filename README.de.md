@@ -41,7 +41,7 @@ Jarvis Horizon ist für Displays gedacht, die im Raum bleiben. Es hält den aktu
   </tr>
   <tr>
     <td valign="top"><a href="docs/assets/showcase-ambient.png"><img src="docs/assets/showcase-ambient.png" alt="Horizon-Ambient-Ansicht" width="100%"></a><br><strong>Ambient, nicht abwesend.</strong> Die Leerlaufansicht bewegt Inhalt und vermeidet eine dauerhaft starre Komposition.</td>
-    <td valign="top"><a href="docs/assets/showcase-portrait.png"><img src="docs/assets/showcase-portrait.png" alt="Horizon-Layout im Hochformat" width="100%"></a><br><strong>Bereit für Hochformat.</strong> Das visuelle System schafft Raum für schmale Wanddisplays und Tablets.</td>
+    <td valign="top"><a href="docs/assets/showcase-portrait.png"><img src="docs/assets/showcase-portrait.png" alt="Horizon-Layout im Hochformat" width="160"></a><br><strong>Bereit für Hochformat.</strong> Das visuelle System schafft Raum für schmale Wanddisplays und Tablets.</td>
   </tr>
 </table>
 

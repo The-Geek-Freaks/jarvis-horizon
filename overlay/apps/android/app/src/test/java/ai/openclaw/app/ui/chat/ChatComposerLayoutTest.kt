@@ -789,6 +789,9 @@ class ChatComposerLayoutTest {
         transcript.fetchSemanticsNode().config[SemanticsProperties.VerticalScrollAxisRange].value(),
         0f,
       )
+      // Details made the editor unavailable. Restore the focused IME state that defines this compact case.
+      editor.performClick()
+      applyChatImeInsets()
       composeRule.runOnIdle { height.value = 440.dp }
       composeRule.waitForIdle()
       composeRule.onNodeWithContentDescription(nativeString("Details")).performClick()
@@ -1799,9 +1802,21 @@ class ChatComposerLayoutTest {
         assertEquals(TextRange(13), editor.fetchSemanticsNode().config[SemanticsProperties.TextSelectionRange])
       }
 
-      // Context is reached through the compact Details pane, which remains open after its dialog closes.
-      // Keep exercising that pane instead of expecting a second Details trigger behind it.
-      composeRule.onNode(SemanticsMatcher.expectValue(SemanticsProperties.PaneTitle, nativeString("Details"))).assertIsDisplayed()
+      // Context opens through Details only when compact layout has moved Chat actions there. Both
+      // paths must converge on the same Details pane before its contents are checked below.
+      val detailsPane = SemanticsMatcher.expectValue(SemanticsProperties.PaneTitle, nativeString("Details"))
+      if (composeRule.onAllNodes(detailsPane).fetchSemanticsNodes().isEmpty()) {
+        // Do not disturb the Context popup's anchor while it is opening. Once that dialog has
+        // retired, restore the compact IME state only for the direct-header path. Semantic focus
+        // retains the tested selection while a pointer click would move it to the end of the draft.
+        editor.performSemanticsAction(SemanticsActions.RequestFocus) { assertTrue(it()) }
+        applyChatImeInsets()
+        composeRule.waitForIdle()
+        editor.assertTextEquals(edited)
+        assertEquals(TextRange(13), editor.fetchSemanticsNode().config[SemanticsProperties.TextSelectionRange])
+        composeRule.onNodeWithContentDescription(nativeString("Details")).assertIsDisplayed().performClick()
+      }
+      composeRule.onNode(detailsPane).assertIsDisplayed()
       composeRule.onNodeWithContentDescription(nativeString("Permissions")).assertDoesNotExist()
       composeRule.onNodeWithContentDescription(nativeString("Context")).assertDoesNotExist()
       for (viewportHeight in listOf(720.dp, 360.dp)) {

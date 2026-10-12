@@ -184,7 +184,7 @@ class TalkModeManagerTest {
       ) { proof ->
         // The relay owns seed ordering, while the recorder is allowed to open
         // immediately and buffer bounded startup PCM behind that seed.
-        assertTrue(proof.drainNextCaptureTask())
+        assertTrue(proof.drainRealtimeAppendTask())
         withTimeout(5_000) {
           while (appended.isEmpty()) withContext(Dispatchers.Default) { delay(10) }
         }
@@ -214,8 +214,7 @@ class TalkModeManagerTest {
 
         // The append coroutine is dispatched before capture. It may send the
         // recognizer-owned seed while the acknowledgement still owns focus.
-        assertTrue(proof.drainNextCaptureTask())
-        assertTrue(proof.drainNextCaptureTask())
+        assertTrue(proof.drainRealtimeAppendTask())
         withTimeout(5_000) {
           while (appended.isEmpty()) withContext(Dispatchers.Default) { delay(10) }
         }
@@ -1535,6 +1534,9 @@ class TalkModeManagerTest {
         "chat",
         """{"runId":"$runId","sessionKey":"main","state":"final","message":{"role":"assistant","content":"fertig"}}""",
       )
+      // Typed provider PCM is admitted after its matching response-start event. The fixture
+      // drives the playout callback directly, so it must still establish that protocol owner.
+      manager.realtimeEvent("""{"relaySessionId":"$relay","type":"responseStarted","turnId":"queued-final"}""")
       val owner = readPrivateField(manager, "realtimePlayoutSession") as RealtimePlayout.Session
       // The playout actor accepts the audible range first. It reports fresh PCM before
       // the physical playhead reaches that range, so Talk owns the pending-presentation
@@ -3243,12 +3245,15 @@ class TalkModeManagerTest {
   private fun audioDoneEvent(turnId: String): String =
     """{"relaySessionId":"playback-relay","type":"audioDone","talkEvent":{"type":"turn.ended","turnId":"$turnId","final":true}}"""
 
-  private fun startRealtimeAudio(proof: RealtimePlaybackProof): AudioTrack {
+  private fun startRealtimeAudio(
+    proof: RealtimePlaybackProof,
+    turnId: String = "realtime-turn",
+  ): AudioTrack {
     val pcm = realtimeAudiblePcm()
     val priorWrites = proof.writes.size
     proof.manager.handleGatewayEvent(
       "talk.event",
-      """{"relaySessionId":"playback-relay","type":"audio","talkEvent":{"turnId":"realtime-turn"},"audioBase64":"${Base64.encodeToString(pcm, Base64.NO_WRAP)}"}""",
+      """{"relaySessionId":"playback-relay","type":"audio","talkEvent":{"turnId":"$turnId"},"audioBase64":"${Base64.encodeToString(pcm, Base64.NO_WRAP)}"}""",
     )
     proof.scheduler.runCurrent()
     assertEquals(priorWrites + 1, proof.writes.size)
@@ -3799,8 +3804,9 @@ class TalkModeManagerTest {
         withStartedTalk(responseForRequest = { request, _ ->
           if (request.getValue("method").jsonPrimitive.content == "talk.client.toolCall") """{"runId":"working-run"}""" else null
         }) { proof ->
-          startRealtimeAudio(proof)
-          proof.manager.realtimeEvent(audioDoneEvent("realtime-turn"))
+          proof.manager.realtimeEvent("""{"relaySessionId":"playback-relay","type":"responseStarted","turnId":"consult-turn"}""")
+          startRealtimeAudio(proof, turnId = "consult-turn")
+          proof.manager.realtimeEvent(audioDoneEvent("consult-turn"))
           proof.manager.realtimeEvent("""{"relaySessionId":"playback-relay","type":"toolCall","callId":"next-consult","name":"openclaw_agent_consult","args":{"question":"Next question"}}""")
           withTimeout(5_000) {
             while (!proof.manager.awaitingAgent.value) {
@@ -3814,9 +3820,51 @@ class TalkModeManagerTest {
           assertFalse(proof.manager.isSpeaking.value)
           assertTrue("Earlier playback cannot finish an admitted consult", proof.manager.awaitingAgent.value)
           assertEquals("Thinking…", proof.manager.statusText.value)
-          startRealtimeAudio(proof)
+          proof.manager.realtimeEvent("""{"relaySessionId":"playback-relay","type":"responseStarted","turnId":"next-turn"}""")
+          startRealtimeAudio(proof, turnId = "next-turn")
           assertFalse("Newly admitted audio can advance the current work phase", proof.manager.awaitingAgent.value)
           assertEquals("Speaking…", proof.manager.statusText.value)
+        }
+      } finally {
+        PlayoutAudioTrack.reset()
+      }
+    }
+
+  @Test
+  fun evictedTypedOutputCannotAdoptPendingConsultStatus() =
+    runBlocking {
+      PlayoutAudioTrack.reset()
+      try {
+        withStartedTalk(responseForRequest = { request, _ ->
+          if (request.getValue("method").jsonPrimitive.content == "talk.client.toolCall") """{"runId":"working-run"}""" else null
+        }) { proof ->
+          // Exercise the bounded ownership history. The oldest ID now has no retained entry.
+          repeat(17) { index -> realtimeOutputStatusOwnerForTest(proof.manager, "old-turn-$index") }
+          proof.manager.realtimeEvent(
+            """{"relaySessionId":"playback-relay","type":"toolCall","callId":"next-consult","name":"openclaw_agent_consult","args":{"question":"Next question"}}""",
+          )
+          withTimeout(5_000) {
+            while (!proof.manager.awaitingAgent.value) {
+              proof.scheduler.runCurrent()
+              withContext(Dispatchers.Default) { delay(10) }
+            }
+          }
+
+          val staleAudio = Base64.encodeToString(realtimeAudiblePcm(), Base64.NO_WRAP)
+          proof.manager.realtimeEvent(
+            """{"relaySessionId":"playback-relay","type":"audio","audioBase64":"$staleAudio","talkEvent":{"turnId":"old-turn-0"}}""",
+          )
+          proof.manager.realtimeEvent(audioDoneEvent("old-turn-0"))
+          proof.scheduler.runCurrent()
+          assertTrue(proof.manager.isSpeaking.value)
+          assertTrue("Evicted old PCM must not adopt pending consult work", proof.manager.awaitingAgent.value)
+
+          PlayoutAudioTrack.timestampFrames = REALTIME_AUDIBLE_PCM_FRAMES
+          proof.scheduler.advanceTimeBy(20)
+          proof.scheduler.runCurrent()
+          assertFalse(proof.manager.isSpeaking.value)
+          assertTrue("Old terminal callbacks cannot clear the pending consult", proof.manager.awaitingAgent.value)
+          assertEquals("Thinking…", proof.manager.statusText.value)
         }
       } finally {
         PlayoutAudioTrack.reset()
@@ -3951,6 +3999,7 @@ class TalkModeManagerTest {
                   withContext(Dispatchers.Default) { delay(10) }
                 }
               }
+              proof.manager.realtimeEvent("""{"relaySessionId":"playback-relay","type":"responseStarted","turnId":"active-turn"}""")
             }
             val audio = """{"relaySessionId":"playback-relay","type":"audio","audioBase64":"$encodedAudio","talkEvent":{"turnId":"active-turn"}}"""
             if (mode == "local-replay") {
@@ -4771,16 +4820,7 @@ class TalkModeManagerTest {
     val managerJob = SupervisorJob()
     val scheduler = TestCoroutineScheduler()
     val managerScope = CoroutineScope(StandardTestDispatcher(scheduler) + managerJob)
-    val captureTasks = ConcurrentLinkedQueue<Runnable>()
-    val captureDispatcher =
-      object : CoroutineDispatcher() {
-        override fun dispatch(
-          context: CoroutineContext,
-          block: Runnable,
-        ) {
-          captureTasks.add(block)
-        }
-      }
+    val captureDispatcher = QueuedCaptureDispatcher()
     val connected = CompletableDeferred<Unit>()
     lateinit var manager: TalkModeManager
     val session =
@@ -4898,8 +4938,12 @@ class TalkModeManagerTest {
             player = player,
             writes = writes,
             session = session,
-            drainNextCaptureTask = { captureTasks.poll()?.let { it.run(); true } ?: false },
-            drainCancelledCapture = { while (true) (captureTasks.poll() ?: break).run() },
+            drainNextCaptureTask = captureDispatcher::drainNext,
+            drainRealtimeAppendTask = {
+              val appendJob = readPrivateField(manager, "realtimeAppendJob") as? Job
+              appendJob != null && captureDispatcher.drain(appendJob)
+            },
+            drainCancelledCapture = captureDispatcher::drainAll,
             callbackDepth = { callbackDepth },
           ),
         )
@@ -4907,7 +4951,7 @@ class TalkModeManagerTest {
         manager.stopAllCapture()
         managerJob.cancel()
         scheduler.runCurrent()
-        while (true) (captureTasks.poll() ?: break).run()
+        captureDispatcher.drainAll()
         scheduler.runCurrent()
         withTimeout(5_000) { managerJob.join() }
         shadowOf(Looper.getMainLooper()).idle()
@@ -5774,9 +5818,66 @@ private data class RealtimePlaybackProof(
   val writes: List<Triple<AudioTrack, ByteArray, AudioFormat>>,
   val session: GatewaySession,
   val drainNextCaptureTask: () -> Boolean,
+  val drainRealtimeAppendTask: () -> Boolean,
   val drainCancelledCapture: () -> Unit,
   val callbackDepth: () -> Int,
 )
+
+/**
+ * The wake handoff starts both append and recorder coroutines on the same production dispatcher.
+ * Tests that specifically assert seed ordering must advance the append job itself, rather than
+ * assuming it is the first queued Runnable beside recorder startup.
+ */
+private class QueuedCaptureDispatcher : CoroutineDispatcher() {
+  private data class Task(
+    val job: Job?,
+    val block: Runnable,
+  )
+
+  private val tasks = ArrayDeque<Task>()
+
+  override fun dispatch(
+    context: CoroutineContext,
+    block: Runnable,
+  ) {
+    synchronized(tasks) {
+      tasks.addLast(Task(context[Job], block))
+    }
+  }
+
+  fun drainNext(): Boolean =
+    synchronized(tasks) {
+      if (tasks.isEmpty()) null else tasks.removeFirst()
+    }?.let {
+      it.block.run()
+      true
+    } ?: false
+
+  fun drain(job: Job): Boolean {
+    val task =
+      synchronized(tasks) {
+        val queued = tasks.toList()
+        tasks.clear()
+        var selected: Task? = null
+        queued.forEach { candidate ->
+          if (selected == null && candidate.job === job) {
+            selected = candidate
+          } else {
+            tasks.addLast(candidate)
+          }
+        }
+        selected
+      }
+    task?.block?.run()
+    return task != null
+  }
+
+  fun drainAll() {
+    while (drainNext()) {
+      // Drain each queued capture task in FIFO order.
+    }
+  }
+}
 
 private class FakeTalkSpeechSynthesizer : TalkSpeechSynthesizing {
   val requested = CompletableDeferred<Unit>()

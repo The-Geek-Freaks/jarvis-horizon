@@ -133,7 +133,7 @@ class GatewayNode:
         request_id = self._next_id()
         await ws.send_json({"type": "req", "id": request_id, "method": "connect", "params": {
             "minProtocol": MIN_NODE_PROTOCOL, "maxProtocol": PROTOCOL,
-            "client": {"id": client_id, "displayName": self.config.get("nodeName", "Jarvis Kitchen"), "version": app_version(), "platform": "linux", "deviceFamily": "raspberry-pi", "mode": mode, "instanceId": self.identity.device_id},
+            "client": {"id": client_id, "displayName": self.config.get("nodeName", "Jarvis Mirror"), "version": app_version(), "platform": "linux", "deviceFamily": "raspberry-pi", "mode": mode, "instanceId": self.identity.device_id},
             "role": role, "scopes": scopes, "caps": ["canvas"],
             "commands": ["jarvis.ui", "device.status"], "permissions": {}, "auth": auth,
             "locale": self.config.get("locale", "de-DE"), "userAgent": "jarvis-pi/1.0",

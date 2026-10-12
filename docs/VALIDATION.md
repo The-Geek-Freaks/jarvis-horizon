@@ -2,43 +2,43 @@
 
 **[English](VALIDATION.md) · [Deutsch](#release-validierung)**
 
-This page separates what has been measured from what is still required before the first public alpha can be called a supported release. It is intentionally narrower than a feature list.
+This record separates measured results from the remaining release gate. It is intentionally narrower than a feature list and does not turn private development evidence into a public-support claim.
 
-## Candidate target
+## Candidate
 
-| Item | Planned public value |
+| Item | Value |
 | --- | --- |
 | Version | `0.1.0-alpha.1` |
 | Android package | `org.thegeekfreaks.jarvishorizon` |
 | Minimum / target API | 27 / 36 |
-| APK filename | `jarvis-horizon-0.1.0-alpha.1-android.apk` |
+| Candidate APK | `jarvis-horizon-0.1.0-alpha.1-android.apk` |
 | Source baseline | OpenClaw `03619565f017820a090f3fbf9b6571b3c8a3d3da` plus this public overlay |
-| Update policy | Manual Android APK updates; no public Android OTA default |
+| Android update path | Manual APK installs from a matching GitHub Release; no public Android OTA default |
 
 ## Evidence recorded before publication
 
-| Check | Result | Boundary |
+| Check | Result | Evidence boundary |
 | --- | --- | --- |
-| Signed Android candidate build | Passed locally | The candidate is being rebuilt after a portable-artifact audit finding, so an earlier local APK hash is deliberately not a release checksum. |
-| Android signer | Locally verified against the intended release keystore and backup | The public checksum and certificate fingerprint will be published only with the rebuilt artifact. |
-| Pi installer | Dry run and shell syntax checks passed | This is not a physical Pi installation, display, microphone or speaker acceptance. |
-| Pi runtime tests | 39 focused Python tests and 6 Node tests passed | The isolated native wake/VAD probe used 40 ms of synthetic silence, not a real-room microphone test. |
-| Private device evidence | Android deployments exercised on Archos Hello 7 and a modified Echo Show 5 | Private-device evidence is not fresh public-install acceptance and is not distributed with the project. |
+| Rebuilt native dependency | Passed | The bundled Sherpa AAR was rebuilt from its source with portable debug prefixes, stripped, then recursively scanned. The audit found no private Windows build path in the rebuilt AAR, the Git source archive, or the candidate APK. |
+| Signed Android candidate | Passed locally | A `0.1.0-alpha.1` APK was built with the independent public package and a separate release certificate. The APK was signature-verified and its SHA-256 was recorded for the planned release. |
+| Fresh public onboarding smoke test | Passed locally | The public package installed beside the private development package on an Archos Hello 7, launched into unpaired onboarding in about 0.9 seconds, and showed no preconfigured Gateway. This was a launch smoke test, not a Talk or microphone acceptance test. |
+| Pi installer and focused runtime checks | Passed | Pi installer dry-run and shell syntax checks passed; 39 focused Python tests and 6 Node checks passed. The native wake/VAD probe used synthetic silence, not a room microphone. |
+| Private-device exploration | Informative only | Prior work exercised private deployments on older Android hardware. It is not public-install acceptance and is not distributed with this project. |
 
-## Required before the public alpha is published
+## Remaining gate before a public alpha
 
-- [ ] Rebuild the portable APK after the artifact audit correction.
-- [ ] Independently audit the rebuilt APK and release archives for private paths, accounts, recordings, credentials and household data.
-- [ ] Run the complete Android unit-test suite on a clean Linux runner and retain the result.
-- [ ] Install the rebuilt public package alongside the private development package on a fresh device state; verify onboarding starts without a crash, without a preconfigured Gateway and without a microphone or pairing claim.
-- [ ] Publish the exact APK, SHA-256 checksum, signing-certificate SHA-256 fingerprint, source archive, Pi archive and release notes together.
-- [ ] Verify the published GitHub Release links and archive contents from the public repository view.
+- [ ] Correct and rerun the complete Android unit-test suite on a clean Linux runner. The latest full run executed **3,759 tests with 12 failures**; publication is blocked until those failures are investigated and a clean result is retained.
+- [ ] Rebuild and rescan the signed APK if the correction changes Android production code, then update the published checksum and signing-certificate fingerprint from that exact artifact.
+- [ ] Create the release with the exact APK, SHA-256 checksum, signing-certificate SHA-256 fingerprint, source archive, Pi archive and release notes together.
+- [ ] Verify the public GitHub Release links and downloaded archive contents from the repository view.
+
+The repository is still private and no public release or promotion has been posted while this gate remains open.
 
 ## What a public alpha will and will not prove
 
-Passing the release gate proves the published artifact was built and checked within the scope above. It does not prove wake-word reliability in every room, provider quality, camera latency, Bluetooth microphone availability, home-automation semantics, stock Echo compatibility or a Hermes integration.
+Passing the release gate will show that the published artifacts were built and checked within the scope above. It will not prove wake-word reliability in every room, provider quality, camera latency or audio support, Bluetooth microphone availability, home-automation semantics, stock Echo compatibility, or a Hermes integration.
 
-Only configure the app with a Gateway, provider and integrations you own. The first launch is expected to require pairing and permissions. A connected node is not, by itself, proof that Talk, camera audio, home control or media routing is configured correctly.
+Configure the app only with a Gateway, provider and integrations you own. First launch is expected to require pairing and permissions. A connected node alone does not prove that Talk, camera audio, home control or media routing is configured correctly.
 
 ---
 
@@ -46,40 +46,40 @@ Only configure the app with a Gateway, provider and integrations you own. The fi
 
 **[English](#release-validation) · [Deutsch](VALIDATION.md)**
 
-Diese Seite trennt gemessene Tatsachen von den noch notwendigen Prüfungen, bevor das erste öffentliche Alpha als unterstütztes Release gelten kann. Sie ist bewusst enger als eine Featureliste.
+Dieses Protokoll trennt gemessene Ergebnisse vom noch offenen Release-Gate. Es ist bewusst enger als eine Featureliste und macht private Entwicklungsnachweise nicht zu einer öffentlichen Support-Zusage.
 
-## Ziel des Kandidaten
+## Kandidat
 
-| Punkt | Geplanter öffentlicher Wert |
+| Punkt | Wert |
 | --- | --- |
 | Version | `0.1.0-alpha.1` |
 | Android-Paket | `org.thegeekfreaks.jarvishorizon` |
 | Mindest- / Ziel-API | 27 / 36 |
-| APK-Dateiname | `jarvis-horizon-0.1.0-alpha.1-android.apk` |
+| Kandidaten-APK | `jarvis-horizon-0.1.0-alpha.1-android.apk` |
 | Quellbasis | OpenClaw `03619565f017820a090f3fbf9b6571b3c8a3d3da` plus dieses öffentliche Overlay |
-| Update-Politik | Manuelle Android-APK-Updates; kein öffentliches Android-OTA als Standard |
+| Android-Updateweg | Manuelle APK-Installation aus dem passenden GitHub Release; kein öffentliches Android-OTA als Standard |
 
 ## Vor der Veröffentlichung erfasste Evidenz
 
-| Prüfung | Ergebnis | Grenze |
+| Prüfung | Ergebnis | Evidenzgrenze |
 | --- | --- | --- |
-| Signierter Android-Kandidatenbuild | Lokal bestanden | Der Kandidat wird nach einem Befund im portablen Artefakt neu gebaut; eine frühere lokale APK-Prüfsumme ist deshalb absichtlich keine Release-Prüfsumme. |
-| Android-Signatur | Lokal gegen den vorgesehenen Release-Keystore und dessen Backup geprüft | Öffentliche Prüfsumme und Zertifikat-Fingerprint erscheinen erst mit dem neu gebauten Artefakt. |
-| Pi-Installer | Dry-Run und Shell-Syntaxprüfung bestanden | Das ersetzt keine physische Pi-Installation, Display-, Mikrofon- oder Lautsprecherabnahme. |
-| Pi-Runtime-Tests | 39 fokussierte Python- und 6 Node-Tests bestanden | Der isolierte native Wake-/VAD-Probe nutzte 40 ms künstliches Schweigen, keinen Raum-Mikrofontest. |
-| Private Geräte-Evidenz | Android-Deployments auf Archos Hello 7 und einem modifizierten Echo Show 5 erprobt | Das ist keine frische öffentliche Installationsabnahme und wird nicht mit dem Projekt verteilt. |
+| Neu gebaute native Abhängigkeit | Bestanden | Das eingebundene Sherpa-AAR wurde aus dem Quellcode mit portablen Debug-Präfixen neu gebaut, gestrippt und rekursiv geprüft. Weder im neuen AAR noch im Git-Quellarchiv oder der Kandidaten-APK wurde ein privater Windows-Buildpfad gefunden. |
+| Signierter Android-Kandidat | Lokal bestanden | Eine `0.1.0-alpha.1`-APK wurde mit eigenständigem öffentlichem Paket und separatem Release-Zertifikat gebaut. Signatur und SHA-256 wurden für das geplante Release festgehalten. |
+| Frischer öffentlicher Onboarding-Smoke-Test | Lokal bestanden | Das öffentliche Paket wurde neben der privaten Entwicklungs-App auf einem Archos Hello 7 installiert, startete nach rund 0,9 Sekunden in das nicht gekoppelte Onboarding und enthielt kein vorkonfiguriertes Gateway. Das ist ein Starttest, keine Abnahme von Talk oder Mikrofon. |
+| Pi-Installer und fokussierte Runtime-Prüfungen | Bestanden | Pi-Installer-Dry-Run und Shell-Syntaxprüfungen sowie 39 fokussierte Python- und 6 Node-Prüfungen bestanden. Die native Wake-/VAD-Probe nutzte künstliches Schweigen, keinen Raum-Mikrofontest. |
+| Private Geräteerprobung | Nur informativ | Frühere Arbeit erprobte private Deployments auf älterer Android-Hardware. Das ist keine öffentliche Installationsabnahme und wird nicht mit diesem Projekt verteilt. |
 
-## Vor dem öffentlichen Alpha noch erforderlich
+## Offenes Gate vor der öffentlichen Alpha
 
-- [ ] Die portable APK nach der Korrektur des Artefakt-Audits neu bauen.
-- [ ] Neu gebaute APK und Release-Archive unabhängig auf private Pfade, Konten, Aufnahmen, Zugangsdaten und Haushaltsdaten prüfen.
-- [ ] Die vollständige Android-Unit-Test-Suite auf einem sauberen Linux-Runner ausführen und das Ergebnis aufbewahren.
-- [ ] Das neu gebaute öffentliche Paket neben dem privaten Entwicklungspaket auf einem frischen Gerätezustand installieren; prüfen, dass Onboarding ohne Absturz und ohne vorkonfiguriertes Gateway, Mikrofon- oder Pairing-Versprechen startet.
-- [ ] Exakte APK, SHA-256-Prüfsumme, SHA-256-Fingerprint des Signaturzertifikats, Quellarchiv, Pi-Archiv und Release Notes gemeinsam veröffentlichen.
-- [ ] Links und Archivinhalt des veröffentlichten GitHub Releases aus der öffentlichen Repository-Ansicht prüfen.
+- [ ] Die vollständige Android-Unit-Test-Suite auf einem sauberen Linux-Runner korrigieren und erneut ausführen. Der letzte vollständige Lauf führte **3.759 Tests mit 12 Fehlern** aus; die Veröffentlichung bleibt gesperrt, bis diese Fehler untersucht und ein sauberer Lauf festgehalten ist.
+- [ ] Falls die Korrektur Android-Produktivcode verändert, die signierte APK neu bauen und erneut scannen; die veröffentlichte Prüfsumme und der Fingerprint müssen aus genau diesem Artefakt stammen.
+- [ ] Release mit exakter APK, SHA-256-Prüfsumme, SHA-256-Fingerprint des Signaturzertifikats, Quellarchiv, Pi-Archiv und Release Notes gemeinsam erstellen.
+- [ ] Öffentliche GitHub-Release-Links sowie heruntergeladene Archive aus der Repository-Ansicht prüfen.
 
-## Was ein öffentliches Alpha beweist – und was nicht
+Das Repository ist weiterhin privat; solange dieses Gate offen ist, wurden weder ein öffentliches Release noch Werbung veröffentlicht.
 
-Ein bestandener Release-Gate beweist, dass das veröffentlichte Artefakt im oben beschriebenen Umfang gebaut und geprüft wurde. Er beweist keine Wakeword-Zuverlässigkeit in jedem Raum, Provider-Qualität, Kameralatenz, Bluetooth-Mikrofonverfügbarkeit, Semantik der Hausautomation, Stock-Echo-Kompatibilität oder Hermes-Integration.
+## Was eine öffentliche Alpha beweist – und was nicht
 
-Konfiguriere die App ausschließlich mit deinem eigenen Gateway, Provider und deinen eigenen Integrationen. Beim ersten Start sind Pairing und Berechtigungen erwartbar. Ein verbundener Node beweist für sich allein nicht, dass Talk, Kameraton, Home-Control oder Medienrouting korrekt eingerichtet sind.
+Ein bestandener Release-Gate zeigt, dass die veröffentlichten Artefakte im oben beschriebenen Umfang gebaut und geprüft wurden. Er beweist keine Wakeword-Zuverlässigkeit in jedem Raum, Provider-Qualität, Kameralatenz oder -ton, Bluetooth-Mikrofonverfügbarkeit, Semantik der Hausautomation, Stock-Echo-Kompatibilität oder Hermes-Integration.
+
+Konfiguriere die App ausschließlich mit einem eigenen Gateway, Provider und eigenen Integrationen. Beim ersten Start sind Pairing und Berechtigungen erwartbar. Ein verbundener Node beweist für sich allein nicht, dass Talk, Kameraton, Haussteuerung oder Medienrouting korrekt eingerichtet sind.

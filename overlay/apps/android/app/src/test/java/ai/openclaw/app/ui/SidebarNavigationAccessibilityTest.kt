@@ -50,6 +50,7 @@ import androidx.compose.ui.test.printToString
 import androidx.core.os.LocaleListCompat
 import androidx.lifecycle.SavedStateHandle
 import androidx.lifecycle.ViewModelStore
+import kotlinx.coroutines.flow.MutableStateFlow
 import org.junit.After
 import org.junit.Assert.assertEquals
 import org.junit.Assert.assertFalse
@@ -62,6 +63,7 @@ import org.robolectric.RobolectricTestRunner
 import org.robolectric.RuntimeEnvironment
 import org.robolectric.annotation.Config
 import org.robolectric.annotation.GraphicsMode
+import org.robolectric.util.ReflectionHelpers
 import java.io.File
 
 /** Exercises actions on the production sidebar, including its ViewModel and persisted preferences. */
@@ -193,6 +195,10 @@ class SidebarNavigationAccessibilityTest {
   fun defaultsResetAndOfflineSettingsUseTheExistingShellNavigation() {
     // Jarvis Horizon intentionally opens the Jarvis surface by default. This sidebar test
     // exercises the existing overview shell explicitly instead of inheriting a legacy default.
+    // ScreenshotFixture normally models a connected gateway. This case specifically verifies
+    // settings navigation while offline, so make that fixture state explicit before the
+    // ViewModel starts collecting it.
+    setGatewayOffline()
     model.requestHomeDestination(HomeDestination.Connect)
     composeRule.setContent {
       if (mounted.value) {
@@ -242,6 +248,14 @@ class SidebarNavigationAccessibilityTest {
   }
 
   private fun sidebarRow(label: String) = composeRule.onNode(hasText(label) and hasAnyAncestor(hasTestTag("sidebar-drawer")))
+
+  private fun setGatewayOffline() {
+    ReflectionHelpers.getField<MutableStateFlow<Boolean>>(runtime, "_isConnected").value = false
+    ReflectionHelpers.getField<MutableStateFlow<Boolean>>(runtime, "_nodeConnected").value = false
+    ReflectionHelpers.getField<MutableStateFlow<String>>(runtime, "_statusText").value = "Offline"
+    ReflectionHelpers.getField<MutableStateFlow<GatewayConnectionDisplay>>(runtime, "_gatewayConnectionDisplay").value =
+      GatewayConnectionDisplay(false, "Offline", null)
+  }
 
   private fun assertDefaultRows() {
     val rows =

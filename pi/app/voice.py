@@ -110,7 +110,7 @@ class GatewayTalk:
         request_id = str(uuid.uuid4())
         await self.ws.send_json({"type":"req", "id":request_id, "method":"connect", "params":{
             "minProtocol":MIN_NODE_PROTOCOL, "maxProtocol":PROTOCOL,
-            "client":{"id":client_id, "displayName":"Jarvis Kitchen Talk", "version":"1.0", "platform":"linux", "deviceFamily":"raspberry-pi", "mode":mode, "instanceId":identity.device_id},
+            "client":{"id":client_id, "displayName":"Jarvis Mirror Talk", "version":"1.0", "platform":"linux", "deviceFamily":"raspberry-pi", "mode":mode, "instanceId":identity.device_id},
             "role":role, "scopes":scopes, "caps":[], "auth":{"deviceToken":self.token} if self.token_path.exists() else {"token":self.token}, "locale":self.config.get("locale", "de-DE"), "userAgent":"jarvis-pi/1.0",
             "device":{"id":identity.device_id, "publicKey":identity.public_key_b64url(), "signature":identity.sign_b64url(signature), "signedAt":signed_at, "nonce":nonce},
         }})

@@ -41,7 +41,7 @@ Jarvis Horizon is designed for displays that stay in the room. It keeps the curr
   </tr>
   <tr>
     <td valign="top"><a href="docs/assets/showcase-ambient.png"><img src="docs/assets/showcase-ambient.png" alt="Horizon ambient screen" width="100%"></a><br><strong>Ambient, not absent.</strong> The idle surface shifts content and avoids a permanently static composition.</td>
-    <td valign="top"><a href="docs/assets/showcase-portrait.png"><img src="docs/assets/showcase-portrait.png" alt="Horizon portrait display layout" width="100%"></a><br><strong>Portrait-ready.</strong> The visual system makes room for narrow wall displays and tablets.</td>
+    <td valign="top"><a href="docs/assets/showcase-portrait.png"><img src="docs/assets/showcase-portrait.png" alt="Horizon portrait display layout" width="160"></a><br><strong>Portrait-ready.</strong> The visual system makes room for narrow wall displays and tablets.</td>
   </tr>
 </table>
 
