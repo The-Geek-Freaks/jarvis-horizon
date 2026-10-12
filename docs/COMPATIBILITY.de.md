@@ -7,7 +7,7 @@
 | Bereich | Öffentliche Grundlage | Zusätzlich nötig |
 | --- | --- | --- |
 | Android | API 27 oder neuer, ARMv7/ARM64 | Berechtigungen, Pairing und ein eigener Voice-Provider |
-| Archos Hello 7 | Private Geräteprüfung unter Android 8.1 / ARM64 | Öffentlicher Build wird getrennt geprüft |
+| Archos Hello 7 | Frischer nicht gekoppelter Onboarding-Smoke-Test unter Android 8.1 / ARM64 | Breite Geräteabnahme bleibt offen |
 | Echo Show 5 Gen 2 | Private Geräteprüfung unter modifiziertem Android 11 / ARMv7 | Bereits geeignetes Betriebssystem; keine Firmware-Umrüstung im Installer |
 | Raspberry Pi 4 | DietPi/Debian ARM64, Kiosk-Installer | Physischer Mikrofon-/Lautsprechertest und Gateway-Pairing |
 | Wakeword und VAD | Mitgelieferte, per Hash festgelegte Modelle | Aussprache, Entfernung, Raumgeräusche und Mikrofon müssen vor Ort geprüft werden |
@@ -20,8 +20,8 @@
 
 ## Release-Regeln
 
-- Das geplante Release-Paket heißt `org.thegeekfreaks.jarvishorizon`, setzt mindestens API 27 voraus und zielt auf API 36. Der Implementierungs-Namespace bleibt `ai.openclaw.app`.
-- `v0.1.0-alpha.1` ist erst dann ein unterstützter Download, wenn der zugehörige GitHub Release die passende APK, Prüfsummen und einen Validierungsnachweis enthält. Öffentliche Android-Updates erfolgen manuell.
+- Das Release-Paket heißt `org.thegeekfreaks.jarvishorizon`, setzt mindestens API 27 voraus und zielt auf API 36. Der Implementierungs-Namespace bleibt `ai.openclaw.app`.
+- `v0.1.0-alpha.1` wird über seinen passenden GitHub Release mit APK, Prüfsummen, Signaturzertifikat-Fingerprint und Validierungsnachweis verteilt. Öffentliche Android-Updates erfolgen manuell.
 - Private Deployment-Evidenz bleibt bewusst von der öffentlichen Release-Abnahme getrennt.
 
 Die Dokumentation gibt es auf Englisch und Deutsch. Die aktuelle Horizon-Oberfläche enthält überwiegend deutsche Beschriftungen; die Sprache des Gesprächs wird zusätzlich durch die Backend-Konfiguration bestimmt.

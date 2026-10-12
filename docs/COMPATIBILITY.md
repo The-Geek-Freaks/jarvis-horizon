@@ -7,8 +7,8 @@
 | Area | Public baseline | Requires separate validation or integration | Evidence |
 | --- | --- | --- | --- |
 | Android | API 27+ and supported ARM ABI | Fresh public package/install and broad device coverage | Private Archos Hello 7 Android 8.1 ARM64; private modified Echo Show 5 Android 11 armeabi-v7a |
-| Android source | Pinned OpenClaw plus public overlay | Clean public build, portable artifact audit and published signed release artifact | Preparation script pins source and checks custom AAR |
-| Android alpha package | Local signed release candidate for `0.1.0-alpha.1` | Fresh-device launch check and public publication | No supported public APK until all release checks are recorded |
+| Android source | Pinned OpenClaw plus public overlay | Source-build acceptance on your own hardware | Preparation script pins source and checks custom AAR |
+| Android alpha package | Signed `0.1.0-alpha.1` release artifact | Broad device coverage and runtime acceptance | Fresh unpaired onboarding smoke test on an Archos Hello 7; exact checksum, certificate and provenance ship with the release |
 | Pi 4 | DietPi/Debian ARM64 installer | Physical mic, display, audio route and pairing | Dry run, shell syntax, 39 Python and 6 Node tests |
 | Local wake/VAD | Bundled locked payload | Actual microphone reliability | Isolated native construction plus 40-ms synthetic silence frame |
 | Realtime Talk | Client session-flow support | Paired reachable Gateway, accepted methods, configured provider | Client/protocol source only |
@@ -21,8 +21,8 @@
 
 ## Release rules
 
-- The planned release package is `org.thegeekfreaks.jarvishorizon`, with a minimum API level of 27 and target API level of 36. The implementation namespace remains `ai.openclaw.app`.
-- `v0.1.0-alpha.1` is not a supported download until its GitHub release contains the matching APK, checksums and validation record. Android updates are manual in the public distribution.
+- The release package is `org.thegeekfreaks.jarvishorizon`, with a minimum API level of 27 and target API level of 36. The implementation namespace remains `ai.openclaw.app`.
+- `v0.1.0-alpha.1` is distributed through its matching GitHub Release with the APK, checksums, signing-certificate fingerprint and validation record. Android updates are manual in the public distribution.
 - Internal deployment evidence is deliberately separate from public-release acceptance.
 
 ## Operating rules

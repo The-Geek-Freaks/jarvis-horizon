@@ -12,6 +12,8 @@ Jarvis Horizon turns an Android display or Raspberry Pi into a calm, hands-free 
 
 [Installation](docs/INSTALL.md) · [Compatibility](docs/COMPATIBILITY.md) · [Architecture](docs/ARCHITECTURE.md) · [Validation](docs/VALIDATION.md) · [Contributing](CONTRIBUTING.md)
 
+> **First public alpha — v0.1.0-alpha.1.** [Download Android APK](https://github.com/The-Geek-Freaks/jarvis-horizon/releases/download/v0.1.0-alpha.1/jarvis-horizon-0.1.0-alpha.1-android.apk) · [Android install](docs/INSTALL.md#first-android-connection) · [Pi 4 install](docs/INSTALL.md#raspberry-pi-4) · [Checksums and provenance](https://github.com/The-Geek-Freaks/jarvis-horizon/releases/tag/v0.1.0-alpha.1)
+
 ## A display that shows the moment, not just a chat
 
 Jarvis Horizon is designed for displays that stay in the room. It keeps the current moment legible at a distance, then changes state when your assistant is listening, working, answering or presenting a camera view.
@@ -57,9 +59,7 @@ Camera aliases, calendars, media routes, announcements and home actions are opti
 
 ## Release status
 
-Jarvis Horizon is preparing its first public alpha. A signed Android release candidate has been built locally, but public publication remains gated on a fresh portable-artifact audit, a clean Linux validation run and a fresh-device launch check. Until those checks are complete, there is no supported download and no claim of a verified public installation.
-
-When the alpha is published, the supported manual-update path will be the matching [GitHub release](https://github.com/The-Geek-Freaks/jarvis-horizon/releases/tag/v0.1.0-alpha.1). Android OTA is intentionally not configured in the public distribution. See [Validation](docs/VALIDATION.md) for the exact evidence boundary.
+`v0.1.0-alpha.1` is the first public alpha. Install the exact Android APK, checksum file and signing-certificate fingerprint from the matching [GitHub release](https://github.com/The-Geek-Freaks/jarvis-horizon/releases/tag/v0.1.0-alpha.1); do not use a copied APK from a chat, mirror or another installation. Android OTA is intentionally not configured in the public distribution. See [Validation](docs/VALIDATION.md) for the exact evidence boundary, including the still-separate Linux CI follow-up.
 
 The implemented backend is **OpenClaw**. A **Hermes adapter is not included**; it needs a dedicated protocol adapter and end-to-end acceptance coverage before it can be described as supported.
 

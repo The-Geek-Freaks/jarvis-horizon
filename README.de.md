@@ -12,6 +12,8 @@ Jarvis Horizon macht aus einem Android-Display oder Raspberry Pi eine ruhige, fr
 
 [Installation](docs/INSTALL.de.md) · [Kompatibilität](docs/COMPATIBILITY.de.md) · [Architektur](docs/ARCHITECTURE.de.md) · [Validierung](docs/VALIDATION.md) · [Mitwirken](CONTRIBUTING.md)
 
+> **Erste öffentliche Alpha — v0.1.0-alpha.1.** [Android-APK herunterladen](https://github.com/The-Geek-Freaks/jarvis-horizon/releases/download/v0.1.0-alpha.1/jarvis-horizon-0.1.0-alpha.1-android.apk) · [Android installieren](docs/INSTALL.de.md#erste-android-verbindung) · [Pi 4 installieren](docs/INSTALL.de.md#raspberry-pi-4) · [Prüfsummen und Provenienz](https://github.com/The-Geek-Freaks/jarvis-horizon/releases/tag/v0.1.0-alpha.1)
+
 ## Ein Display für den Moment, nicht nur für einen Chat
 
 Jarvis Horizon ist für Displays gedacht, die im Raum bleiben. Es hält den aktuellen Kontext aus der Entfernung lesbar und wechselt seinen Zustand, wenn dein Assistent zuhört, arbeitet, antwortet oder eine Kameraansicht zeigt.
@@ -57,9 +59,7 @@ Kamera-Aliase, Kalender, Medienrouten, Ansagen und Home-Aktionen sind optionale 
 
 ## Release-Status
 
-Jarvis Horizon bereitet seinen ersten öffentlichen Alpha-Release vor. Ein signierter Android-Releasekandidat wurde lokal gebaut, aber die öffentliche Veröffentlichung wartet noch auf ein frisches Audit des portablen Artefakts, einen sauberen Linux-Validierungslauf und einen Erststart auf einem frischen Gerät. Bis diese Prüfungen abgeschlossen sind, gibt es keinen unterstützten Download und keinen Anspruch auf einen bestätigten öffentlichen Installationsweg.
-
-Nach der Veröffentlichung ist der unterstützte manuelle Updateweg der passende [GitHub Release](https://github.com/The-Geek-Freaks/jarvis-horizon/releases/tag/v0.1.0-alpha.1). Öffentliches Android-OTA ist bewusst nicht konfiguriert. Die genaue Beleggrenze steht unter [Validierung](docs/VALIDATION.md).
+`v0.1.0-alpha.1` ist die erste öffentliche Alpha. Installiere die exakte Android-APK, Prüfsummendatei und den Signaturzertifikat-Fingerprint aus dem passenden [GitHub Release](https://github.com/The-Geek-Freaks/jarvis-horizon/releases/tag/v0.1.0-alpha.1); nutze keine kopierte APK aus Chats, Spiegeln oder einer fremden Installation. Öffentliches Android-OTA ist bewusst nicht konfiguriert. Die [Validierung](docs/VALIDATION.md) beschreibt die genaue Evidenzgrenze einschließlich des weiterhin getrennt laufenden Linux-CI-Follow-ups.
 
 Die implementierte Backend-Integration richtet sich an **OpenClaw**. Ein **Hermes-Adapter ist nicht enthalten**; bevor Hermes als unterstützt gelten kann, braucht es einen eigenen Protokolladapter samt Ende-zu-Ende-Abnahme.
 

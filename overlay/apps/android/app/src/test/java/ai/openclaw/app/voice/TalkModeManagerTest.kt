@@ -186,7 +186,13 @@ class TalkModeManagerTest {
         // immediately and buffer bounded startup PCM behind that seed.
         assertTrue(proof.drainRealtimeAppendTask())
         withTimeout(5_000) {
-          while (appended.isEmpty()) withContext(Dispatchers.Default) { delay(10) }
+          while (appended.isEmpty()) {
+            // `ready` can arrive after the seed worker reaches its ordered-pacer gate.
+            // Drive only that worker again when the gateway completes the gate; never run
+            // the recorder task merely because this fixture is waiting on network delivery.
+            proof.drainRealtimeAppendTask()
+            withContext(Dispatchers.Default) { delay(10) }
+          }
         }
 
         assertEquals(1, appended.size)
@@ -216,7 +222,10 @@ class TalkModeManagerTest {
         // recognizer-owned seed while the acknowledgement still owns focus.
         assertTrue(proof.drainRealtimeAppendTask())
         withTimeout(5_000) {
-          while (appended.isEmpty()) withContext(Dispatchers.Default) { delay(10) }
+          while (appended.isEmpty()) {
+            proof.drainRealtimeAppendTask()
+            withContext(Dispatchers.Default) { delay(10) }
+          }
         }
 
         assertArrayEquals(proof.manager.resampleWakeSeedToRealtimePcm(source), appended.single())

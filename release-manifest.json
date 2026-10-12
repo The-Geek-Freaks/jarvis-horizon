@@ -17,7 +17,7 @@
     "officialAarSha256": "633c24321e06b1fe79feafa03ea16cbc0f8a286641e2da3559bac91bdb13bd96"
   },
   "bundledCustomAar": "third_party/sherpa-clock1/sherpa-onnx-1.13.8-jarvis-clock1.aar",
-  "snapshotHash": "fdc190bcc3f35c14d60395eb8018a499c585f2e46dabe3317764332787133142",
+  "snapshotHash": "3dfdd051631207c0cb0fc49be381a7e63095fe12d47bf6b138eb6c2332451807",
   "payloadFiles": 352,
   "snapshotHashAlgorithm": "SHA-256 of UTF-8 sorted payload path + NUL + lowercase SHA-256 + LF; excludes the two integrity metadata files"
 }

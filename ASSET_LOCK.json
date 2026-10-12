@@ -73,13 +73,13 @@
     },
     {
       "path": "README.de.md",
-      "bytes": 9396,
-      "sha256": "fe01b591c6c6075363eb8288b69a114a7dd6a925fe61c2656c3544faab36fe8e"
+      "bytes": 9602,
+      "sha256": "9982298a6c489ce244f0fcb3f6a47939e4fcc582d00704e17a9d87f409a4ca71"
     },
     {
       "path": "README.md",
-      "bytes": 8788,
-      "sha256": "873dd566ba71be91b5b82943e6cd7ae37a08a5aa5308697e513f832668f6d25b"
+      "bytes": 9023,
+      "sha256": "1f1ecd011cb9a82a054576de78cb5dbbd89149ae6ca298db82c03fc1ec38656f"
     },
     {
       "path": "THIRD_PARTY_NOTICES.md",
@@ -628,28 +628,28 @@
     },
     {
       "path": "docs/COMPATIBILITY.de.md",
-      "bytes": 3069,
-      "sha256": "45eb48445f647aa7debfee74bc744e9e51ea617e9a3f767597ff5278843a70d0"
+      "bytes": 3058,
+      "sha256": "ef5ae5e646d96d9cc2096462e3930015b3306e47a5c773336704a0104594deaa"
     },
     {
       "path": "docs/COMPATIBILITY.md",
-      "bytes": 3151,
-      "sha256": "92bfef185cdcbdee12b6cc1af79c80a2c43a31bd537f56a5baad3caa9af6964c"
+      "bytes": 3171,
+      "sha256": "c209c755b58ed698a9834ad24be41181de0814f4320791f2674ad736017aecac"
     },
     {
       "path": "docs/INSTALL.de.md",
-      "bytes": 7159,
-      "sha256": "ac8fa81ae01b97004b9c9e1cf00da6342d1f0eb06bfd6b17d7285c9c79dc706c"
+      "bytes": 7076,
+      "sha256": "c6fe38ed03e08e75c6a23dfcd70e2d6933d60da7ea6c1f04ad12c073f153b777"
     },
     {
       "path": "docs/INSTALL.md",
-      "bytes": 6670,
-      "sha256": "2bf4520bfc333b6f01f42ebe2ad65b7f490e7ac2d03b573de3e3d7370db93a0d"
+      "bytes": 6630,
+      "sha256": "b7793840b6c104f157b849657eca23256231e00c73a82f33c16b537698518750"
     },
     {
       "path": "docs/VALIDATION.md",
-      "bytes": 7410,
-      "sha256": "bbd9371849e930d58b056a3d6085dd465396e21ccb2db52d064e7e783f955663"
+      "bytes": 7399,
+      "sha256": "0a5d5e6cdb723bb6584f66fe5225799f665548bd5f3f0429e25c732f6d160efe"
     },
     {
       "path": "docs/assets/hero.png",
@@ -1468,8 +1468,8 @@
     },
     {
       "path": "overlay/apps/android/app/src/test/java/ai/openclaw/app/voice/TalkModeManagerTest.kt",
-      "bytes": 273064,
-      "sha256": "e51f2dd330d6a64b11a8fb8460713868e7e789f4f9b68130a197fa9ef9435660"
+      "bytes": 273485,
+      "sha256": "e090884061c03ae4d36f3cdc272dfe872eb59fdabd4d09e50cbb7d63ab183c14"
     },
     {
       "path": "overlay/apps/android/gradle/libs.versions.toml",

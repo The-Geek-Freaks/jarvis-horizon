@@ -4,11 +4,11 @@
 
 Jarvis Horizon is a client surface for an OpenClaw Gateway you operate. It does not create a hosted account, Gateway, voice-provider account, or home-automation configuration.
 
-## Release state
+## Release files
 
-Jarvis Horizon is preparing `v0.1.0-alpha.1`. A signed Android release candidate has been produced locally, but public publication is still gated on a portable-artifact audit, a clean Linux validation run and a fresh-device launch check. Until those checks are recorded, there is no supported binary download. When the alpha is published, use the exact matching release at https://github.com/The-Geek-Freaks/jarvis-horizon/releases/tag/v0.1.0-alpha.1 — not a copied APK from a chat, mirror or another installation.
+`v0.1.0-alpha.1` is the first public alpha. Use the matching [GitHub release](https://github.com/The-Geek-Freaks/jarvis-horizon/releases/tag/v0.1.0-alpha.1): download `jarvis-horizon-0.1.0-alpha.1-android.apk`, then verify it against `SHA256SUMS.txt` and `SIGNING-CERTIFICATE-SHA256.txt`. The same release contains the source archive, Pi archive and `BUILD-PROVENANCE.json`. Do not install a copied APK from a chat, mirror or another installation.
 
-Android source preparation is available for review, but it is not a substitute for a verified public release artifact. The Pi installer and its locked runtime payload are in this repository.
+Android source preparation remains useful for review and local builds, but it is not a substitute for the versioned release artifact. The Pi installer and its locked runtime payload are in this repository.
 
 ## Prerequisites
 
@@ -38,7 +38,7 @@ The script pins OpenClaw commit 03619565f017820a090f3fbf9b6571b3c8a3d3da, copies
 
 ## First Android connection
 
-1. After publication, install only `jarvis-horizon-0.1.0-alpha.1-android.apk` from the matching GitHub release, or install a debug APK you produced from the source build. Android may ask to allow installation from your chosen browser or file manager.
+1. Install only `jarvis-horizon-0.1.0-alpha.1-android.apk` from the matching GitHub release, after checking `SHA256SUMS.txt`, or install a debug APK you produced from the source build. Android may ask to allow installation from your chosen browser or file manager.
 2. On your own Gateway host, generate a setup QR/code with `openclaw qr`. Keep that setup information private.
 3. In the app, select **Setup Gateway** and scan the QR or choose **Use setup code**. Manual endpoint/token entry is also available.
 4. Approve the new device/node in your Gateway and complete the app's permission steps. Voice needs microphone permission; camera and notification features need their respective permissions.

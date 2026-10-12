@@ -4,11 +4,11 @@
 
 Jarvis Horizon ist eine Client-Oberfläche für ein OpenClaw Gateway, das du selbst betreibst. Es erstellt kein gehostetes Konto, Gateway, Provider-Konto oder Hausautomations-Setup.
 
-## Release-Status
+## Release-Dateien
 
-Jarvis Horizon bereitet `v0.1.0-alpha.1` vor. Ein signierter Android-Releasekandidat wurde lokal erzeugt, aber die öffentliche Veröffentlichung wartet noch auf ein Audit des portablen Artefakts, einen sauberen Linux-Validierungslauf und einen Erststart auf einem frischen Gerät. Bis diese Prüfungen dokumentiert sind, gibt es keinen unterstützten Binärdownload. Nach der Veröffentlichung nutze ausschließlich den exakt passenden Release unter https://github.com/The-Geek-Freaks/jarvis-horizon/releases/tag/v0.1.0-alpha.1 — keine APK aus Chats, Spiegeln oder einer fremden Installation.
+`v0.1.0-alpha.1` ist die erste öffentliche Alpha. Nutze den passenden [GitHub Release](https://github.com/The-Geek-Freaks/jarvis-horizon/releases/tag/v0.1.0-alpha.1): Lade `jarvis-horizon-0.1.0-alpha.1-android.apk` herunter und prüfe sie anschließend gegen `SHA256SUMS.txt` sowie `SIGNING-CERTIFICATE-SHA256.txt`. Derselbe Release enthält Quellarchiv, Pi-Archiv und `BUILD-PROVENANCE.json`. Installiere keine kopierte APK aus Chats, Spiegeln oder einer fremden Installation.
 
-Die Android-Quellvorbereitung steht zur Prüfung bereit, ersetzt aber kein verifiziertes öffentliches Release-Artefakt. Pi-Installer und gelockter Laufzeit-Payload liegen im Repository.
+Die Android-Quellvorbereitung bleibt für Prüfung und lokale Builds sinnvoll, ersetzt aber nicht das versionierte Release-Artefakt. Pi-Installer und gelockter Laufzeit-Payload liegen im Repository.
 
 ## Voraussetzungen
 
@@ -38,7 +38,7 @@ Das Skript pinnt OpenClaw auf 03619565f017820a090f3fbf9b6571b3c8a3d3da, kopiert 
 
 ## Erste Android-Verbindung
 
-1. Installiere nach Veröffentlichung nur `jarvis-horizon-0.1.0-alpha.1-android.apk` aus dem passenden GitHub Release oder deine selbst gebaute Debug-APK. Android fragt gegebenenfalls nach der Installationsberechtigung für Browser oder Dateimanager.
+1. Installiere nur `jarvis-horizon-0.1.0-alpha.1-android.apk` aus dem passenden GitHub Release, nachdem du `SHA256SUMS.txt` geprüft hast, oder deine selbst gebaute Debug-APK. Android fragt gegebenenfalls nach der Installationsberechtigung für Browser oder Dateimanager.
 2. Erzeuge auf deinem eigenen Gateway-Rechner mit `openclaw qr` einen Setup-QR-Code beziehungsweise Einrichtungscode. Teile diese Zugangsdaten nicht öffentlich.
 3. Wähle in der App **Setup Gateway** und scanne den QR-Code oder öffne **Use setup code**. Alternativ kannst du Endpunkt und Token manuell eingeben.
 4. Bestätige das neue Gerät beziehungsweise den Node in deinem Gateway und schließe die Berechtigungsschritte der App ab. Sprache benötigt Mikrofonzugriff; Kamera- und Benachrichtigungsfunktionen benötigen ihre jeweiligen Berechtigungen.
