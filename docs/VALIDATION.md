@@ -33,7 +33,9 @@ This record separates measured release evidence from feature claims. It does not
 
 The matching GitHub Release contains the APK, `SHA256SUMS.txt`, `SIGNING-CERTIFICATE-SHA256.txt`, `BUILD-PROVENANCE.json`, `jarvis-horizon-0.1.0-alpha.1-source.zip` and `jarvis-horizon-0.1.0-alpha.1-pi.zip`. Verify the downloaded APK against the checksums before installation.
 
-**Windows local full-suite result:** 3,760 tests, 5 failures, 0 errors and 0 skips in 7m 39s. All five are the known Windows-only FileProvider slash-containment/URI timing cases (`FileProviderPathsTest`, `WorkspaceFilesShareLayoutTest` and `ChatComposer`); their corresponding tests passed in the earlier Linux run. This is not presented as a cross-platform green result. The authoritative Linux follow-up is tracked separately and will be linked here once complete.
+**Windows local full-suite result:** 3,760 tests, 5 failures, 0 errors and 0 skips in 7m 39s. All five are the known Windows-only FileProvider slash-containment/URI timing cases (`FileProviderPathsTest`, `WorkspaceFilesShareLayoutTest` and `ChatComposer`). This is not presented as a cross-platform green result.
+
+**Authoritative Linux release gate:** [GitHub Actions run 38261817726](https://github.com/The-Geek-Freaks/jarvis-horizon/actions/runs/38261817726) passed on public commit `f1b2452512a79286748823344195616d939845eb`: 3,760 tests, 0 failures, 0 errors and 0 skips in 31m 12s. The release APK was compiled earlier from `ff6bb7a05adae62a41df8126ed115275f1c56b2a`; production sources are unchanged between that artifact and the release-gate commit.
 
 ## What a public alpha will and will not prove
 
@@ -78,7 +80,9 @@ Dieses Protokoll trennt gemessene Release-Evidenz von Feature-Aussagen. Es macht
 
 Der passende GitHub Release enthält APK, `SHA256SUMS.txt`, `SIGNING-CERTIFICATE-SHA256.txt`, `BUILD-PROVENANCE.json`, `jarvis-horizon-0.1.0-alpha.1-source.zip` und `jarvis-horizon-0.1.0-alpha.1-pi.zip`. Prüfe die heruntergeladene APK vor der Installation gegen die Prüfsummen.
 
-**Ergebnis der vollständigen lokalen Windows-Suite:** 3.760 Tests, 5 Fehler, 0 Errors und 0 Skips in 7m 39s. Alle fünf betreffen die bekannten reinen Windows-Fälle zu FileProvider-Slash-Containment/URI-Timing (`FileProviderPathsTest`, `WorkspaceFilesShareLayoutTest` und `ChatComposer`); die jeweiligen Tests bestanden im früheren Linux-Lauf. Das wird nicht als plattformübergreifend grünes Ergebnis dargestellt. Der maßgebliche Linux-Follow-up wird getrennt verfolgt und nach Abschluss hier verlinkt.
+**Ergebnis der vollständigen lokalen Windows-Suite:** 3.760 Tests, 5 Fehler, 0 Errors und 0 Skips in 7m 39s. Alle fünf betreffen die bekannten reinen Windows-Fälle zu FileProvider-Slash-Containment/URI-Timing (`FileProviderPathsTest`, `WorkspaceFilesShareLayoutTest` und `ChatComposer`). Das wird nicht als plattformübergreifend grünes Ergebnis dargestellt.
+
+**Maßgeblicher Linux-Release-Gate:** [GitHub-Actions-Lauf 38261817726](https://github.com/The-Geek-Freaks/jarvis-horizon/actions/runs/38261817726) bestand auf dem öffentlichen Commit `f1b2452512a79286748823344195616d939845eb`: 3.760 Tests, 0 Fehler, 0 Errors und 0 Skips in 31m 12s. Die Release-APK wurde zuvor aus `ff6bb7a05adae62a41df8126ed115275f1c56b2a` gebaut; Produktionsquellen sind zwischen diesem Artefakt und dem Release-Gate-Commit unverändert.
 
 ## Was eine öffentliche Alpha beweist – und was nicht
 

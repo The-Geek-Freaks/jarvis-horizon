@@ -73,13 +73,13 @@
     },
     {
       "path": "README.de.md",
-      "bytes": 9602,
-      "sha256": "9982298a6c489ce244f0fcb3f6a47939e4fcc582d00704e17a9d87f409a4ca71"
+      "bytes": 9576,
+      "sha256": "bec7bae40b5102ca5c83a4f57f9a652ab91095ad6858daff6674d5baf3dba073"
     },
     {
       "path": "README.md",
-      "bytes": 9023,
-      "sha256": "1f1ecd011cb9a82a054576de78cb5dbbd89149ae6ca298db82c03fc1ec38656f"
+      "bytes": 9011,
+      "sha256": "9bd629d6450f5fe10ffd908b3e9e47debbafe315e9d214468b666dfde765bda0"
     },
     {
       "path": "THIRD_PARTY_NOTICES.md",
@@ -648,8 +648,8 @@
     },
     {
       "path": "docs/VALIDATION.md",
-      "bytes": 7720,
-      "sha256": "bed35b690e6cdcb21cb88f82d4a3e40d3686804ebffcc0a3d364bd240095847a"
+      "bytes": 8324,
+      "sha256": "9fcd3504a512fc9fded3f6caf348378da0d898e201bec27cef68aa8f5b53c994"
     },
     {
       "path": "docs/assets/hero.png",

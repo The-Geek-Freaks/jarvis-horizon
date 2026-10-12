@@ -59,7 +59,7 @@ Camera aliases, calendars, media routes, announcements and home actions are opti
 
 ## Release status
 
-`v0.1.0-alpha.1` is the first public alpha. Install the exact Android APK, checksum file and signing-certificate fingerprint from the matching [GitHub release](https://github.com/The-Geek-Freaks/jarvis-horizon/releases/tag/v0.1.0-alpha.1); do not use a copied APK from a chat, mirror or another installation. Android OTA is intentionally not configured in the public distribution. See [Validation](docs/VALIDATION.md) for the exact evidence boundary, including the still-separate Linux CI follow-up.
+`v0.1.0-alpha.1` is the first public alpha. Install the exact Android APK, checksum file and signing-certificate fingerprint from the matching [GitHub release](https://github.com/The-Geek-Freaks/jarvis-horizon/releases/tag/v0.1.0-alpha.1); do not use a copied APK from a chat, mirror or another installation. Android OTA is intentionally not configured in the public distribution. See [Validation](docs/VALIDATION.md) for the exact evidence boundary and the completed Linux release gate.
 
 The implemented backend is **OpenClaw**. A **Hermes adapter is not included**; it needs a dedicated protocol adapter and end-to-end acceptance coverage before it can be described as supported.
 

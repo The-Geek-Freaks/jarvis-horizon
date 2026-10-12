@@ -59,7 +59,7 @@ Kamera-Aliase, Kalender, Medienrouten, Ansagen und Home-Aktionen sind optionale 
 
 ## Release-Status
 
-`v0.1.0-alpha.1` ist die erste öffentliche Alpha. Installiere die exakte Android-APK, Prüfsummendatei und den Signaturzertifikat-Fingerprint aus dem passenden [GitHub Release](https://github.com/The-Geek-Freaks/jarvis-horizon/releases/tag/v0.1.0-alpha.1); nutze keine kopierte APK aus Chats, Spiegeln oder einer fremden Installation. Öffentliches Android-OTA ist bewusst nicht konfiguriert. Die [Validierung](docs/VALIDATION.md) beschreibt die genaue Evidenzgrenze einschließlich des weiterhin getrennt laufenden Linux-CI-Follow-ups.
+`v0.1.0-alpha.1` ist die erste öffentliche Alpha. Installiere die exakte Android-APK, Prüfsummendatei und den Signaturzertifikat-Fingerprint aus dem passenden [GitHub Release](https://github.com/The-Geek-Freaks/jarvis-horizon/releases/tag/v0.1.0-alpha.1); nutze keine kopierte APK aus Chats, Spiegeln oder einer fremden Installation. Öffentliches Android-OTA ist bewusst nicht konfiguriert. Die [Validierung](docs/VALIDATION.md) beschreibt die genaue Evidenzgrenze und den abgeschlossenen Linux-Release-Gate.
 
 Die implementierte Backend-Integration richtet sich an **OpenClaw**. Ein **Hermes-Adapter ist nicht enthalten**; bevor Hermes als unterstützt gelten kann, braucht es einen eigenen Protokolladapter samt Ende-zu-Ende-Abnahme.
 
