@@ -33,7 +33,7 @@ This record separates measured release evidence from feature claims. It does not
 
 The matching GitHub Release contains the APK, `SHA256SUMS.txt`, `SIGNING-CERTIFICATE-SHA256.txt`, `BUILD-PROVENANCE.json`, `jarvis-horizon-0.1.0-alpha.1-source.zip` and `jarvis-horizon-0.1.0-alpha.1-pi.zip`. Verify the downloaded APK against the checksums before installation.
 
-**Current local full-suite result: pending insertion from the final unfiltered verification run.** The prior Linux CI run executed 3,760 tests with two timeouts in the wake-seed fixture; it is not presented as a green Linux CI result. The follow-up Linux run remains separate from the release-artifact evidence.
+**Windows local full-suite result:** 3,760 tests, 5 failures, 0 errors and 0 skips in 7m 39s. All five are the known Windows-only FileProvider slash-containment/URI timing cases (`FileProviderPathsTest`, `WorkspaceFilesShareLayoutTest` and `ChatComposer`); their corresponding tests passed in the earlier Linux run. This is not presented as a cross-platform green result. The authoritative Linux follow-up is tracked separately and will be linked here once complete.
 
 ## What a public alpha will and will not prove
 
@@ -78,7 +78,7 @@ Dieses Protokoll trennt gemessene Release-Evidenz von Feature-Aussagen. Es macht
 
 Der passende GitHub Release enthält APK, `SHA256SUMS.txt`, `SIGNING-CERTIFICATE-SHA256.txt`, `BUILD-PROVENANCE.json`, `jarvis-horizon-0.1.0-alpha.1-source.zip` und `jarvis-horizon-0.1.0-alpha.1-pi.zip`. Prüfe die heruntergeladene APK vor der Installation gegen die Prüfsummen.
 
-**Aktuelles Ergebnis der vollständigen lokalen Suite: wird aus dem finalen ungefilterten Verifikationslauf ergänzt.** Der vorherige Linux-CI-Lauf führte 3.760 Tests mit zwei Timeouts im Wake-Seed-Fixture aus; er wird nicht als grüner Linux-CI-Lauf dargestellt. Der nachfolgende Linux-Lauf bleibt von der Release-Artefakt-Evidenz getrennt.
+**Ergebnis der vollständigen lokalen Windows-Suite:** 3.760 Tests, 5 Fehler, 0 Errors und 0 Skips in 7m 39s. Alle fünf betreffen die bekannten reinen Windows-Fälle zu FileProvider-Slash-Containment/URI-Timing (`FileProviderPathsTest`, `WorkspaceFilesShareLayoutTest` und `ChatComposer`); die jeweiligen Tests bestanden im früheren Linux-Lauf. Das wird nicht als plattformübergreifend grünes Ergebnis dargestellt. Der maßgebliche Linux-Follow-up wird getrennt verfolgt und nach Abschluss hier verlinkt.
 
 ## Was eine öffentliche Alpha beweist – und was nicht
 

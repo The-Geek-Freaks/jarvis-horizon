@@ -638,18 +638,18 @@
     },
     {
       "path": "docs/INSTALL.de.md",
-      "bytes": 7076,
-      "sha256": "c6fe38ed03e08e75c6a23dfcd70e2d6933d60da7ea6c1f04ad12c073f153b777"
+      "bytes": 7746,
+      "sha256": "db3b211657ab4ac5280f3765c790fe2574d4d54198813d596cb6abdb622539ba"
     },
     {
       "path": "docs/INSTALL.md",
-      "bytes": 6630,
-      "sha256": "b7793840b6c104f157b849657eca23256231e00c73a82f33c16b537698518750"
+      "bytes": 7254,
+      "sha256": "617fdcacfaf5e3a2eaef0372d4914db29bed083ddfbdcc7c43214fa1d6980206"
     },
     {
       "path": "docs/VALIDATION.md",
-      "bytes": 7399,
-      "sha256": "0a5d5e6cdb723bb6584f66fe5225799f665548bd5f3f0429e25c732f6d160efe"
+      "bytes": 7720,
+      "sha256": "bed35b690e6cdcb21cb88f82d4a3e40d3686804ebffcc0a3d364bd240095847a"
     },
     {
       "path": "docs/assets/hero.png",
@@ -1468,8 +1468,8 @@
     },
     {
       "path": "overlay/apps/android/app/src/test/java/ai/openclaw/app/voice/TalkModeManagerTest.kt",
-      "bytes": 273485,
-      "sha256": "e090884061c03ae4d36f3cdc272dfe872eb59fdabd4d09e50cbb7d63ab183c14"
+      "bytes": 274064,
+      "sha256": "057c7e922b2ae94d8de98199a0eca263e3aefe3ffc2ef31525e0e4f3d5516969"
     },
     {
       "path": "overlay/apps/android/gradle/libs.versions.toml",

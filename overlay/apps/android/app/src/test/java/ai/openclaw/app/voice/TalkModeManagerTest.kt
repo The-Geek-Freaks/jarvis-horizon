@@ -172,28 +172,28 @@ class TalkModeManagerTest {
   fun wakeSeedIsResampledAndAppendedBeforeQueuedStartupPcm() =
     runBlocking {
       val appended = ConcurrentLinkedQueue<ByteArray>()
+      val seedAppended = CompletableDeferred<ByteArray>()
       val source = VoiceWakeAudio(byteArrayOf(0, 0, 0x10, 0, 0x20, 0, 0x30, 0), sampleRateHz = 16_000)
       withStartedTalk(
         wakeSeed = source,
         interceptRequest = { request, _ ->
           if (request.getValue("method").jsonPrimitive.content == "talk.session.appendAudio") {
-            appended += Base64.decode(request.getValue("params").jsonObject.getValue("audioBase64").jsonPrimitive.content, Base64.NO_WRAP)
+            val frame = Base64.decode(request.getValue("params").jsonObject.getValue("audioBase64").jsonPrimitive.content, Base64.NO_WRAP)
+            appended += frame
+            seedAppended.complete(frame)
           }
           false
         },
       ) { proof ->
         // The relay owns seed ordering, while the recorder is allowed to open
         // immediately and buffer bounded startup PCM behind that seed.
+        // MockWebServer delivery is independent of the queued capture dispatcher. Complete
+        // the same public gateway event at the fixture boundary so this test owns its ready
+        // precondition instead of racing the websocket reader for it.
+        proof.manager.handleGatewayEvent("talk.event", """{"relaySessionId":"playback-relay","type":"ready"}""")
+        assertTrue((readPrivateField(proof.manager, "realtimeProviderReady") as Deferred<*>).isCompleted)
         assertTrue(proof.drainRealtimeAppendTask())
-        withTimeout(5_000) {
-          while (appended.isEmpty()) {
-            // `ready` can arrive after the seed worker reaches its ordered-pacer gate.
-            // Drive only that worker again when the gateway completes the gate; never run
-            // the recorder task merely because this fixture is waiting on network delivery.
-            proof.drainRealtimeAppendTask()
-            withContext(Dispatchers.Default) { delay(10) }
-          }
-        }
+        withTimeout(5_000) { seedAppended.await() }
 
         assertEquals(1, appended.size)
         assertArrayEquals(proof.manager.resampleWakeSeedToRealtimePcm(source), appended.single())
@@ -204,6 +204,7 @@ class TalkModeManagerTest {
   fun wakeSeedAppendsWhileAcknowledgementGateDefersCommunicationInput() =
     runBlocking {
       val appended = ConcurrentLinkedQueue<ByteArray>()
+      val seedAppended = CompletableDeferred<ByteArray>()
       val gate = CompletableDeferred<Unit>()
       val source = VoiceWakeAudio(byteArrayOf(0, 0, 0x10, 0, 0x20, 0, 0x30, 0), sampleRateHz = 16_000)
       withStartedTalk(
@@ -211,7 +212,9 @@ class TalkModeManagerTest {
         captureStartGate = gate,
         interceptRequest = { request, _ ->
           if (request.getValue("method").jsonPrimitive.content == "talk.session.appendAudio") {
-            appended += Base64.decode(request.getValue("params").jsonObject.getValue("audioBase64").jsonPrimitive.content, Base64.NO_WRAP)
+            val frame = Base64.decode(request.getValue("params").jsonObject.getValue("audioBase64").jsonPrimitive.content, Base64.NO_WRAP)
+            appended += frame
+            seedAppended.complete(frame)
           }
           false
         },
@@ -220,13 +223,12 @@ class TalkModeManagerTest {
 
         // The append coroutine is dispatched before capture. It may send the
         // recognizer-owned seed while the acknowledgement still owns focus.
+        // Make provider readiness part of this fixture rather than depending on the order in
+        // which MockWebServer's reader delivers its already-equivalent ready event.
+        proof.manager.handleGatewayEvent("talk.event", """{"relaySessionId":"playback-relay","type":"ready"}""")
+        assertTrue((readPrivateField(proof.manager, "realtimeProviderReady") as Deferred<*>).isCompleted)
         assertTrue(proof.drainRealtimeAppendTask())
-        withTimeout(5_000) {
-          while (appended.isEmpty()) {
-            proof.drainRealtimeAppendTask()
-            withContext(Dispatchers.Default) { delay(10) }
-          }
-        }
+        withTimeout(5_000) { seedAppended.await() }
 
         assertArrayEquals(proof.manager.resampleWakeSeedToRealtimePcm(source), appended.single())
         assertNull(readPrivateField(proof.manager, "realtimeAudioInput"))

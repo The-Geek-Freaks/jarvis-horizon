@@ -34,7 +34,7 @@ Prepare a fresh destination; the script refuses to overwrite an existing one.
     cd apps/android
     ./gradlew :app:assembleThirdPartyDebug --max-workers=2
 
-The script pins OpenClaw commit 03619565f017820a090f3fbf9b6571b3c8a3d3da, copies the public overlay, verifies the bundled Sherpa AAR, and excludes credentials, device identity, signing keys, OTA state and sessions. These are build-ready instructions, not a verified clean public build result. The public application ID is `org.thegeekfreaks.jarvishorizon`; its Java/Kotlin namespace remains `ai.openclaw.app`. First launch has no Gateway, identity, OTA or home defaults. Connect only to your own Gateway and invoke only capabilities it currently advertises.
+The script pins OpenClaw commit 03619565f017820a090f3fbf9b6571b3c8a3d3da, copies the public overlay, verifies the bundled Sherpa AAR, and excludes credentials, device identity, signing keys, OTA state and sessions. Signed release and debug Android builds completed from this path; full-suite results are recorded separately in [Validation](VALIDATION.md). The public application ID is `org.thegeekfreaks.jarvishorizon`; its Java/Kotlin namespace remains `ai.openclaw.app`. First launch has no Gateway, identity, OTA or home defaults. Connect only to your own Gateway and invoke only capabilities it currently advertises.
 
 ## First Android connection
 
@@ -48,7 +48,12 @@ The default home tab is Jarvis. For agent-controlled views, install the optional
 
 ## Raspberry Pi 4
 
-From a public checkout on the Pi, first validate without changing files or packages:
+For the versioned Pi bundle, download [jarvis-horizon-0.1.0-alpha.1-pi.zip](https://github.com/The-Geek-Freaks/jarvis-horizon/releases/download/v0.1.0-alpha.1/jarvis-horizon-0.1.0-alpha.1-pi.zip) from the matching release, verify its checksum in `SHA256SUMS.txt`, then extract and enter its top-level directory:
+
+    unzip jarvis-horizon-0.1.0-alpha.1-pi.zip
+    cd jarvis-horizon-0.1.0-alpha.1-pi
+
+The Pi bundle contains the Pi runtime, installation documentation and integration material; it does not contain the Android source overlay. A public source checkout is also valid. In either case, first validate without changing files or packages:
 
     ./pi/install-pi.sh --dry-run
 

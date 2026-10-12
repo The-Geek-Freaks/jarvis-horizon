@@ -34,7 +34,7 @@ Nutze ein neues Ziel; das Skript überschreibt kein vorhandenes Verzeichnis.
     cd apps/android
     ./gradlew :app:assembleThirdPartyDebug --max-workers=2
 
-Das Skript pinnt OpenClaw auf 03619565f017820a090f3fbf9b6571b3c8a3d3da, kopiert das öffentliche Overlay, prüft das mitgelieferte Sherpa-AAR und schließt Zugangsdaten, Geräteidentität, Signierschlüssel, OTA-Status und Sitzungen aus. Dies sind build-bereite Anweisungen, kein bestätigter sauberer öffentlicher Build. Die öffentliche Application-ID lautet `org.thegeekfreaks.jarvishorizon`; der Namespace bleibt `ai.openclaw.app`. Beim ersten Start gibt es keine Gateway-, Identitäts-, OTA- oder Home-Standardwerte. Verbinde nur dein eigenes Gateway und rufe ausschließlich aktuell beworbene Fähigkeiten auf.
+Das Skript pinnt OpenClaw auf 03619565f017820a090f3fbf9b6571b3c8a3d3da, kopiert das öffentliche Overlay, prüft das mitgelieferte Sherpa-AAR und schließt Zugangsdaten, Geräteidentität, Signierschlüssel, OTA-Status und Sitzungen aus. Über diesen Pfad wurden signierte Release- und Debug-Android-Builds abgeschlossen; Ergebnisse der vollständigen Suite stehen getrennt unter [Validierung](VALIDATION.md). Die öffentliche Application-ID lautet `org.thegeekfreaks.jarvishorizon`; der Namespace bleibt `ai.openclaw.app`. Beim ersten Start gibt es keine Gateway-, Identitäts-, OTA- oder Home-Standardwerte. Verbinde nur dein eigenes Gateway und rufe ausschließlich aktuell beworbene Fähigkeiten auf.
 
 ## Erste Android-Verbindung
 
@@ -48,7 +48,12 @@ Der Standard-Startreiter ist Jarvis. Für Ansichten, die dein Agent selbst aufru
 
 ## Raspberry Pi 4
 
-Prüfe aus dem öffentlichen Checkout zuerst ohne Änderungen:
+Für das versionierte Pi-Bundle lade [jarvis-horizon-0.1.0-alpha.1-pi.zip](https://github.com/The-Geek-Freaks/jarvis-horizon/releases/download/v0.1.0-alpha.1/jarvis-horizon-0.1.0-alpha.1-pi.zip) aus dem passenden Release herunter, prüfe die Prüfsumme in `SHA256SUMS.txt`, entpacke es und wechsle in sein oberstes Verzeichnis:
+
+    unzip jarvis-horizon-0.1.0-alpha.1-pi.zip
+    cd jarvis-horizon-0.1.0-alpha.1-pi
+
+Das Pi-Bundle enthält Pi-Laufzeit, Installationsdokumentation und Integrationsmaterial, aber kein Android-Source-Overlay. Ein öffentlicher Source-Checkout ist ebenfalls möglich. Prüfe in beiden Fällen zuerst ohne Änderungen:
 
     ./pi/install-pi.sh --dry-run
 
