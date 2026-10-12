@@ -1,18 +1,24 @@
-<p align="center"><a href="docs/assets/horizon-motion.mp4"><img src="docs/assets/horizon-motion.gif" alt="Jarvis-Horizon-Orbitalintelligenz in ruhigen, zuhörenden und arbeitenden Zuständen" width="640"></a></p>
+<p align="center"><a href="https://the-geek-freaks.github.io/jarvis-horizon/?lang=de"><img src="docs/assets/horizon-motion.gif" alt="Jarvis-Horizon-Orbitalintelligenz in ruhigen, zuhörenden und arbeitenden Zuständen" width="640"></a></p>
 
 <p align="center"><a href="README.md">English</a> · <strong>Deutsch</strong></p>
 
 # Jarvis Horizon
 
-**Eine sprachorientierte Home-Oberfläche für dein eigenes OpenClaw Gateway.**
+**Gib deinem Assistenten einen Platz im Raum.**
 
 Jarvis Horizon macht aus einem Android-Display oder Raspberry Pi eine ruhige, freihändige Präsenz für deinen Assistenten: lokale Wakeword-Erkennung, Gesprächszustände, sichtbare Agentenaktivität, Kameraansichten, Medienkontext und eine Ambient-Ansicht für die Zeit dazwischen.
 
-*Die lebendige Orbital-Animation verwendet synthetische Beispieldaten. Antippen öffnet die MP4-Version.*
+*Echter Orbital-Renderer mit synthetischen Beispieldaten. Die Vorschau öffnet die interaktive Demo; hier ist das [kurze Video](docs/assets/horizon-motion.mp4).*
 
 [Installation](docs/INSTALL.de.md) · [Kompatibilität](docs/COMPATIBILITY.de.md) · [Architektur](docs/ARCHITECTURE.de.md) · [Validierung](docs/VALIDATION.md) · [Mitwirken](CONTRIBUTING.md)
 
 > **Erste öffentliche Alpha — v0.1.0-alpha.1.** [Android-APK herunterladen](https://github.com/The-Geek-Freaks/jarvis-horizon/releases/download/v0.1.0-alpha.1/jarvis-horizon-0.1.0-alpha.1-android.apk) · [Android installieren](docs/INSTALL.de.md#erste-android-verbindung) · [Pi 4 installieren](docs/INSTALL.de.md#raspberry-pi-4) · [Prüfsummen und Provenienz](https://github.com/The-Geek-Freaks/jarvis-horizon/releases/tag/v0.1.0-alpha.1)
+
+**[Im Browser ausprobieren](https://the-geek-freaks.github.io/jarvis-horizon/?lang=de)** · **[Android installieren](docs/INSTALL.de.md#erste-android-verbindung)** · **[Raspberry Pi einrichten](docs/INSTALL.de.md#raspberry-pi-4)**
+
+Die Demo zeigt die echte Horizon-Oberfläche mit lokalen Beispieldaten: acht Ansichten, animierter Orb, Hoch- und Querformat. Ohne Anmeldung oder Mikrofonzugriff. Für die App brauchst du ein eigenes OpenClaw Gateway und einen konfigurierten Realtime-Provider.
+
+[FAQ](docs/FAQ.md#deutsch) · [Dein Setup vorstellen](docs/SHOWCASE.md#deutsch) · [Getestetes Gerät melden](https://github.com/The-Geek-Freaks/jarvis-horizon/issues/new?template=supported-device.yml) · [Material zum Teilen](docs/SHARE-KIT.md#deutsch)
 
 ## Ein Display für den Moment, nicht nur für einen Chat
 

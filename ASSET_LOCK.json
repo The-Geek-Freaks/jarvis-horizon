@@ -42,6 +42,16 @@
       "sha256": "67481162a9adfeda069d526b72635aead28042ba660fcbda5e0f4cc9008ac154"
     },
     {
+      "path": ".github/ISSUE_TEMPLATE/supported-device.yml",
+      "bytes": 2326,
+      "sha256": "75758271ec237ea6fa7bea1c1c9d365defef6fbd5df6fe96c1cca660cedc7575"
+    },
+    {
+      "path": ".github/workflows/demo-pages.yml",
+      "bytes": 2560,
+      "sha256": "fb88ea12bcb40af7b005c9ce996663605e380c9b174ec2932e823b9f6e46478a"
+    },
+    {
       "path": ".github/workflows/public-validation.yml",
       "bytes": 4765,
       "sha256": "13db1f1e50ccfd50139c2d4776db000f3c0be391509661f9d39d4dbefcbb23db"
@@ -73,13 +83,13 @@
     },
     {
       "path": "README.de.md",
-      "bytes": 9576,
-      "sha256": "bec7bae40b5102ca5c83a4f57f9a652ab91095ad6858daff6674d5baf3dba073"
+      "bytes": 10474,
+      "sha256": "bb796bac6c61988d2d57fecaec3202cbb314250365ea3b8a99544a4e21df8303"
     },
     {
       "path": "README.md",
-      "bytes": 9011,
-      "sha256": "9bd629d6450f5fe10ffd908b3e9e47debbafe315e9d214468b666dfde765bda0"
+      "bytes": 9824,
+      "sha256": "d1b42b5abea76ce23eef2e73f6b9de7ad5ae47086f2199d47e7533d02dd40910"
     },
     {
       "path": "THIRD_PARTY_NOTICES.md",
@@ -637,6 +647,11 @@
       "sha256": "c209c755b58ed698a9834ad24be41181de0814f4320791f2674ad736017aecac"
     },
     {
+      "path": "docs/FAQ.md",
+      "bytes": 6996,
+      "sha256": "7396d42532d2fbe1145db333322c2537522065d9b53cb11184c0db3e4e92f314"
+    },
+    {
       "path": "docs/INSTALL.de.md",
       "bytes": 7746,
       "sha256": "db3b211657ab4ac5280f3765c790fe2574d4d54198813d596cb6abdb622539ba"
@@ -645,6 +660,16 @@
       "path": "docs/INSTALL.md",
       "bytes": 7254,
       "sha256": "617fdcacfaf5e3a2eaef0372d4914db29bed083ddfbdcc7c43214fa1d6980206"
+    },
+    {
+      "path": "docs/SHARE-KIT.md",
+      "bytes": 3224,
+      "sha256": "0d74cca290fff9e581ea7840aee127dfd56331dc19f81da3a17c90b3bc3968a1"
+    },
+    {
+      "path": "docs/SHOWCASE.md",
+      "bytes": 6060,
+      "sha256": "6a703f3a329296de6a0e9fddeda31b2253d3bb443a036cc228b0c505f627615c"
     },
     {
       "path": "docs/VALIDATION.md",
@@ -1757,6 +1782,36 @@
       "sha256": "022e1f949d4fdcbdd22c5618f28fb46af6b261668b95bbbe05d7a4937cfa1a26"
     },
     {
+      "path": "site/DESIGN.md",
+      "bytes": 1063,
+      "sha256": "798069c6925226c5c363d03f04c2e8cf856e894840c295050afdceabef1d2ca5"
+    },
+    {
+      "path": "site/demo-driver.js",
+      "bytes": 4645,
+      "sha256": "f3650c23f10b23ae289cda53da41f81de0a45323ab0180bca4ab5d99b9390651"
+    },
+    {
+      "path": "site/favicon.svg",
+      "bytes": 367,
+      "sha256": "818994ef5e75cc5ab623a071cd3682bc8a30b69f2ed3a1327865ac951f4f2a6e"
+    },
+    {
+      "path": "site/index.html",
+      "bytes": 9670,
+      "sha256": "5009a1059c4de398dfb5807a581a9d68451560cf1aa22dedd327ba90c8e5bbab"
+    },
+    {
+      "path": "site/site.js",
+      "bytes": 10949,
+      "sha256": "c9ba6eb43ec6ad3fa9e0cc7e86b678e08fb98dcfaa33e0ef67b55dc8e8c1f138"
+    },
+    {
+      "path": "site/styles.css",
+      "bytes": 8671,
+      "sha256": "688eba0611e4ae1f675606ca540a64ed9ff9faef7e844fdd622584fe8018fe33"
+    },
+    {
       "path": "third_party/sherpa-clock1/LICENSE-APACHE-2.0",
       "bytes": 11358,
       "sha256": "cfc7749b96f63bd31c3c42b5c471bf756814053e847c10f3eb003417bc523d30"
@@ -1780,6 +1835,11 @@
       "path": "third_party/sherpa-clock1/sherpa-onnx-1.13.8-jarvis-clock1.aar.manifest.json",
       "bytes": 497,
       "sha256": "8a9419433a9320f49998a45edf90dd189aed2523d00b288d90fdc6adb7a962bc"
+    },
+    {
+      "path": "tools/build-demo.py",
+      "bytes": 8795,
+      "sha256": "ae7a4156df53a8f81b90178ae20f037c1c964bb60e28c539e98bcdba9a0cf81c"
     },
     {
       "path": "tools/check-release-paths.py",

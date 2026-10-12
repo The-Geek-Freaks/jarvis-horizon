@@ -1,0 +1,68 @@
+name: Tested device report
+description: Share a scrubbed, reproducible result from real Android or Raspberry Pi hardware
+title: "Device report: "
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thank you for sharing a real result. Report only hardware and accounts you control. Do not include tokens, setup codes, private URLs, identities, recordings, camera images, Wi-Fi names, Bluetooth addresses, or unredacted logs.
+  - type: dropdown
+    id: platform
+    attributes:
+      label: Platform
+      options:
+        - Android
+        - Raspberry Pi 4
+    validations:
+      required: true
+  - type: input
+    id: device
+    attributes:
+      label: Device and operating system
+      placeholder: "Example: device model, Android API level and ABI / Pi 4, Debian version"
+    validations:
+      required: true
+  - type: input
+    id: version
+    attributes:
+      label: Jarvis Horizon release or commit
+      placeholder: "Example: v0.1.0-alpha.1"
+    validations:
+      required: true
+  - type: input
+    id: gateway
+    attributes:
+      label: Gateway version
+      description: Do not include its address or credentials.
+    validations:
+      required: true
+  - type: checkboxes
+    id: paths
+    attributes:
+      label: What did you test?
+      options:
+        - label: "Install and initial pairing"
+        - label: "Push-to-talk"
+        - label: "Wake-word listening"
+        - label: "Display or kiosk surface"
+        - label: "An optional integration"
+  - type: textarea
+    id: outcome
+    attributes:
+      label: Observed result
+      description: State one concrete behavior that worked, failed, or is still uncertain. Include the steps you used.
+      placeholder: "I ... then ...; the observed result was ..."
+    validations:
+      required: true
+  - type: textarea
+    id: context
+    attributes:
+      label: Relevant context and limits
+      description: Mention only non-sensitive facts that may affect the result, such as a configured realtime provider or a connected external display.
+  - type: checkboxes
+    id: privacy
+    attributes:
+      label: Privacy check
+      options:
+        - label: "I removed private data, credentials, recordings, images and identifiers from this report."
+          required: true

@@ -1,18 +1,24 @@
-<p align="center"><a href="docs/assets/horizon-motion.mp4"><img src="docs/assets/horizon-motion.gif" alt="Jarvis Horizon orbital intelligence animating through calm, listening and working states" width="640"></a></p>
+<p align="center"><a href="https://the-geek-freaks.github.io/jarvis-horizon/"><img src="docs/assets/horizon-motion.gif" alt="Jarvis Horizon orbital intelligence animating through calm, listening and working states" width="640"></a></p>
 
 <p align="center"><strong>English</strong> · <a href="README.de.md">Deutsch</a></p>
 
 # Jarvis Horizon
 
-**A voice-first home surface for the OpenClaw Gateway you already operate.**
+**Give your assistant a place in the room.**
 
 Jarvis Horizon turns an Android display or Raspberry Pi into a calm, hands-free presence for your assistant: local wake-word listening, conversation states, live agent activity, camera views, media context and an ambient screen for the moments in between.
 
-*The live orbital animation uses synthetic sample data. Select it to view the MP4 version.*
+*Actual orbital renderer, synthetic sample data. Select the preview to try the interactive demo; [watch the short video](docs/assets/horizon-motion.mp4) for a quick look.*
 
 [Installation](docs/INSTALL.md) · [Compatibility](docs/COMPATIBILITY.md) · [Architecture](docs/ARCHITECTURE.md) · [Validation](docs/VALIDATION.md) · [Contributing](CONTRIBUTING.md)
 
 > **First public alpha — v0.1.0-alpha.1.** [Download Android APK](https://github.com/The-Geek-Freaks/jarvis-horizon/releases/download/v0.1.0-alpha.1/jarvis-horizon-0.1.0-alpha.1-android.apk) · [Android install](docs/INSTALL.md#first-android-connection) · [Pi 4 install](docs/INSTALL.md#raspberry-pi-4) · [Checksums and provenance](https://github.com/The-Geek-Freaks/jarvis-horizon/releases/tag/v0.1.0-alpha.1)
+
+**[Try the browser demo](https://the-geek-freaks.github.io/jarvis-horizon/)** · **[Install on Android](docs/INSTALL.md#first-android-connection)** · **[Set up a Raspberry Pi](docs/INSTALL.md#raspberry-pi-4)**
+
+Explore the actual Horizon renderer with local sample data: eight scenes, the animated orb, portrait and landscape. No login or microphone access. The app needs your own OpenClaw Gateway and a configured realtime provider.
+
+[FAQ](docs/FAQ.md) · [Show your setup](docs/SHOWCASE.md) · [Report a tested device](https://github.com/The-Geek-Freaks/jarvis-horizon/issues/new?template=supported-device.yml) · [Share kit](docs/SHARE-KIT.md)
 
 ## A display that shows the moment, not just a chat
 

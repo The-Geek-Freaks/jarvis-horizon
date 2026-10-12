@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#080e19">
+  <title>Jarvis Horizon — Give your assistant a place in the room</title>
+  <meta name="description" content="Explore the real Jarvis Horizon interface in your browser. An open-source, voice-first OpenClaw display for Android and Raspberry Pi. No login needed for the demo.">
+  <link rel="canonical" href="https://the-geek-freaks.github.io/jarvis-horizon/">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Jarvis Horizon — Your assistant, in the room">
+  <meta property="og:description" content="A spare screen. A living interface. Explore the real OpenClaw display in your browser, then make it yours on Android or Raspberry Pi.">
+  <meta property="og:url" content="https://the-geek-freaks.github.io/jarvis-horizon/">
+  <meta property="og:image" content="https://the-geek-freaks.github.io/jarvis-horizon/assets/horizon-motion-poster.png">
+  <meta property="og:image:alt" content="Jarvis Horizon's blue and gold orbital interface, rendered with sample data">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="styles.css">
+  <script src="site.js" defer></script>
+</head>
+<body>
+  <a class="skip" href="#experience" data-i18n="skip">Skip to the demo</a>
+  <header class="site-header wrap">
+    <a class="wordmark" href="./" aria-label="Jarvis Horizon home"><img src="favicon.svg" width="32" height="32" alt=""><span>JARVIS <b>HORIZON</b></span></a>
+    <nav aria-label="Main navigation"><a href="#install" data-i18n="install">Install</a><a href="https://github.com/The-Geek-Freaks/jarvis-horizon">GitHub <span aria-hidden="true">↗</span></a><button id="language" aria-label="Auf Deutsch wechseln">DE</button></nav>
+  </header>
+  <main>
+    <section class="hero wrap">
+      <h1 data-i18n="headline">Give your assistant<br>a place in the room.</h1>
+      <div class="hero-copy"><p data-i18n="intro">Turn a spare Android screen or Raspberry Pi into a voice-first display for OpenClaw. See it listen, work, and bring your home into view.</p><div class="hero-links"><a class="button primary" href="#experience" data-i18n="explore">Explore the interface</a><a class="text-link" href="#install" data-i18n="make">Make it yours <span aria-hidden="true">↗</span></a></div><small data-i18n="alpha">Open source · Public alpha · Bring your own Gateway</small></div>
+    </section>
+    <section class="experience wrap" id="experience" aria-labelledby="demo-title">
+      <div class="experience-top"><h2 id="demo-title" data-i18n="demoTitle">A screen for every moment.</h2><span class="sample-badge" data-i18n="sample">Interactive demo · sample data</span></div>
+      <div class="demo-layout">
+        <div class="scene-list" role="group" aria-label="Demo scenes" id="scenes">
+          <button data-scene="home" aria-pressed="true"><span data-i18n="home">Overview</span></button>
+          <button data-scene="conversation" aria-pressed="false"><span data-i18n="conversation">Conversation</span></button>
+          <button data-scene="weather" aria-pressed="false"><span data-i18n="weather">Weather</span></button>
+          <button data-scene="activity" aria-pressed="false"><span data-i18n="activity">Agent activity</span></button>
+          <button data-scene="music" aria-pressed="false"><span data-i18n="music">Music</span></button>
+          <button data-scene="agenda" aria-pressed="false"><span data-i18n="agenda">Agenda</span></button>
+          <button data-scene="house" aria-pressed="false"><span data-i18n="house">Home context</span></button>
+          <button data-scene="ambient" aria-pressed="false"><span data-i18n="ambient">After hours</span></button>
+        </div>
+        <div class="display-area"><div class="display-frame" id="display-frame"><iframe id="display" title="Jarvis Horizon — actual alpha renderer with sample data" sandbox="allow-scripts allow-same-origin" allow="microphone 'none'; camera 'none'; geolocation 'none'"></iframe><img id="still" src="assets/showcase-home.png" alt="Static Horizon overview with synthetic sample data" hidden><p id="loading" data-i18n="loading">Loading the Horizon renderer…</p></div></div>
+      </div>
+      <div class="demo-toolbar"><div class="formats" role="group" aria-label="Display format"><button data-format="landscape" aria-pressed="true" data-i18n="landscape">Landscape</button><button data-format="portrait" aria-pressed="false" data-i18n="portrait">Portrait</button></div><div class="demo-actions"><button id="motion" aria-pressed="true" data-i18n="pause">Pause motion</button><button id="share" data-i18n="share">Copy this view's link</button></div></div>
+      <p class="scene-caption" id="scene-caption" aria-live="polite"></p><p class="demo-boundary" data-i18n="boundary">Real frontend, simulated events. No microphone, account, camera stream or home connection. The alpha display uses German labels; music and voice levels are simulated without audio.</p>
+      <p id="copy-status" role="status"></p>
+      <noscript><p>This interactive demo needs JavaScript. <a href="https://github.com/The-Geek-Freaks/jarvis-horizon#the-horizon-language-across-surfaces">View the screenshot gallery</a> or read the installation guides below.</p></noscript>
+    </section>
+    <section class="story wrap" aria-labelledby="story-title"><div><h2 id="story-title" data-i18n="storyTitle">More presence.<br>Less forgotten hardware.</h2><p data-i18n="storyText">The tablet in a drawer. A display behind a mirror. A screen by the kitchen. Horizon gives your existing assistant a visible home, with local wake-word listening and context supplied by your own backend.</p><a class="text-link" href="https://github.com/The-Geek-Freaks/jarvis-horizon/blob/main/docs/COMPATIBILITY.md" data-i18n="compat">Check device compatibility ↗</a></div><div class="story-details"><article><h3 data-i18n="workTitle">See the work happening</h3><p data-i18n="workText">Tool and delegated-task events become readable activity. Your Gateway decides what runs; the screen shows the events it receives.</p></article><article><h3 data-i18n="roomTitle">Designed for the room</h3><p data-i18n="roomText">Portrait and landscape layouts, an orbital voice visualization, contextual views and a moving ambient clock.</p></article><article><h3 data-i18n="ownTitle">Your assistant. Your setup.</h3><p data-i18n="ownText">Keep your Gateway, identity, provider and integrations. Local wake detection opens the voice path you configure.</p></article></div></section>
+    <section class="installation wrap" id="install" aria-labelledby="install-title"><h2 id="install-title" data-i18n="installTitle">Choose the screen.<br>Bring your Gateway.</h2><p class="install-intro" data-i18n="installIntro">For installation, you need an OpenClaw Gateway you operate, device pairing and a realtime provider for Talk. Explore the demo without any of them.</p><div class="install-options"><article><h3>Android</h3><p data-i18n="androidText">An ARM phone, tablet or modified display running Android 8.1 or later. Start with the signed alpha APK and the pairing guide.</p><a class="button primary" id="android-guide" href="https://github.com/The-Geek-Freaks/jarvis-horizon/blob/main/docs/INSTALL.md#first-android-connection" data-i18n="androidInstall">Install on Android ↗</a><small data-i18n="androidNote">Stock Echo firmware cannot install this APK. Public updates are manual.</small></article><article><h3>Raspberry Pi 4</h3><p data-i18n="piText">A display or mirror kiosk on 64-bit DietPi/Debian. Add a microphone and configure the audio output for your room.</p><a class="button secondary" id="pi-guide" href="https://github.com/The-Geek-Freaks/jarvis-horizon/blob/main/docs/INSTALL.md#raspberry-pi-4" data-i18n="piInstall">Set up a Raspberry Pi ↗</a><small data-i18n="piNote">Display, microphone and speaker behavior need checking on your hardware.</small></article></div><p class="release-line"><a href="https://github.com/The-Geek-Freaks/jarvis-horizon/releases/tag/v0.1.0-alpha.1" data-i18n="release">v0.1.0-alpha.1 · Downloads, checksums & source</a><span data-i18n="hermes">OpenClaw backend. Hermes adapter not yet included.</span></p></section>
+    <section class="contribute wrap"><div><h2 data-i18n="communityTitle">Show us where<br>Horizon belongs.</h2><p data-i18n="communityText">A good device report helps the next person reuse their hardware. Share your setup, measured performance and what still needs work.</p></div><div class="community-links"><a href="https://github.com/The-Geek-Freaks/jarvis-horizon/blob/main/docs/SHOWCASE.md" data-i18n="setup">Share your setup ↗</a><a href="https://github.com/The-Geek-Freaks/jarvis-horizon/issues/new?template=supported-device.yml" data-i18n="device">Report a tested device ↗</a><a href="https://github.com/The-Geek-Freaks/jarvis-horizon/blob/main/docs/FAQ.md" data-i18n="faq">Read the FAQ ↗</a><a href="https://github.com/The-Geek-Freaks/jarvis-horizon/blob/main/docs/SHARE-KIT.md" data-i18n="kit">Get the sharing kit ↗</a></div></section>
+  </main>
+  <footer class="wrap"><span>JARVIS HORIZON <span class="credit">/ The Geek Freaks</span></span><p data-i18n="footer">Independent community project. No analytics, cookies or login in this demo.</p><a href="https://github.com/The-Geek-Freaks/jarvis-horizon/blob/main/THIRD_PARTY_NOTICES.md" data-i18n="credits">Credits & licenses</a></footer>
+</body>
+</html>

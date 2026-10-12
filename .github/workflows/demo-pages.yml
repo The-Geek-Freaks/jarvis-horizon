@@ -1,0 +1,79 @@
+name: Build and deploy public demo
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'site/**'
+      - 'tools/build-demo.py'
+      - '.github/workflows/demo-pages.yml'
+      - 'overlay/apps/android/app/src/main/assets/jarvis/horizon/**'
+      - 'docs/assets/horizon-motion-poster.png'
+      - 'docs/assets/horizon-motion.mp4'
+      - 'docs/assets/showcase-home.png'
+      - 'docs/assets/showcase-weather.png'
+      - 'docs/assets/showcase-activity.png'
+      - 'docs/assets/showcase-music.png'
+      - 'docs/assets/showcase-agenda.png'
+      - 'docs/assets/showcase-home-control.png'
+      - 'docs/assets/showcase-ambient.png'
+      - 'docs/assets/showcase-portrait.png'
+      - 'docs/assets/how-it-works.png'
+  pull_request:
+    paths:
+      - 'site/**'
+      - 'tools/build-demo.py'
+      - '.github/workflows/demo-pages.yml'
+      - 'overlay/apps/android/app/src/main/assets/jarvis/horizon/**'
+      - 'docs/assets/horizon-motion-poster.png'
+      - 'docs/assets/horizon-motion.mp4'
+      - 'docs/assets/showcase-home.png'
+      - 'docs/assets/showcase-weather.png'
+      - 'docs/assets/showcase-activity.png'
+      - 'docs/assets/showcase-music.png'
+      - 'docs/assets/showcase-agenda.png'
+      - 'docs/assets/showcase-home-control.png'
+      - 'docs/assets/showcase-ambient.png'
+      - 'docs/assets/showcase-portrait.png'
+      - 'docs/assets/how-it-works.png'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: pages
+  cancel-in-progress: false
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1
+        with:
+          persist-credentials: false
+      - name: Configure Pages
+        uses: actions/configure-pages@983d7736d9b0ae728b81ab479565c72886d7745b
+      - name: Build offline demo
+        run: python3 tools/build-demo.py
+      - name: Upload Pages artifact
+        uses: actions/upload-pages-artifact@7b1f4a764d45c48632c6b24a0339c27f5614fb0b
+        with:
+          path: build/site
+
+  deploy:
+    permissions:
+      contents: read
+      pages: write
+      id-token: write
+    if: github.event_name != 'pull_request' && github.ref == 'refs/heads/main'
+    needs: build
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    runs-on: ubuntu-latest
+    steps:
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@d6db90164ac5ed86f2b6aed7e0febac5b3c0c03e
