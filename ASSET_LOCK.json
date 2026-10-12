@@ -83,13 +83,13 @@
     },
     {
       "path": "README.de.md",
-      "bytes": 10587,
-      "sha256": "30e63e9506ae3139bce007bbfb6e142d713a73f6c3ea25885433b9e29c811ac7"
+      "bytes": 10973,
+      "sha256": "4cf6c6a5b78dacc46aaf62a36a88ec73dcf25c8da3e93a217a442baab22968aa"
     },
     {
       "path": "README.md",
-      "bytes": 9902,
-      "sha256": "01b5ee990e41b48ab8d2249431dece403fc905d236aa6710ab39a992408c4fbf"
+      "bytes": 10239,
+      "sha256": "2617a4c6aa875e35bf3e39695087d0a8e20b23023229f6455e55b59a965a7017"
     },
     {
       "path": "THIRD_PARTY_NOTICES.md",
@@ -790,6 +790,16 @@
       "path": "docs/assets/showcase-weather.png",
       "bytes": 183128,
       "sha256": "f5e31f947156ca838f340a9772bbf3e4114ffd8dbb0f058eb4115cd3b23eebcb"
+    },
+    {
+      "path": "docs/assets/try-demo.de.svg",
+      "bytes": 718,
+      "sha256": "55fe5a65b6982426012a4529bcaf50458eca194ebf6e4fd27bec4d2aaeb6f853"
+    },
+    {
+      "path": "docs/assets/try-demo.svg",
+      "bytes": 724,
+      "sha256": "4b23f894863a3b6d29234e7a62d9f9040f9e1fb71eae444f6b40ef44c2d0cadd"
     },
     {
       "path": "integrations/openclaw/FIXTURES.md",

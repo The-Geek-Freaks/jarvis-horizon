@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="480" height="76" viewBox="0 0 480 76" role="img" aria-labelledby="title desc">
+  <title id="title">Try the interactive demo</title>
+  <desc id="desc">Open Jarvis Horizon in your browser. No installation or account required.</desc>
+  <rect x="1" y="1" width="478" height="74" rx="12" fill="#f6c878" stroke="#ffe3b1" stroke-width="2"/>
+  <path d="M30 25L30 51L50 38Z" fill="#101927"/>
+  <text x="72" y="45" fill="#101927" font-family="Arial, Helvetica, sans-serif" font-size="24" font-weight="700">Try the interactive demo</text>
+  <path d="M425 38H451M441 28L451 38L441 48" fill="none" stroke="#101927" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+</svg>

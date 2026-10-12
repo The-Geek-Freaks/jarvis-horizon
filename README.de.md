@@ -1,55 +1,43 @@
-<p align="center"><a href="https://the-geek-freaks.github.io/jarvis-horizon/?lang=de"><img src="docs/assets/horizon-motion.gif" alt="Jarvis-Horizon-Orbitalintelligenz in ruhigen, zuhörenden und arbeitenden Zuständen" width="640"></a></p>
+<h1 align="center">Jarvis Horizon</h1>
 
-<p align="center"><a href="README.md">English</a> · <strong>Deutsch</strong></p>
+<p align="center"><strong>Gib deinem Assistenten einen Platz im Raum.</strong><br>Eine sprachgesteuerte OpenClaw-Oberfläche für Android und Raspberry Pi.</p>
 
-# Jarvis Horizon
+<p align="center"><a href="https://the-geek-freaks.github.io/jarvis-horizon/?lang=de#experience"><img src="docs/assets/try-demo.de.svg" alt="Demo im Browser starten" width="480"></a><br><sub>Ohne Installation. Ohne Anmeldung. Ohne Mikrofonzugriff.</sub></p>
 
-**Gib deinem Assistenten einen Platz im Raum.**
+<p align="center"><a href="https://the-geek-freaks.github.io/jarvis-horizon/?lang=de#experience"><img src="docs/assets/horizon-motion.gif" alt="Interaktive Horizon-Demo öffnen — animierte blaue und goldene Orbitaloberfläche" width="100%"></a></p>
 
-Jarvis Horizon macht aus einem Android-Display oder Raspberry Pi eine ruhige, freihändige Präsenz für deinen Assistenten: lokale Wakeword-Erkennung, Gesprächszustände, sichtbare Agentenaktivität, Kameraansichten, Medienkontext und eine Ambient-Ansicht für die Zeit dazwischen.
+<p align="center"><strong><a href="https://the-geek-freaks.github.io/jarvis-horizon/?lang=de#watch">23-Sekunden-Überblick ansehen</a> · <a href="docs/QUICKSTART.de.md">Auf deinem Display einrichten</a></strong><br><sub>Echter Renderer · Beispieldaten · acht Ansichten · geführte 30-Sekunden-Tour</sub></p>
 
-*Echter Orbital-Renderer mit synthetischen Beispieldaten. Die Vorschau öffnet die geführte 30-Sekunden-Tour; der [23-Sekunden-Überblick](https://the-geek-freaks.github.io/jarvis-horizon/?lang=de#watch) hat deutsche und englische Untertitel.*
+<p align="center"><a href="README.md">English</a> · <strong>Deutsch</strong> · <a href="https://github.com/The-Geek-Freaks/jarvis-horizon/releases/tag/v0.1.0-alpha.1">Öffentliche Alpha herunterladen</a></p>
 
-[Schnellstart](docs/QUICKSTART.de.md) · [Installation](docs/INSTALL.de.md) · [Kompatibilität](docs/COMPATIBILITY.de.md) · [Architektur](docs/ARCHITECTURE.de.md) · [Validierung](docs/VALIDATION.md) · [Mitwirken](CONTRIBUTING.md)
+## Sieh, was dein Assistent gerade macht
 
-> **Erste öffentliche Alpha — v0.1.0-alpha.1.** [Android-APK herunterladen](https://github.com/The-Geek-Freaks/jarvis-horizon/releases/download/v0.1.0-alpha.1/jarvis-horizon-0.1.0-alpha.1-android.apk) · [Android installieren](docs/INSTALL.de.md#erste-android-verbindung) · [Pi 4 installieren](docs/INSTALL.de.md#raspberry-pi-4) · [Prüfsummen und Provenienz](https://github.com/The-Geek-Freaks/jarvis-horizon/releases/tag/v0.1.0-alpha.1)
+- **Einfach sprechen.** Lokale Wakeword-Erkennung öffnet deine konfigurierte Sprachverbindung; der Orb folgt den Gesprächszuständen.
+- **Die Arbeit verfolgen.** Empfangene Tool- und Unteragentenereignisse erscheinen als lesbare Aktivität, ohne rohe Befehle oder private Ausgaben offenzulegen.
+- **Vorhandene Hardware weiterverwenden.** Hoch- und Querformat, Kontextansichten und eine bewegte Ambient-Uhr für Tablet, Raumdisplay oder Pi-Kiosk.
 
-**[Im Browser ausprobieren](https://the-geek-freaks.github.io/jarvis-horizon/?lang=de)** · **[Android installieren](docs/QUICKSTART.de.md#android)** · **[Raspberry Pi einrichten](docs/QUICKSTART.de.md#raspberry-pi-4)**
-
-Die Demo zeigt die echte Horizon-Oberfläche mit lokalen Beispieldaten: acht Ansichten, animierter Orb, Hoch- und Querformat. Ohne Anmeldung oder Mikrofonzugriff. Für die App brauchst du ein eigenes OpenClaw Gateway und einen konfigurierten Realtime-Provider.
-
-[FAQ](docs/FAQ.md#deutsch) · [Dein Setup vorstellen](docs/SHOWCASE.md#deutsch) · [Getestetes Gerät melden](https://github.com/The-Geek-Freaks/jarvis-horizon/issues/new?template=supported-device.yml) · [Material zum Teilen](docs/SHARE-KIT.md#deutsch)
-
-## Ein Display für den Moment, nicht nur für einen Chat
-
-Jarvis Horizon ist für Displays gedacht, die im Raum bleiben. Es hält den aktuellen Kontext aus der Entfernung lesbar und wechselt seinen Zustand, wenn dein Assistent zuhört, arbeitet, antwortet oder eine Kameraansicht zeigt.
-
-| Was die Oberfläche kann | Warum das nützlich ist |
-| --- | --- |
-| **Lokal aufwachen** | Ein lokaler Wakeword-Pfad kann eine Talk-Session öffnen, ohne dass dauerhaft ein Vollbild-Transkript im Raum steht. Push-to-talk bleibt für schwierige Raumakustik verfügbar. |
-| **Arbeit sichtbar machen** | Empfangene Agenten-, Tool- und delegierte Aufgabenereignisse erscheinen als kurze, begrenzte Aktivitätszeilen statt als rohe Befehle, Argumente oder private Ausgaben. |
-| **Den Bildschirm bewusst nutzen** | Horizon passt sich Hoch- und Querformat an. Kontextansichten können Backend-Daten darstellen; die Ambient-Ansicht verringert statische Darstellung im Leerlauf. |
-| **Live-Kontext einblenden** | Android kann Kamera-Overlays und Vollbildwiedergabe zeigen. Ob ein bestimmter Stream Ton enthält, hängt von Quelle, Codec und Berechtigungen ab. |
-| **Die Kontrolle zu Hause behalten** | Gateway, Provider, Identität und Integrationen stellst du selbst bereit. Dieses Repository enthält kein Konto, Token, Geräteidentität, Haushaltskonfiguration oder OTA-Endpunkt. |
+Deine Installation verwendet **dein eigenes OpenClaw Gateway und deinen Realtime-Provider**. Kamera, Wetter, Musik und Haussteuerung hängen von deinen eingerichteten Integrationen ab.
 
 ## Die Horizon-Sprache auf allen Oberflächen
 
+**Klicke auf einen Bildschirm und öffne genau diese Ansicht in der Demo.** Wechsle die Ansicht oder Ausrichtung, oder starte die geführte Tour.
+
 <table>
   <tr>
-    <td width="50%" valign="top"><a href="docs/assets/showcase-home.png"><img src="docs/assets/showcase-home.png" alt="Horizon-Übersicht mit orbitalem Zentrum und aktuellem Kontext" width="100%"></a><br><strong>Das Zuhause im Blick.</strong> Die raumorientierte Übersicht hält Uhrzeit, Status und Kontext an einem Ort zusammen.</td>
-    <td width="50%" valign="top"><a href="docs/assets/showcase-weather.png"><img src="docs/assets/showcase-weather.png" alt="Horizon-Wetteransicht" width="100%"></a><br><strong>Wetter im Kontext.</strong> Eine gelieferte Wetteransicht kann bei Relevanz den visuellen Fokus übernehmen.</td>
+    <td width="50%" valign="top"><a href="https://the-geek-freaks.github.io/jarvis-horizon/?scene=home&amp;format=landscape&amp;lang=de#experience"><img src="docs/assets/showcase-home.png" alt="Horizon-Übersicht mit orbitalem Zentrum und aktuellem Kontext" width="100%"></a><br><strong><a href="https://the-geek-freaks.github.io/jarvis-horizon/?scene=home&amp;format=landscape&amp;lang=de#experience">Übersicht in der Demo öffnen ↗</a></strong> Uhrzeit, Status und Kontext an einem Ort.</td>
+    <td width="50%" valign="top"><a href="https://the-geek-freaks.github.io/jarvis-horizon/?scene=weather&amp;format=landscape&amp;lang=de#experience"><img src="docs/assets/showcase-weather.png" alt="Horizon-Wetteransicht" width="100%"></a><br><strong><a href="https://the-geek-freaks.github.io/jarvis-horizon/?scene=weather&amp;format=landscape&amp;lang=de#experience">Wetteransicht öffnen ↗</a></strong> Gelieferte Wetterdaten erhalten bei Relevanz den Fokus.</td>
   </tr>
   <tr>
-    <td valign="top"><a href="docs/assets/showcase-activity.png"><img src="docs/assets/showcase-activity.png" alt="Horizon-Agentenaktivität mit gut lesbarem Toolstatus" width="100%"></a><br><strong>Sichtbare Arbeit.</strong> Empfangene Aktivität wird zu einem begrenzten Status statt zu einem offengelegten Befehlsstream.</td>
-    <td valign="top"><a href="docs/assets/showcase-music.png"><img src="docs/assets/showcase-music.png" alt="Horizon-Musikansicht" width="100%"></a><br><strong>Medienkontext.</strong> Wiedergabe kann sichtbar bleiben, ohne den Fokus des Raums zu übernehmen.</td>
+    <td valign="top"><a href="https://the-geek-freaks.github.io/jarvis-horizon/?scene=activity&amp;format=landscape&amp;lang=de#experience"><img src="docs/assets/showcase-activity.png" alt="Horizon-Agentenaktivität mit gut lesbarem Toolstatus" width="100%"></a><br><strong><a href="https://the-geek-freaks.github.io/jarvis-horizon/?scene=activity&amp;format=landscape&amp;lang=de#experience">Agentenaktivität öffnen ↗</a></strong> Ereignisse bleiben lesbar, ohne Befehle offenzulegen.</td>
+    <td valign="top"><a href="https://the-geek-freaks.github.io/jarvis-horizon/?scene=music&amp;format=landscape&amp;lang=de#experience"><img src="docs/assets/showcase-music.png" alt="Horizon-Musikansicht" width="100%"></a><br><strong><a href="https://the-geek-freaks.github.io/jarvis-horizon/?scene=music&amp;format=landscape&amp;lang=de#experience">Musikansicht öffnen ↗</a></strong> Wiedergabe bleibt sichtbar, ohne den Raum zu dominieren.</td>
   </tr>
   <tr>
-    <td valign="top"><a href="docs/assets/showcase-agenda.png"><img src="docs/assets/showcase-agenda.png" alt="Horizon-Terminansicht" width="100%"></a><br><strong>Was als Nächstes kommt.</strong> Kalenderdaten erscheinen nur, wenn dein Backend sie liefert.</td>
-    <td valign="top"><a href="docs/assets/showcase-home-control.png"><img src="docs/assets/showcase-home-control.png" alt="Horizon-Home-Control-Ansicht" width="100%"></a><br><strong>Home nach deinen Regeln.</strong> Die Oberfläche folgt den Integrationen und Fähigkeiten, die dein Gateway ausweist.</td>
+    <td valign="top"><a href="https://the-geek-freaks.github.io/jarvis-horizon/?scene=agenda&amp;format=landscape&amp;lang=de#experience"><img src="docs/assets/showcase-agenda.png" alt="Horizon-Terminansicht" width="100%"></a><br><strong><a href="https://the-geek-freaks.github.io/jarvis-horizon/?scene=agenda&amp;format=landscape&amp;lang=de#experience">Terminansicht öffnen ↗</a></strong> Kalenderdaten erscheinen, wenn dein Backend sie liefert.</td>
+    <td valign="top"><a href="https://the-geek-freaks.github.io/jarvis-horizon/?scene=house&amp;format=landscape&amp;lang=de#experience"><img src="docs/assets/showcase-home-control.png" alt="Horizon-Home-Control-Ansicht" width="100%"></a><br><strong><a href="https://the-geek-freaks.github.io/jarvis-horizon/?scene=house&amp;format=landscape&amp;lang=de#experience">Zuhause-Ansicht öffnen ↗</a></strong> Sie folgt den Integrationen und Fähigkeiten deines Gateways.</td>
   </tr>
   <tr>
-    <td valign="top"><a href="docs/assets/showcase-ambient.png"><img src="docs/assets/showcase-ambient.png" alt="Horizon-Ambient-Ansicht" width="100%"></a><br><strong>Ambient, nicht abwesend.</strong> Die Leerlaufansicht bewegt Inhalt und vermeidet eine dauerhaft starre Komposition.</td>
-    <td valign="top"><a href="docs/assets/showcase-portrait.png"><img src="docs/assets/showcase-portrait.png" alt="Horizon-Layout im Hochformat" width="160"></a><br><strong>Bereit für Hochformat.</strong> Das visuelle System schafft Raum für schmale Wanddisplays und Tablets.</td>
+    <td valign="top"><a href="https://the-geek-freaks.github.io/jarvis-horizon/?scene=ambient&amp;format=landscape&amp;lang=de#experience"><img src="docs/assets/showcase-ambient.png" alt="Horizon-Ambient-Ansicht" width="100%"></a><br><strong><a href="https://the-geek-freaks.github.io/jarvis-horizon/?scene=ambient&amp;format=landscape&amp;lang=de#experience">Ambient-Ansicht öffnen ↗</a></strong> Bewegter Leerlauf statt dauerhaft starrer Komposition.</td>
+    <td valign="top"><a href="https://the-geek-freaks.github.io/jarvis-horizon/?scene=home&amp;format=portrait&amp;lang=de#experience"><img src="docs/assets/showcase-portrait.png" alt="Horizon-Layout im Hochformat" width="160"></a><br><strong><a href="https://the-geek-freaks.github.io/jarvis-horizon/?scene=home&amp;format=portrait&amp;lang=de#experience">Hochformat öffnen ↗</a></strong> Für schmale Wanddisplays und Tablets.</td>
   </tr>
 </table>
 
@@ -82,13 +70,19 @@ Die implementierte Backend-Integration richtet sich an **OpenClaw**. Ein **Herme
 
 Lies vor dem Verbinden eines Displays die [Installationsanleitung](docs/INSTALL.de.md). Du brauchst ein selbst betriebenes OpenClaw Gateway, einen akzeptierten Pairing-Weg und einen eingerichteten Echtzeit-Provider für Talk. Übernimm niemals Tokens, Geräteidentitäten, Aufnahmen, Bluetooth-Identitäten, Kamera-URLs oder OTA-Konfiguration aus einer fremden Installation.
 
+**[Android schnell einrichten](docs/QUICKSTART.de.md#android) · [Raspberry Pi schnell einrichten](docs/QUICKSTART.de.md#raspberry-pi-4)**
+
 Der Android-Standardreiter ist Jarvis. Für Ansichten, die dein Agent aufruft, installierst du den optionalen [OpenClaw-Skill](integrations/openclaw/SKILL.md) in seinem eigenen Workspace; sein Helfer prüft die aktuell wirksamen Gerätefähigkeiten, bevor er eine Aktion anfordert.
 
 ## Hilf, das erste Alpha besser zu machen
 
+Zeig, was du mit deinem Display gebaut hast, oder übernimm eine [Aufgabe für Einsteiger](https://github.com/The-Geek-Freaks/jarvis-horizon/labels/good%20first%20issue). Wenn Horizon zu deinem nächsten Projekt passt, speichere das Repository mit einem Stern.
+
 Meldungen zu Wake-Recovery, Audio-Routing, Kamera-Decoding und älterer Hardware sind besonders wertvoll, wenn sie reproduzierbar sind. Nenne Gerät, OS/API, ABI, Release, Gateway-Version und genaue Schritte. Entferne persönliche Daten aus Logs; lade keine Raumaufnahmen, Kamerabilder, Tokens oder Haushaltskonfiguration hoch.
 
 Lies [CONTRIBUTING.md](CONTRIBUTING.md). Sichtbare Zustände müssen auf echten Laufzeitereignissen beruhen, und Performance-Verbesserungen brauchen Messungen.
+
+**[FAQ](docs/FAQ.md#deutsch) · [Dein Setup vorstellen](docs/SHOWCASE.md#deutsch) · [Getestetes Gerät melden](https://github.com/The-Geek-Freaks/jarvis-horizon/issues/new?template=supported-device.yml) · [Material zum Teilen](docs/SHARE-KIT.md#deutsch)**
 
 ## Danksagung
 
